@@ -1,0 +1,468 @@
+#,PLAYER,TEAM,GP,G,A,TP,PPG,PIM,Plus/Minus,contract
+1,Tyler Johnson(C),Spokane Chiefs,71,53,62,115,1.62,48,27,0
+2,Brendan Shinnimin(C),Tri-City Americans,60,34,62,96,1.6,84,20,0
+3,Jonathan Parker(RW),Prince Albert Raiders,71,45,41,86,1.21,45,-8,0
+4,Dylan Hood(C),Moose Jaw Warriors,71,33,50,83,1.17,61,8,0
+5,Andrej Kudrna(LW),Red Deer Rebels,65,29,53,82,1.26,26,24,0
+6,Adam Hughesman(LW),Tri-City Americans,60,39,42,81,1.35,59,20,0
+7,Matt MacKay(C),totals,71,29,51,80,1.13,44,18,0
+,,Vancouver Giants,40,12,16,28,0.7,32,-2,0
+,,Brandon Wheat Kings,31,17,35,52,1.68,12,20,0
+8,Dylan Wruck(LW/C),Edmonton Oil Kings,71,38,40,78,1.1,44,25,0
+9,Kevin King(RW),Kootenay Ice,68,33,43,76,1.12,88,26,0
+10,Matt Fraser(LW/RW),Kootenay Ice,66,36,38,74,1.12,115,24,0
+11,Wacey Hamilton(C),Medicine Hat Tigers,67,20,53,73,1.09,113,16,0
+12,Thomas Frazee(C),totals,70,31,41,72,1.03,100,-18,0
+,,Regina Pats,33,13,24,37,1.12,41,-12,0
+,,Kamloops Blazers,37,18,17,35,0.95,59,-6,0
+13,Burke Gallimore(RW),Seattle Thunderbirds,71,34,36,70,0.99,35,-26,0
+14,Justin Maylan(C),Prince Albert Raiders,66,21,48,69,1.05,49,13,0
+15,Brandon Herrod(RW),Prince Albert Raiders,71,28,40,68,0.96,26,-14,0
+16,Kruise Reddick(C/RW),Tri-City Americans,63,20,48,68,1.08,61,9,0
+17,Justin Dowling(C),Swift Current Broncos,63,20,47,67,1.06,18,-11,0
+18,Tyler Maxwell(C/D),Everett Silvertips,68,41,25,66,0.97,59,8,0
+19,Jordan Hickmott(C),Edmonton Oil Kings,72,28,38,66,0.92,58,0,0
+20,Spencer Edwards(RW),Moose Jaw Warriors,63,27,39,66,1.05,62,24,0
+21,Shayne Wiebe(C),Brandon Wheat Kings,72,44,21,65,0.9,60,6,0
+22,Kellan Tochkin(RW),totals,70,29,35,64,0.91,68,7,0
+,,Everett Silvertips,38,17,19,36,0.95,30,8,0
+,,Medicine Hat Tigers,32,12,16,28,0.88,38,-1,0
+23,Jake Trask(C),totals,70,30,33,63,0.9,18,22,0
+,,Kamloops Blazers,9,0,2,2,0.22,2,2,0
+,,Saskatoon Blades,61,30,31,61,1,16,20,0
+24,Justin Feser(C/LW),Tri-City Americans,72,26,37,63,0.88,34,22,0
+25,Sena Acolatse(D/RW),totals,67,15,48,63,0.94,130,0,0
+,,Saskatoon Blades,1,0,0,0,0,2,0,0
+,,Prince George Cougars,66,15,48,63,0.95,128,0,0
+26,Cameron Braes(C),Lethbridge Hurricanes,71,31,30,61,0.86,109,-3,0
+27,Brett Ferguson(LW),Red Deer Rebels,72,23,38,61,0.85,111,29,0
+28,Charles Inglis(C),Prince George Cougars,69,32,28,60,0.87,141,6,0
+29,Brenden Dillon(D),Seattle Thunderbirds,72,8,51,59,0.82,139,-25,0
+30,Robin Soudek(RW),Chilliwack Bruins,61,25,32,57,0.93,70,-11,0
+31,Sebastian Svendsen(C/W),totals,74,27,29,56,0.76,62,-12,0
+,,Prince Albert Raiders,44,17,17,34,0.77,52,-3,0
+,,Moose Jaw Warriors,30,10,12,22,0.73,10,-9,0
+32,T.J. Foster(C/RW),Edmonton Oil Kings,66,25,29,54,0.82,22,11,0
+33,Austin Fyten(LW/C),Lethbridge Hurricanes,52,24,30,54,1.04,103,9,0
+34,Zach Franko(LW),Kelowna Rockets,72,22,31,53,0.74,22,7,0
+35,Brandon Manning(D),Chilliwack Bruins,53,21,32,53,1,129,-4,0
+36,Nick Buonassisi(C),Prince George Cougars,71,18,35,53,0.75,66,-6,0
+37,Tyler Schmidt(D),Tri-City Americans,70,11,42,53,0.76,159,28,0
+38,Brenden Walker(RW),Brandon Wheat Kings,70,25,27,52,0.74,43,-9,0
+39,Ryan Harrison(C),totals,69,21,31,52,0.75,102,8,0
+,,Medicine Hat Tigers,40,13,20,33,0.83,47,10,0
+,,Everett Silvertips,29,8,11,19,0.66,55,-2,0
+40,Mitch Maxwell(LW),Lethbridge Hurricanes,72,19,33,52,0.72,88,-18,0
+41,James Dobrowolski(LW),Prince George Cougars,72,18,34,52,0.72,48,-3,0
+42,Brad Hoban(RW),Swift Current Broncos,71,25,26,51,0.72,34,-24,0
+43,Igor Revenko(RW),Prince Albert Raiders,57,23,28,51,0.89,36,1,0
+44,Neil Manning(D),Vancouver Giants,72,15,36,51,0.71,68,-3,0
+45,Steven Kuhn(C),Spokane Chiefs,72,20,30,50,0.69,35,-1,0
+46,Jesse Ismond(LW),Kootenay Ice,72,15,34,49,0.68,118,0,0
+47,Collin Bowman(D),Moose Jaw Warriors,72,11,38,49,0.68,104,2,0
+101,Jordan DePape(RW),Kamloops Blazers,54,21,27,48,0.89,49,-6,0
+102,Luke Lockhart(RW),Seattle Thunderbirds,71,21,27,48,0.68,27,-14,0
+103,Taylor Vause(C),Swift Current Broncos,62,18,29,47,0.76,8,-25,0
+104,Jordan Messier(RW),Tri-City Americans,58,26,20,46,0.79,60,15,0
+105,Anthony Bardaro(C),Spokane Chiefs,63,24,22,46,0.73,30,14,0
+106,Chris Collins(C),totals,69,19,27,46,0.67,27,26,0
+,,Chilliwack Bruins,13,1,4,5,0.38,2,2,0
+,,Saskatoon Blades,56,18,23,41,0.73,25,24,0
+107,Chase Schaber(LW/C),Kamloops Blazers,46,16,29,45,0.98,87,3,0
+108,Dylan Willick(RW),Kamloops Blazers,72,24,20,44,0.61,53,-17,0
+109,Connor Rankin(C/LW),Tri-City Americans,70,19,25,44,0.63,33,13,0
+110,Brent Benson(C),Saskatoon Blades,65,14,30,44,0.68,52,16,0
+111,Dalibor Bortnak(C),Kamloops Blazers,57,13,31,44,0.77,64,-10,0
+112,J.T. Barnett(LW),Kamloops Blazers,72,13,30,43,0.6,37,-20,0
+113,Hampus Gustafsson(LW/C),totals,70,10,33,43,0.61,36,4,0
+,,Regina Pats,7,1,3,4,0.57,6,-1,0
+,,Brandon Wheat Kings,63,9,30,39,0.62,30,5,0
+114,Justin Kirsch(LW),Calgary Hitmen,66,25,17,42,0.64,16,-20,0
+115,Antonín Honejsek(LW),Moose Jaw Warriors,46,22,20,42,0.91,18,7,0
+116,Matt Marantz(RW),Spokane Chiefs,68,20,22,42,0.62,62,21,0
+117,Thomas Carr(D),Medicine Hat Tigers,71,7,34,41,0.58,71,23,0
+118,Blake Gal(RW),Spokane Chiefs,70,23,17,40,0.57,59,-2,0
+119,Stepan Novotny(C/RW),Swift Current Broncos,58,22,18,40,0.69,35,-21,0
+120,Joe Antilla(LW),Kootenay Ice,72,21,19,40,0.56,59,33,0
+121,Mikhail Fisenko(C),Calgary Hitmen,64,8,32,40,0.63,55,-23,0
+122,Travis Toomey(C),Seattle Thunderbirds,71,22,17,39,0.55,137,-18,0
+123,Brendan Rowinski(C),totals,48,15,24,39,0.81,32,-10,0
+,,Vancouver Giants,46,13,22,35,0.76,32,-12,0
+,,Moose Jaw Warriors,2,2,2,4,2,0,2,0
+124,James Henry(LW),Vancouver Giants,50,14,25,39,0.78,103,1,0
+125,Colin Reddin(D/C),Regina Pats,69,7,32,39,0.57,62,-32,0
+126,Todd Fiddler(LW),Prince Albert Raiders,70,23,15,38,0.54,18,-2,0
+127,Jamie Crooks(LW),Chilliwack Bruins,72,19,19,38,0.53,37,-1,0
+128,Adam Kambeitz(LW),Red Deer Rebels,72,15,23,38,0.53,93,22,0
+129,Steele Boomer(C),Kootenay Ice,56,14,22,36,0.64,52,13,0
+130,Lane Scheidl(LW/D),totals,68,13,23,36,0.53,27,2,0
+,,Red Deer Rebels,20,3,3,6,0.3,9,4,0
+,,Regina Pats,48,10,20,30,0.63,18,-2,0
+131,Mason Wilgosh(C),Tri-City Americans,48,12,24,36,0.75,28,19,0
+132,Charles Wells(C),totals,63,12,24,36,0.57,28,8,0
+,,Seattle Thunderbirds,41,11,16,27,0.66,22,10,0
+,,Prince Albert Raiders,22,1,8,9,0.41,6,-2,0
+133,Bronson Maschmeyer(D),Kamloops Blazers,72,8,27,35,0.49,59,-20,0
+134,Parker Stanfield(RW),totals,64,13,21,34,0.53,57,-10,0
+,,Prince George Cougars,4,1,3,4,1,5,0,0
+,,Everett Silvertips,60,12,18,30,0.5,52,-10,0
+135,Jacob Berglund(C/LW),Lethbridge Hurricanes,61,18,15,33,0.54,29,-15,0
+136,Mitch Holmberg(RW),Spokane Chiefs,58,15,18,33,0.57,12,6,0
+137,Cody Sylvester(C/LW),Calgary Hitmen,59,18,14,32,0.54,63,-20,0
+138,Oliver Gabriel(LW),Portland Winterhawks,41,11,21,32,0.78,36,6,0
+139,Brady Brassart(C/RW),Spokane Chiefs,65,8,24,32,0.49,70,14,0
+140,Cody Carlson(D),totals,68,6,26,32,0.47,78,-12,0
+,,Regina Pats,5,1,1,2,0.4,7,-7,0
+,,Prince George Cougars,63,5,25,30,0.48,71,-5,0
+141,Turner Elson(LW/C),Red Deer Rebels,68,16,15,31,0.46,124,27,0
+142,Michael Piluso(C),Edmonton Oil Kings,65,14,17,31,0.48,51,-2,0
+143,Elgin Pearce(C/D),Kootenay Ice,69,12,19,31,0.45,35,4,0
+144,Jordan Peddle(C),Swift Current Broncos,70,11,20,31,0.44,132,15,0
+145,Max Ross(D/LW),Lethbridge Hurricanes,70,15,15,30,0.43,128,-24,0
+146,Cody Chikie(C),Kelowna Rockets,68,13,17,30,0.44,57,-3,0
+147,Andrej Stastny(C),Vancouver Giants,32,10,20,30,0.94,40,2,0
+148,Nathan MacMaster(LW),totals,69,10,20,30,0.43,55,-23,0
+,,Moose Jaw Warriors,22,5,8,13,0.59,21,-6,0
+,,Calgary Hitmen,47,5,12,17,0.36,34,-17,0
+149,Colin Archer(D),Red Deer Rebels,68,6,24,30,0.44,138,40,0
+150,Spencer Asuchak(C/LW),Prince George Cougars,59,17,12,29,0.49,36,-4,0
+151,Greg Fraser(C),Prince George Cougars,72,16,13,29,0.4,43,-25,0
+152,Brandon Magee(C/RW),Chilliwack Bruins,65,12,17,29,0.45,78,15,0
+153,James Martin(D),Kootenay Ice,65,11,18,29,0.45,68,18,0
+154,Brendan Rouse(C),Seattle Thunderbirds,72,11,18,29,0.4,24,-17,0
+155,Antoine Corbin(D),totals,56,8,21,29,0.52,106,-18,0
+,,Kelowna Rockets,11,2,2,4,0.36,25,-3,0
+,,Prince Albert Raiders,45,6,19,25,0.56,81,-15,0
+156,Michael Burns(RW),Vancouver Giants,65,15,13,28,0.43,55,10,0
+157,Cole Grbavac(RW),Medicine Hat Tigers,67,13,15,28,0.42,148,1,0
+158,Kenton Miller(C),Spokane Chiefs,55,10,18,28,0.51,44,5,0
+159,Joshua Lazowski(C),Edmonton Oil Kings,32,9,19,28,0.88,10,2,0
+160,Brodie Melnychuk(D),Brandon Wheat Kings,58,7,21,28,0.48,22,-9,0
+161,Jace Coyle(D),Medicine Hat Tigers,49,6,22,28,0.57,42,18,0
+162,Jordan Rowley(D),Prince Albert Raiders,55,5,23,28,0.51,53,-10,0
+163,Darren Bestland(D),totals,68,5,23,28,0.41,137,-24,0
+,,Brandon Wheat Kings,40,4,12,16,0.4,69,-24,0
+,,Vancouver Giants,28,1,11,12,0.43,68,0,0
+164,Kevin Smith(D),Kelowna Rockets,72,5,23,28,0.39,47,-8,0
+165,Daulton Siwak(C/RW),Red Deer Rebels,72,13,14,27,0.38,49,4,0
+166,Spencer Main(C),Kelowna Rockets,71,10,17,27,0.38,64,2,0
+201,Brock Hirsche(C),Prince George Cougars,66,8,19,27,0.41,25,-7,0
+202,Rhett Rachinski(LW),Edmonton Oil Kings,63,8,18,26,0.41,48,-5,0
+203,Brennan Yadlowski(D),totals,73,6,20,26,0.36,90,4,0
+,,Lethbridge Hurricanes,5,0,4,4,0.8,8,1,0
+,,Everett Silvertips,68,6,16,22,0.32,82,3,0
+204,Mark Reners(RW),totals,50,15,10,25,0.5,19,-4,0
+,,Lethbridge Hurricanes,20,6,5,11,0.55,6,-3,0
+,,Vancouver Giants,11,2,1,3,0.27,9,2,0
+,,Edmonton Oil Kings,19,7,4,11,0.58,4,-3,0
+205,Joey Kornelsen(C/RW),Moose Jaw Warriors,61,11,14,25,0.41,35,-9,0
+206,Trevor Cheek(LW/C),Calgary Hitmen,57,10,15,25,0.44,37,-15,0
+207,Jesse Paradis(LW),Moose Jaw Warriors,70,9,16,25,0.36,43,-9,0
+208,Collin Valcourt(LW),Spokane Chiefs,53,8,17,25,0.47,95,18,0
+209,Stephane Legault(LW),Edmonton Oil Kings,57,7,18,25,0.44,27,7,0
+210,Landon Oslanski(D),Lethbridge Hurricanes,70,7,18,25,0.36,92,-29,0
+211,Alexander Kuvayev(RW),Lethbridge Hurricanes,58,11,13,24,0.41,32,-3,0
+212,David Conrad(LW),Tri-City Americans,69,10,14,24,0.35,55,-1,0
+213,Russell Maxwell(C),Lethbridge Hurricanes,69,9,15,24,0.35,57,-1,0
+214,Joshua Winquist(LW),Everett Silvertips,65,8,16,24,0.37,22,-1,0
+215,Clayton Cumiskey(C),Everett Silvertips,60,7,17,24,0.4,41,-20,0
+216,Zak Stebner(D/W),totals,63,7,17,24,0.38,40,6,0
+,,Calgary Hitmen,4,1,0,1,0.25,4,-2,0
+,,Tri-City Americans,15,0,7,7,0.47,4,-1,0
+,,Kelowna Rockets,44,6,10,16,0.36,32,9,0
+217,Hayden Rintoul(D),Kootenay Ice,51,5,19,24,0.47,51,16,0
+218,Nathan Burns(LW/C),Vancouver Giants,59,14,9,23,0.39,52,3,0
+219,Graham Hood(LW),Lethbridge Hurricanes,64,9,14,23,0.36,93,-21,0
+220,Sam Fioretti(C),Moose Jaw Warriors,67,8,15,23,0.34,40,-1,0
+221,Christian Magnus(RW),totals,66,6,17,23,0.35,31,-7,0
+,,Kootenay Ice,42,5,12,17,0.4,13,1,0
+,,Swift Current Broncos,24,1,5,6,0.25,18,-8,0
+222,Connor Cox(D),totals,67,6,17,23,0.34,33,11,0
+,,Moose Jaw Warriors,18,3,3,6,0.33,12,2,0
+,,Saskatoon Blades,49,3,14,17,0.35,21,9,0
+223,Mike Reddington(D),Lethbridge Hurricanes,68,5,18,23,0.34,99,-18,0
+224,James Bettauer(D/F),Prince Albert Raiders,70,5,18,23,0.33,62,-12,0
+225,Tyler Vanscourt(D),Spokane Chiefs,57,4,19,23,0.4,49,3,0
+226,Brock Sutherland(D),Tri-City Americans,72,4,19,23,0.32,69,4,0
+227,Scott MacDonald(LW),Everett Silvertips,69,9,13,22,0.32,40,-20,0
+228,Jason Swyripa(C),Brandon Wheat Kings,72,9,13,22,0.31,25,-18,0
+229,Klarc Wilson(RW),Edmonton Oil Kings,66,8,14,22,0.33,109,-11,0
+230,Adrian Van de Mosselaer(D),Edmonton Oil Kings,66,7,15,22,0.33,137,5,0
+231,Ben Wilson(D/RW),Calgary Hitmen,72,4,18,22,0.31,108,-37,0
+232,Killian Hutt(RW),totals,31,11,10,21,0.68,10,-4,0
+,,Regina Pats,5,1,2,3,0.6,0,0,0
+,,Swift Current Broncos,26,10,8,18,0.69,10,-4,0
+233,Dylan Busenius(D),Medicine Hat Tigers,63,7,14,21,0.33,33,14,0
+234,Philip Tot(LW),Lethbridge Hurricanes,58,6,15,21,0.36,27,-14,0
+235,Greg Lamoureux(RW),Vancouver Giants,60,5,16,21,0.35,39,-10,0
+236,Daniel Gayle(LW),totals,67,5,16,21,0.31,41,-21,0
+,,Moose Jaw Warriors,18,3,7,10,0.56,8,-2,0
+,,Calgary Hitmen,49,2,9,11,0.22,33,-19,0
+237,Jagger Dirk(D),Kootenay Ice,71,5,15,20,0.28,46,19,0
+238,Teal Burns(C),totals,62,4,16,20,0.32,54,3,0
+,,Portland Winterhawks,32,1,6,7,0.22,26,4,0
+,,Vancouver Giants,30,3,10,13,0.43,28,-1,0
+239,Kyle Verdino(D/LW),Swift Current Broncos,67,4,16,20,0.3,156,-20,0
+240,Reid Jackson(D),Lethbridge Hurricanes,51,3,17,20,0.39,64,-17,0
+241,Mark Schneider(D),totals,67,3,17,20,0.3,28,-51,0
+,,Brandon Wheat Kings,3,0,0,0,0,0,-3,0
+,,Regina Pats,64,3,17,20,0.31,28,-48,0
+242,Corbin Baldwin(D),Spokane Chiefs,71,2,18,20,0.28,110,5,0
+243,Dallas Ehrhardt(D),Moose Jaw Warriors,55,1,19,20,0.36,74,4,0
+244,Tyler Fiddler(LW),Calgary Hitmen,41,9,10,19,0.46,58,-16,0
+245,Tanner Olstad(C),totals,59,9,10,19,0.32,36,-29,0
+,,Tri-City Americans,20,1,2,3,0.15,9,-5,0
+,,Regina Pats,39,8,8,16,0.41,27,-24,0
+246,Colten Mayor(LW),Red Deer Rebels,65,8,11,19,0.29,38,8,0
+247,Taylor Peters(C/LW),Portland Winterhawks,72,8,11,19,0.26,47,5,0
+248,Tyler Alos(C),Seattle Thunderbirds,67,6,13,19,0.28,33,-15,0
+249,Daniel Johnston(D),Lethbridge Hurricanes,66,4,15,19,0.29,66,-11,0
+250,Chad Suer(D),Everett Silvertips,53,0,19,19,0.36,24,-8,0
+251,Reid Petryk(C/RW),Medicine Hat Tigers,68,13,5,18,0.26,34,3,0
+252,Paul Ciarelli(C),Brandon Wheat Kings,60,8,10,18,0.3,50,0,0
+253,Andrew Herle(RW/LW),Prince Albert Raiders,70,7,11,18,0.26,87,-8,0
+254,Derek Ryckman(D),Lethbridge Hurricanes,65,5,13,18,0.28,105,-9,0
+255,Nathan Deck(D),Prince Albert Raiders,60,2,16,18,0.3,36,4,0
+256,Shayne Neigum(D),totals,64,11,6,17,0.27,194,-37,0
+,,Chilliwack Bruins,4,0,0,0,0,17,-5,0
+,,Kamloops Blazers,23,1,2,3,0.13,69,-8,0
+,,Regina Pats,37,10,4,14,0.38,108,-24,0
+257,Curtis Valk(C),Medicine Hat Tigers,56,8,9,17,0.3,19,8,0
+258,Marek Hrbas(D),Edmonton Oil Kings,64,5,12,17,0.27,30,-4,0
+259,Spencer Humphries(D),totals,58,4,13,17,0.29,94,-2,0
+,,Tri-City Americans,34,2,3,5,0.15,50,-2,0
+,,Calgary Hitmen,24,2,10,12,0.5,44,0,0
+260,Matt Konan(D),Medicine Hat Tigers,61,4,13,17,0.28,69,18,0
+261,Luke Paulsen(D),Kootenay Ice,51,3,14,17,0.33,18,10,0
+262,Michael Sofillas(C),Lethbridge Hurricanes,64,3,14,17,0.27,15,-20,0
+263,Davis Vandane(D),totals,50,0,17,17,0.34,14,7,0
+,,Saskatoon Blades,8,0,0,0,0,0,0,0
+,,Spokane Chiefs,42,0,17,17,0.4,14,7,0
+264,Dalton Sward(C/RW),Vancouver Giants,62,10,6,16,0.26,45,-1,0
+265,Andrew Johnson(C),Moose Jaw Warriors,55,9,7,16,0.29,26,-2,0
+266,Mike Forsyth(LW/C),Chilliwack Bruins,68,8,8,16,0.24,37,-3,0
+267,Mikael Jung(RW),Regina Pats,69,8,8,16,0.23,11,-18,0
+268,Mitch Topping(D),Chilliwack Bruins,71,5,11,16,0.23,47,-9,0
+269,Alex Roach(D),Calgary Hitmen,61,4,12,16,0.26,77,-24,0
+270,Tanner Mort(D),Spokane Chiefs,63,3,13,16,0.25,44,-1,0
+271,Andreas Stene(C/LW),Kelowna Rockets,55,2,14,16,0.29,19,-3,0
+272,Jesse Forsberg(D),Prince George Cougars,57,2,14,16,0.28,144,4,0
+273,Aaron Borejko(D),Red Deer Rebels,67,1,15,16,0.24,63,20,0
+274,Andrew Rieder(C/RW),Regina Pats,57,9,6,15,0.26,55,-18,0
+275,Colton Stephenson(C),Edmonton Oil Kings,50,7,8,15,0.3,18,-5,0
+301,Cody Fowlie(RW),Everett Silvertips,70,7,8,15,0.21,39,-7,0
+302,Shane Danyluk(C),Prince Albert Raiders,54,3,12,15,0.28,6,4,0
+303,Scott McKay(D),Medicine Hat Tigers,64,3,12,15,0.23,52,20,0
+304,Jordan Wyton(LW),Moose Jaw Warriors,72,3,12,15,0.21,98,-11,0
+305,Taylor Makin(LW),Prince George Cougars,48,7,7,14,0.29,43,3,0
+306,Jari Erricson(LW/C),Everett Silvertips,60,7,7,14,0.23,25,3,0
+307,Tyson Ness(LW),Red Deer Rebels,68,7,7,14,0.21,11,14,0
+308,Dyson Stevenson(W/C),Regina Pats,64,6,8,14,0.22,72,-19,0
+309,Travis Bobbee(D),Seattle Thunderbirds,54,5,9,14,0.26,22,-11,0
+310,Curt Gogol(LW/D),totals,62,5,9,14,0.23,201,-10,0
+,,Saskatoon Blades,15,1,1,2,0.13,59,-4,0
+,,Chilliwack Bruins,47,4,8,12,0.26,142,-6,0
+311,Andy Blanke(C),Swift Current Broncos,67,5,9,14,0.21,117,-25,0
+312,Josh Cowen(RW),Red Deer Rebels,34,3,11,14,0.41,70,5,0
+313,Jesse Pauls(D),Chilliwack Bruins,21,1,13,14,0.67,29,1,0
+314,Erik Bonsor(D),Seattle Thunderbirds,72,0,14,14,0.19,52,-14,0
+315,Austin Connor(RW),Prince Albert Raiders,59,8,5,13,0.22,104,-13,0
+316,Brady Gaudet(D),Kamloops Blazers,56,6,7,13,0.23,41,-15,0
+317,Chance Lund(LW),Seattle Thunderbirds,72,6,7,13,0.18,67,-15,0
+318,Dominick Favreau(C),totals,40,5,8,13,0.33,12,-5,0
+,,Regina Pats,1,0,0,0,0,0,0,0
+,,Brandon Wheat Kings,39,5,8,13,0.33,12,-5,0
+319,Mitch Elliot(LW),Seattle Thunderbirds,72,5,8,13,0.18,118,-27,0
+320,Jordan Evans(D),Swift Current Broncos,58,4,9,13,0.22,44,-25,0
+321,Logan McVeigh(C),Kamloops Blazers,59,4,9,13,0.22,14,-7,0
+322,Rene Hunter(D),Brandon Wheat Kings,66,3,10,13,0.2,50,4,0
+323,Dylan Bredo(D/C),Medicine Hat Tigers,72,3,10,13,0.18,53,-1,0
+324,Tyler Yaworski(D),Prince Albert Raiders,65,2,11,13,0.2,181,-1,0
+325,Mike Aviani(C),Spokane Chiefs,56,7,5,12,0.21,50,7,0
+326,Brett Lyon(LW),totals,56,5,7,12,0.21,192,-8,0
+,,Vancouver Giants,25,0,3,3,0.12,105,-9,0
+,,Moose Jaw Warriors,31,5,4,9,0.29,87,1,0
+327,Jaroslav Vlach(LW/C),Prince George Cougars,55,4,8,12,0.22,84,-13,0
+328,Ryan Hanes(LW),Kamloops Blazers,70,4,8,12,0.17,167,-9,0
+329,Manraj Singh Hayer(C),Everett Silvertips,61,3,9,12,0.2,29,-7,0
+330,Tyler Hansen(D),Kamloops Blazers,70,2,10,12,0.17,69,-9,0
+331,Brad Deagle(D),Red Deer Rebels,55,0,12,12,0.22,51,12,0
+332,Trevor Cameron(RW),Swift Current Broncos,33,6,5,11,0.33,28,-8,0
+333,Mackenzie Royer(LW),totals,35,6,5,11,0.31,46,-10,0
+,,Calgary Hitmen,16,1,1,2,0.13,15,-2,0
+,,Moose Jaw Warriors,19,5,4,9,0.47,31,-8,0
+334,Lyndon Martell(F),totals,37,6,5,11,0.3,18,1,0
+,,Kamloops Blazers,8,0,1,1,0.13,0,-3,0
+,,Regina Pats,29,6,4,10,0.34,18,4,0
+335,Neal Prokop(C),Tri-City Americans,17,4,7,11,0.65,23,3,0
+336,Drydn Dow(D),Tri-City Americans,53,4,7,11,0.21,12,7,0
+337,Luke Fenske(D),Vancouver Giants,55,4,7,11,0.2,64,-2,0
+338,Wheaton King(LW),Brandon Wheat Kings,38,2,9,11,0.29,33,1,0
+339,Reid Gow(D),Spokane Chiefs,41,2,9,11,0.27,29,9,0
+340,Patrik Parkkonen(D),Medicine Hat Tigers,53,2,9,11,0.21,18,5,0
+341,Brock Montgomery(RW),Kootenay Ice,54,1,10,11,0.2,81,-11,0
+342,Dave Sutter(D),Seattle Thunderbirds,71,1,10,11,0.15,65,-17,0
+343,Ryley Miller(D),Brandon Wheat Kings,55,0,11,11,0.2,145,7,0
+344,Michal Hlinka(C/LW),totals,45,5,5,10,0.22,21,2,0
+,,Moose Jaw Warriors,22,4,2,6,0.27,10,2,0
+,,Prince Albert Raiders,23,1,3,4,0.17,11,0,0
+345,Brendan Hurley(LW),Kootenay Ice,57,5,5,10,0.18,114,-7,0
+346,Erik Benoit(C/LW),Kootenay Ice,52,4,6,10,0.19,20,-3,0
+347,Seth Swenson(RW),Portland Winterhawks,59,3,7,10,0.17,38,0,0
+348,Kyle Schmidt(D),Calgary Hitmen,65,3,7,10,0.15,74,-36,0
+349,Zach Hodder(D),Vancouver Giants,25,2,8,10,0.4,9,-3,0
+350,Boston Leier(LW),Medicine Hat Tigers,50,2,8,10,0.2,55,6,0
+351,Colton Jobke(D),Kelowna Rockets,51,1,9,10,0.2,84,5,0
+352,Brandon Underwood(D),Kamloops Blazers,58,0,10,10,0.17,97,-1,0
+353,Jens Meilleur(RW),Brandon Wheat Kings,40,5,4,9,0.23,23,-12,0
+354,Matt Grant(RW),Moose Jaw Warriors,58,5,4,9,0.16,26,-2,0
+355,John Lawrence(LW),Calgary Hitmen,59,5,4,9,0.15,26,-21,0
+356,Chase Clayton(C),Calgary Hitmen,55,3,6,9,0.16,35,-14,0
+357,Art Bidlevskii(D),Regina Pats,57,3,6,9,0.16,140,-16,0
+358,Tayler Jordan(LW),Portland Winterhawks,60,3,6,9,0.15,121,2,0
+359,Adam Rossignol(C),Kootenay Ice,60,2,7,9,0.15,13,-8,0
+360,Ryon Moser(LW),Lethbridge Hurricanes,50,1,8,9,0.18,10,-14,0
+361,Jeff Einhorn(D),Chilliwack Bruins,58,1,8,9,0.16,43,10,0
+362,Dillon Wagner(RW/C),Swift Current Broncos,25,5,3,8,0.32,31,-4,0
+363,Brendan Persley(LW/C),Chilliwack Bruins,43,5,3,8,0.19,62,-9,0
+364,Bernhard Keil(RW),Kamloops Blazers,46,5,3,8,0.17,37,-6,0
+365,Marek Kalus(LW/RW),Spokane Chiefs,22,4,4,8,0.36,11,-5,0
+366,Braeden Johnson(LW),Saskatoon Blades,31,3,5,8,0.26,8,-3,0
+367,Brendan Santini(RW),Calgary Hitmen,45,2,6,8,0.18,30,-8,0
+368,Joel Rogers(D),totals,39,1,7,8,0.21,67,-10,0
+,,Swift Current Broncos,28,0,3,3,0.11,40,-9,0
+,,Vancouver Giants,11,1,4,5,0.45,27,-1,0
+369,Tyler Hart(D),Vancouver Giants,44,1,7,8,0.18,80,8,0
+370,Wilson Dumais(LW),Prince George Cougars,55,1,7,8,0.15,63,1,0
+371,Shane Pilling(D),Prince George Cougars,56,1,7,8,0.14,34,-8,0
+372,Dalton Reum(D),totals,69,1,7,8,0.12,77,-11,0
+,,Vancouver Giants,37,0,6,6,0.16,38,-4,0
+,,Swift Current Broncos,32,1,1,2,0.06,39,-7,0
+373,Wes Vannieuwenhuizen(D),Vancouver Giants,64,0,8,8,0.13,157,11,0
+374,Jacob Doty(C/RW),Seattle Thunderbirds,70,4,3,7,0.1,176,-3,0
+375,Matt Needham(C),Kamloops Blazers,13,3,4,7,0.54,8,-1,0
+376,Linden Saip(D),Kamloops Blazers,13,3,4,7,0.54,28,-5,0
+377,Ryan Dech(D),Edmonton Oil Kings,48,3,4,7,0.15,54,-2,0
+378,Tayler Thompson(C),Prince George Cougars,50,3,4,7,0.14,4,-3,0
+379,Rob Trzonkowski(RW),Calgary Hitmen,51,3,4,7,0.14,86,-15,0
+380,Levi Bews(RW),Saskatoon Blades,52,3,4,7,0.13,30,-7,0
+381,Dane Muench(LW),Regina Pats,23,2,5,7,0.3,12,-5,0
+382,Spencer Galbraith(RW/D),Brandon Wheat Kings,42,2,5,7,0.17,87,-4,0
+383,Colton Heffley(C),Kelowna Rockets,44,2,5,7,0.16,36,2,0
+384,Marcus Messier(C),Tri-City Americans,48,2,5,7,0.15,6,0,0
+385,Alex Elliott(LW),Saskatoon Blades,49,2,5,7,0.14,41,-7,0
+401,Blair Wentworth(RW),Chilliwack Bruins,58,2,5,7,0.12,57,-7,0
+402,Mitch Spooner(D),totals,33,1,6,7,0.21,6,-7,0
+,,Regina Pats,15,1,4,5,0.33,4,-4,0
+,,Seattle Thunderbirds,18,0,2,2,0.11,2,-3,0
+403,Peter Kosterman(D),Calgary Hitmen,68,1,6,7,0.1,65,-14,0
+404,Austin Bourhis(LW/D),Prince Albert Raiders,49,0,7,7,0.14,145,-9,0
+405,Nils Moser(RW),totals,41,5,1,6,0.15,39,-5,0
+,,Tri-City Americans,20,1,0,1,0.05,15,-1,0
+,,Regina Pats,21,4,1,5,0.24,24,-4,0
+406,Tyler Giebel(C/RW),Everett Silvertips,49,4,2,6,0.12,15,1,0
+407,Matt Bellerive(RW),Vancouver Giants,50,4,2,6,0.12,28,-7,0
+408,Michael Brown(RW),Tri-City Americans,8,3,3,6,0.75,7,3,0
+409,Max Adolph(C),Kelowna Rockets,36,3,3,6,0.17,20,-8,0
+410,Cain Franson(LW/C),Vancouver Giants,50,3,3,6,0.12,16,-5,0
+411,Jessey Astles(LW/RW),Kelowna Rockets,59,3,3,6,0.1,129,-3,0
+412,Trent Ouellette(C),Regina Pats,67,3,3,6,0.09,40,-25,0
+413,Mitchell Chapman(D),Kelowna Rockets,48,2,4,6,0.13,81,13,0
+414,Chad Robinson(C/LW),Red Deer Rebels,50,2,4,6,0.12,17,5,0
+415,Connor Sanvido(RW/C),Seattle Thunderbirds,51,2,4,6,0.12,17,-4,0
+416,Braeden Laroque(D),Edmonton Oil Kings,54,2,4,6,0.11,32,-13,0
+417,Markus McCrea(LW),Everett Silvertips,64,2,4,6,0.09,56,-11,0
+418,Mark Mieritz(RW),Brandon Wheat Kings,31,1,5,6,0.19,18,-9,0
+419,Graeme Craig(D),Swift Current Broncos,72,1,5,6,0.08,122,-19,0
+420,Garrett Leedahl(D),Spokane Chiefs,14,0,6,6,0.43,10,-1,0
+421,Tanner Sohn(D),totals,33,0,6,6,0.18,20,-8,0
+,,Vancouver Giants,31,0,6,6,0.19,20,-6,0
+,,Saskatoon Blades,2,0,0,0,0,0,-2,0
+422,Tim Traber(RW),Chilliwack Bruins,45,0,6,6,0.13,88,-12,0
+423,Cason Machacek(D),Lethbridge Hurricanes,65,0,6,6,0.09,183,-11,0
+424,Chase Souto(RW),Kamloops Blazers,49,4,1,5,0.1,62,-5,0
+425,T.C. Cratsenberg(C),totals,54,4,1,5,0.09,102,-1,0
+,,Spokane Chiefs,5,0,0,0,0,12,1,0
+,,Chilliwack Bruins,49,4,1,5,0.1,90,-2,0
+426,Steve Oursov(C),Chilliwack Bruins,18,3,2,5,0.28,11,-2,0
+427,Campbell Elynuik(LW),Everett Silvertips,28,3,2,5,0.18,54,-9,0
+428,Locke Muller(RW),Red Deer Rebels,40,3,2,5,0.13,59,-2,0
+429,Paul Sohor(D),totals,56,3,2,5,0.09,58,0,0
+,,Everett Silvertips,13,0,0,0,0,20,-1,0
+,,Tri-City Americans,43,3,2,5,0.12,38,1,0
+430,Sam Dezman(LW),Medicine Hat Tigers,28,2,3,5,0.18,18,9,0
+431,Tyler Kizuik(D),totals,37,2,3,5,0.14,13,-11,0
+,,Saskatoon Blades,12,0,0,0,0,9,-2,0
+,,Lethbridge Hurricanes,25,2,3,5,0.2,4,-9,0
+432,Tanner Muth(D),Swift Current Broncos,42,2,3,5,0.12,47,-23,0
+433,Cole Hamblin(D),Spokane Chiefs,12,1,4,5,0.42,6,6,0
+434,Juraj Roznik(RW),totals,24,1,4,5,0.21,8,-6,0
+,,Swift Current Broncos,5,0,2,2,0.4,2,-1,0
+,,Regina Pats,19,1,2,3,0.16,6,-5,0
+435,Evan Morden(D),Everett Silvertips,53,1,4,5,0.09,30,-1,0
+436,John Neibrandt(D),Kootenay Ice,65,1,4,5,0.08,42,5,0
+437,Daniel Gibb(D),Prince George Cougars,70,1,4,5,0.07,58,-16,0
+438,Zach Habscheid(D),Chilliwack Bruins,45,0,5,5,0.11,68,-8,0
+439,Neil Tarnasky(C),Lethbridge Hurricanes,55,3,1,4,0.07,65,-14,0
+440,Jon Gaudet(RW),Brandon Wheat Kings,10,2,2,4,0.4,6,2,0
+441,Vahe Zakaryan(RW),Medicine Hat Tigers,17,2,2,4,0.24,4,5,0
+442,Brayden Cuthbert(C),Moose Jaw Warriors,39,2,2,4,0.1,2,-6,0
+443,MacKenzie Johnston(D),Kelowna Rockets,58,2,2,4,0.07,14,-10,0
+444,Brendon Wall(D),Kelowna Rockets,20,1,3,4,0.2,10,-3,0
+445,Riley Reinbolt(C),Calgary Hitmen,21,1,3,4,0.19,23,-5,0
+446,Matthew Pufahl(D),Red Deer Rebels,31,1,3,4,0.13,11,10,0
+447,Josh Derko(LW),Swift Current Broncos,44,1,3,4,0.09,33,-12,0
+448,Brady Ramsay(RW/C),Lethbridge Hurricanes,57,1,3,4,0.07,43,-18,0
+449,Tyler Borstmayer(D),Regina Pats,42,0,4,4,0.1,20,-9,0
+450,Josh Smith(D),Prince George Cougars,44,0,4,4,0.09,98,4,0
+451,Max Moline(C),Tri-City Americans,53,0,4,4,0.08,42,-8,0
+452,Jesse Sinatynski(C),totals,10,2,1,3,0.3,8,0,0
+,,Brandon Wheat Kings,7,1,1,2,0.29,6,0,0
+,,Kamloops Blazers,3,1,0,1,0.33,2,0,0
+453,Jason Trott(C/LW),Portland Winterhawks,32,2,1,3,0.09,14,-2,0
+454,Mathew Berry-Lamontagna(D),Prince Albert Raiders,34,2,1,3,0.09,14,-2,0
+455,Carter Berg(D/F),Calgary Hitmen,36,2,1,3,0.08,46,-15,0
+456,Taylor Cote(RW),Everett Silvertips,12,1,2,3,0.25,15,0,0
+457,David Stephens(C),Edmonton Oil Kings,30,1,2,3,0.1,24,1,0
+458,Gal Koren(C),Kelowna Rockets,36,1,2,3,0.08,24,-4,0
+459,Josh Hanson(D),Portland Winterhawks,43,1,2,3,0.07,10,-1,0
+460,Brock Balson(RW),Prince Albert Raiders,48,1,2,3,0.06,13,-16,0
+461,Shea Howorko(F),Swift Current Broncos,61,1,2,3,0.05,61,-12,0
+462,Jesse Zgraggen(D),Chilliwack Bruins,62,1,2,3,0.05,27,-9,0
+463,Jason Siebert(LW),Kelowna Rockets,16,0,3,3,0.19,4,1,0
+464,Scott Ramsay(D),totals,39,0,3,3,0.08,75,-9,0
+,,Seattle Thunderbirds,26,0,1,1,0.04,57,-14,0
+,,Medicine Hat Tigers,13,0,2,2,0.15,18,5,0
+465,Erik Fleming(D),Seattle Thunderbirds,50,0,3,3,0.06,8,-20,0
+466,Sam Grist(D),Tri-City Americans,56,0,3,3,0.05,107,-11,0
+467,Brett Stovin(RW/LW),Saskatoon Blades,6,2,0,2,0.33,0,0,0
+468,Caleb Belter(RW),Prince George Cougars,39,2,0,2,0.05,10,-1,0
+469,Tyler Paslawski(RW),Prince Albert Raiders,9,1,1,2,0.22,0,0,0
+470,Michael Sagen(LW),Regina Pats,26,1,1,2,0.08,19,-5,0
+471,Josh Caron(D/W),Kamloops Blazers,27,1,1,2,0.07,47,-3,0
+472,Ryan Bloom(RW),totals,29,1,1,2,0.07,0,-5,0
+,,Kootenay Ice,5,1,0,1,0.2,0,2,0
+,,Swift Current Broncos,24,0,1,1,0.04,0,-7,0
+473,Lucas Grayson(D),Red Deer Rebels,40,1,1,2,0.05,71,5,0
+474,Casper Carning(C/W),Vancouver Giants,6,0,2,2,0.33,2,0,0
+475,Dylan Fluter(RW/C),Tri-City Americans,9,0,2,2,0.22,2,-3,0
+476,Austin Daae(LW),Saskatoon Blades,11,0,2,2,0.18,11,-2,0
+477,Jesse Pearson(D),Edmonton Oil Kings,18,0,2,2,0.11,29,-4,0
+478,Tyler Pavkovich(D),Regina Pats,27,0,2,2,0.07,10,-12,0
+479,Ryan Aasman(D),totals,41,0,2,2,0.05,6,-11,0
+,,Seattle Thunderbirds,8,0,0,0,0,2,-2,0
+,,Swift Current Broncos,33,0,2,2,0.06,4,-9,0
+480,Justin Hickman(RW/C),Seattle Thunderbirds,46,0,2,2,0.04,51,-20,0
+481,Connor Chartier(RW),Spokane Chiefs,1,1,0,1,1,0,2,0
+482,Marc McCoy(C),Red Deer Rebels,1,1,0,1,1,2,1,0
+483,Gasper Kopitar(W/C),Portland Winterhawks,2,1,0,1,0.5,0,-1,0
+484,Pearce Eviston(RW),Portland Winterhawks,2,1,0,1,0.5,0,0,0
+485,Zach McPhee(RW),totals,12,1,0,1,0.08,2,-2,0
+,,Tri-City Americans,8,1,0,1,0.13,2,-2,0
+,,Everett Silvertips,4,0,0,0,0,0,0,0
+486,Connor Redmond(LW/D),Vancouver Giants,15,1,0,1,0.07,22,-4,0
+487,Keaton Lubin(D),Calgary Hitmen,36,1,0,1,0.03,23,-15,0
+488,Joey Frazer(RW),Medicine Hat Tigers,1,0,1,1,1,0,-1,0
+489,Kade Pilton(D),Chilliwack Bruins,2,0,1,1,0.5,0,0,0
+490,Shayne Gwinner(D),Moose Jaw Warriors,3,0,1,1,0.33,0,1,0
+491,Bruin McDonald(D/F),Spokane Chiefs,3,0,1,1,0.33,2,-3,0
