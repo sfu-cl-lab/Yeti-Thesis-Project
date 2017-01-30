@@ -10,7 +10,7 @@ from sklearn import cross_validation
 #load data
 def load_unicef_data():
    
-    fname_train = '/home/yejial/Desktop/code_WHL_NHL training_data_edit.csv'
+    fname_train = '/home/yejial/Desktop/code_WHL_NHL/training_data_edit.csv'
     fname_test='/home/yejial/Desktop/code_WHL_NHL/test_data_edit.csv'
     # Uses pandas to help with string-NaN-numeric data.
     train_data = pd.read_csv(fname_train, na_values='_')
