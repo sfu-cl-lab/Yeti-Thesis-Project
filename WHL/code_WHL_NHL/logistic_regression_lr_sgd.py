@@ -97,7 +97,7 @@ plt.legend(['eta 0.5','eta 0.3','eta 0.1','eta 0.05','eta 0.01','eta 0.001'])
 #plt.legend(handles=[etas])
 plt.show()
 
-
+#when eta=0.01, logistic has lowest negative_log_likelihood and converge fast
 w=[-0.17319538,-0.57551455,0.16241183,0.41386914,0.32418731,-0.69535434,0.08766237,0.2382722 ]
 
 data = np.genfromtxt('/home/yejial/Desktop/code_WHL_NHL/pt.txt')
