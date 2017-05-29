@@ -20,4 +20,7 @@
  
  The join of Wilson + routley is contained in draft_master_table2 (nice to rename like "Wilson_Routley")
  
- 
+## Chao Li's dataset
+
++ adds cescin rank for Kurt's 1097 players
++ crawled [draftanalyst.com]
