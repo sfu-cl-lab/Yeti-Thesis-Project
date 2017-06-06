@@ -1,4 +1,4 @@
-# Yeti-Thesis-Project
+a# Yeti-Thesis-Project
  for my thesis--Yejia Liu
 
 # Notes on Data
@@ -22,5 +22,10 @@
  
 ## Chao Li's dataset
 
-+ adds cescin rank for Kurt's 1097 players
++ adds central scouting services rank (CSS) for Kurt's 1097 players
 + crawled [draftanalyst.com]
++ eliminated 2 duplicates
++ total number of players 1095
++ contained in two views
+  + ckm_and_exception_mining.NHL_playerStats_1998_2008_view (player features only)
+  + ckm_and_exception_mining.NHL_playerStats_1998_2008_view
