@@ -15,8 +15,8 @@
  
  + crawled from web (which site?)
  + originally contained in where?, now copied to draft_master_table1
- + goes from 1998-2008
- + total number of players = 1097 (only players with > 0 games)
+ + goes from draft year 1998-2008
+ + total number of players = 1097 (only players with > 0 NHL games)
  
  The join of Wilson + routley is contained in draft_master_table2 (nice to rename like "Wilson_Routley")
  
