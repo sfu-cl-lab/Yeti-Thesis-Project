@@ -39,5 +39,5 @@ a# Yeti-Thesis-Project
 + deleted rows with GP =0, G=0, A=0, P=0, etc. for both season types (i.e. Regular Season/Playeroffs)
 + deleted rows with false team names for PlayerId = 8467514 &  8470828
 + modified rows with duplicate Team names for PlayerId = 8468597
-  + above changed were made and saved as chao_draft.NHL_seasonInfo_1998_2008 (2644 rows in total)
+  + above changes were made and saved as chao_draft.NHL_seasonInfo_1998_2008 (2644 rows in total)
   
