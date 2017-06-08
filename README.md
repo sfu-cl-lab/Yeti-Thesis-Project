@@ -35,7 +35,7 @@ a# Yeti-Thesis-Project
 + changed the column names in ckm_and_exception_mining.NHL_seasonInfo_1998_2008_view, such as "CareerGP", "CareerG", etc. into "GP", "G", etc. as these values correspond to a particular seaon type and a particular team for a specific player. With such a name change, a new view is created as    
   + chao_draft.NHL_seasonInfo_1998_2008_duplicates_view
 + deleted columns named "S" and "shotPercentage" as these values are all zeros
-+ deleted rows with GP =0, G=0, A=0, P=0, etc. for both season types (i.e. Regualar/Playeroffs)
++ deleted rows with GP =0, G=0, A=0, P=0, etc. for both season types (i.e. Regular Season/Playeroffs)
 + deleted rows with false team names for PlayerId = 8467514 &  8470828
 + modified rows with duplicate Team names for PlayerId = 8468597
   + above changed were made and saved as chao_draft.NHL_seasonInfo_1998_2008 (2644 rows in total)
