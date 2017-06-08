@@ -15,7 +15,7 @@ a# Yeti-Thesis-Project
  ## Kurt Routley's dataset
  
  + crawled from web (which site?)
- + originally contained in where?, now copied to draft_master_table1
+ + originally contained in where?, now copied to draft_master_table_1
  + goes from draft year 1998-2008
  + total number of players = 1097 (only players with > 0 NHL games)
      + Note: there are two "Alexandre Picard" and two "Mikko Lehtonen". Only one of each can be found in Wilson's data
