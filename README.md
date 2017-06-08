@@ -31,6 +31,7 @@ a# Yeti-Thesis-Project
 + contained in two views
   + ckm_and_exception_mining.NHL_playerStats_1998_2008_view (player features only)
       + the above view is join of Wilson + Routley on player name and draft number
+      + names of 28 players had to be modified in both Wilson & Routley tables to match
   + ckm_and_exception_mining.NHL_seasonInfo_1998_2008_view  (2772 rows in total)
 + changed the column names in ckm_and_exception_mining.NHL_seasonInfo_1998_2008_view, such as "CareerGP", "CareerG", etc. into "GP", "G", etc. as these values correspond to a particular seaon type and a particular team for a specific player. With such a name change, a new view is created as    
   + chao_draft.NHL_seasonInfo_1998_2008_duplicates_view
