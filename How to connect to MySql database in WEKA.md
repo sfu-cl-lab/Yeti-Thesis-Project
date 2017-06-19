@@ -41,7 +41,7 @@ e.g. /home/cla315/DatabaseUtils.props, because Weka only looks for the DatabaseU
     # start Explorer
     java -cp $CP -Xmx500m weka.gui.explorer.Explorer
 + On a Linux system you can save the above script, e.g. as a 'script_weka.sh' file, and run it in terminal "bash script_weka.sh" everytime you need to start Weka Explorer
-+ But on a MAC OS system, changing the JAVA CLASSPATH permanently is tricky. It's easier to just run the obove script line by line in terminal. 
++ But on a MAC OS system, changing the JAVA CLASSPATH permanently is tricky. It's easier to just run the above script line by line in terminal. 
 
 ## Trouble Shooting for the "Unknow data type" Error:
    + Sometimes (e.g. with MySQL) it can happen that a column type cannot be interpreted. In that case it is necessary to map the name of the column type to the Java type it should be interpreted as.
