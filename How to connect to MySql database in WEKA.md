@@ -13,7 +13,6 @@
         bash
         export CLASSPATH=$CLASSPATH:/home/cla315/jars/mysql-connector-java-5.1.42-bin.jar
         (to check if it worked, echo $CLASSPATH)
-+ Looks like you also have to save the JDBC Driver file in WEKA path, e.g./home/cla315/weka-3-8-1/mysql-connector-java-5.1.42-bin.jar //Need to check
   
 ## Step 2: Modify the property file for the database you are using
 + Get the properties file from the weka.jar or weka-src.jar jar-archive, both part of a normal Weka release. 
