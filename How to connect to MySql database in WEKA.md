@@ -1,4 +1,4 @@
-+ Download the latest version of WEKA on your Linux machines from here: http://www.cs.waikato.ac.nz/ml/weka/downloading.html.
++ Download the latest version of WEKA on your Linux/MAC OS machine from here: http://www.cs.waikato.ac.nz/ml/weka/downloading.html.
 + Extract the .zip file in your home directory (echo $HOME), eg. mine is '/home/cla315/weka-3-8-1'
 + Follow instrucion from the following links:
     + https://weka.wikispaces.com/Databases
