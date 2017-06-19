@@ -4,22 +4,23 @@
     + https://weka.wikispaces.com/Databases
     + https://weka.wikispaces.com/CLASSPATH
 
-## Step 1: Download JDBC Driver from https://dev.mysql.com/downloads/connector/j/
-In my case, my mysql-connector-java-5.1.42-bin.jar is located in the following directory: /home/cla315/jars/
-Now, open a shell and execute the following command:
 
-    bash
-    export CLASSPATH=$CLASSPATH:/home/cla315/jars/mysql-connector-java-5.1.42-bin.jar
-    (to check if it worked, echo $CLASSPATH)
-+ Looks like you also have to save the JDBC Driver file in WEKA path, eg.:/home/cla315/weka-3-8-1/mysql-connector-java-5.1.42-bin.jar
+## Step 1: Set up JDBC Driver
++ Download JDBC Driver from here: https://dev.mysql.com/downloads/connector/j/
++ Save the mysql-connector-java-5.1.42-bin.jar file in a fold, eg.: /home/cla315/jars/
++ Now, open a shell and execute the following command:
+
+        bash
+        export CLASSPATH=$CLASSPATH:/home/cla315/jars/mysql-connector-java-5.1.42-bin.jar
+        (to check if it worked, echo $CLASSPATH)
++ Looks like you also have to save the JDBC Driver file in WEKA path, eg.:/home/cla315/weka-3-8-1/mysql-connector-java-5.1.42-bin.jar //Need to check
   
-## Step 2: Get this properties file from the weka.jar (extract the .jar file anywhere but current folder). 
-+ You'll find the properties file for MySql database in the sub-folder, 
-ie. /weka/experiment/DatabaseUtils.props.mysql
-+ Copy this props file to home directory can change its name to DatabaseUtils.props 
-eg. /home/cla315/DatabaseUtils.props
-because Weka only looks for the DatabaseUtils.props file.
-+ Next, modify the following content in the props file:
+## Step 2: Modify the property file for the database you are using
++ Get the properties file from the weka.jar or weka-src.jar jar-archive, both part of a normal Weka release. 
++ If you open up one of those files, you'll find the properties file in the sub-folder weka/experiment. eg. /weka/experiment/DatabaseUtils.props.mysql
++ Copy this props file to your home directory and change its name to DatabaseUtils.props 
+eg. /home/cla315/DatabaseUtils.props, because Weka only looks for the DatabaseUtils.props file.
++ Next, modify the following content in the DatabaseUtils.props file:
     
       #JDBC driver (comma-separated list)
       jdbcDriver=com.mysql.jdbc.Driver (or org.gjt.mm.mysql.Driver)
