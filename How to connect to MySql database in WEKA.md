@@ -1,8 +1,8 @@
 + Download the latest version of WEKA on your Linux machines from here: http://www.cs.waikato.ac.nz/ml/weka/downloading.html.
 + Extract the .zip file in your home directory (echo $HOME), eg. mine is '/home/cla315/weka-3-8-1'
-
 + Following instrucion from the following links:
     + https://weka.wikispaces.com/Databases
+    
     + https://weka.wikispaces.com/CLASSPATH
 
 ## Step 1: Download JDBC Driver from https://dev.mysql.com/downloads/connector/j/
