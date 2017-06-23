@@ -1,6 +1,6 @@
 + Download the latest version of WEKA on your Linux/MAC OS machine from here: http://www.cs.waikato.ac.nz/ml/weka/downloading.html.
 + Extract the .zip file in your home directory (echo $HOME), e.g. mine is '/home/cla315/weka-3-8-1'
-+ Follow instrucion from the following links:
++ The following step-by-step instrucions are summarized from the two links below:
     + https://weka.wikispaces.com/Databases
     + https://weka.wikispaces.com/CLASSPATH
 
@@ -17,6 +17,7 @@
 ## Step 2: Modify the property file for the database you are using
 + Get the properties file from the weka.jar or weka-src.jar jar-archive, both part of a normal Weka release. 
 + If you open up one of those files, you'll find the properties file in the sub-folder weka/experiment. e.g. /weka/experiment/DatabaseUtils.props.mysql
++ You have to delete the extraced sub-folder named "weka", otherwise you couldn't open the explorer from terminal!
 + Copy this props file to your home directory and change its name to DatabaseUtils.props 
 e.g. /home/cla315/DatabaseUtils.props, because Weka only looks for the DatabaseUtils.props file.
 + Next, modify the following content in the DatabaseUtils.props file:
@@ -26,6 +27,7 @@ e.g. /home/cla315/DatabaseUtils.props, because Weka only looks for the DatabaseU
       #database URL
       jdbcURL=jdbc:mysql://server.my.domain:3306/MyDatabase
       (eg. jdbcURL=jdbc:mysql://cs-oschulte-01.cs.sfu.ca:3306/chao_draft)
+      
 
 ## Step 3: Run the following start script for Weka Explorer:
 
