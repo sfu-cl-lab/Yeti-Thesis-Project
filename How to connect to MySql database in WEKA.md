@@ -17,7 +17,7 @@
 ## Step 2: Modify the property file for the database you are using
 + Get the properties file from the weka.jar or weka-src.jar jar-archive, both part of a normal Weka release. 
 + If you open up one of those files, you'll find the properties file in the sub-folder weka/experiment. e.g. /weka/experiment/DatabaseUtils.props.mysql
-+ You have to delete the extraced sub-folder named "weka", otherwise you couldn't open the explorer from terminal!
++ Remember to delete the extraced sub-folder named "weka", otherwise you couldn't open the explorer from terminal!
 + Copy this props file to your home directory and change its name to DatabaseUtils.props 
 e.g. /home/cla315/DatabaseUtils.props, because Weka only looks for the DatabaseUtils.props file.
 + Next, modify the following content in the DatabaseUtils.props file:
