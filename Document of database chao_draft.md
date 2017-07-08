@@ -98,6 +98,6 @@ These two views sum number of GP and TOI in minutes for each season for each pla
 + Based on `view_14`, sum each skaters' regular seasons stats in view "`chao_draft.all_skaters_stats_regularseason_sum_10_years_view`" (referred as `view_15`).
 + Based on `view_14`, sum each skaters' playoffs stats in view "`chao_draft.all_skaters_stats_playoffs_sum_10_years_view`" (referred as `view_16`).
 + Join skaters stats with seasons stats in one row, saved as view"`chao_draft.join_skater_and_season_stats_10_years_view`" (referred as `view_17`).
-+ Materialize `view_17` as table "`chao_draft.join_skater_and_season_stats_10_years`" (referred as `table_17`). Add 'coutry_group' column (i.e. 'CAN', 'USA' or 'EURO') and 'GP_greater_than_0' column (i.e. 'yes' or 'no'). 
++ Materialize `view_17` as table "`chao_draft.join_skater_and_season_stats_10_years`" (referred as `table_17`). Add 'couutry_group' column (i.e. 'CAN', 'USA' or 'EURO') and 'GP_greater_than_0' column (i.e. 'yes' or 'no'). 
 
 
