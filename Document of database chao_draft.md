@@ -1,12 +1,12 @@
 ### Step 1: crawl season-by-season statistics for all skaters who played games in NHL between season 1998-1999 to season 2016-2017. 
 + Data is crawled from NHL.com, under "STATS" --> "PLAYERS". i.e. link here: http://www.nhl.com/stats/player?aggregate=0&gameType=2&report=skatersummary&pos=S&reportType=season&seasonFrom=20162017&seasonTo=20162017&filter=gamesPlayed,gte,1&sort=points,goals,assists
-+ Python scripts and sample data fies can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/crawl_NHL_season_stats
++ Python scripts and sample data files can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/crawl_NHL_season_stats
 + The data is written to database as table "`chao_draft.NHL_season_stats_1998_2016_original`" (referred as `table_1` in this context for convenience).
 + Note: this dataset also includes skaters who got drafted before 1998 and after 2008 which is outside of the range of our intest.
    
 ### Step 2: screen players in table_1; crawl the player statistics for skaters who got drafted between year 1998-2008.
 + With player id (e.g. PlayerId = 8473593) obtained from `table_1`, crawl player stats for skaters for got drafted between 1998-2008 from NHL.com using url = "http://www.nhl.com/player/" + player_id
-+ Python scripts and sample data fies can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/crawl_NHL_player_stats
++ Python scripts and sample data files can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/crawl_NHL_player_stats
 + Record each players demographic info, draft info as well as his season stats for the last season he played before he got drafted into NHL.
 + The data is written to database as table "`chao_draft.NHL_skaters_stats_1998_2008_original`" (referred as `table_2`).
 + Total number of distinct skaters in `talbe_2` is 1106.
@@ -18,7 +18,7 @@ view "`chao_draft.NHL_season_stats_for_skaters_drafted_1998_2008_view`" (referre
 ### Step 3: get player stats for skaters who got drafted into NHL but never played games in NHL.
 + Crawl player stats for all skaters who got drafted between 1998-2008 from eliteprospects.com whether these skaters ended up playing gmaes in NHL or not.
 + Data is crawled from eliteprospects.com, under "DRAFTS" --> select draft year between 1998-2008.
-+ Python scripts and sample data fies can be find here: https://github.com/chaostewart/summer_research_2017/tree/master/crawl_elite_prospects
++ Python scripts and sample data files can be find here: https://github.com/chaostewart/summer_research_2017/tree/master/crawl_elite_prospects
 + Only skaters' stats are recorded. Goalies are ommitted.
 + The data is written to database as table "`chao_draft.elite_prospects_skaters_stats_1998_2008_original`" (referred as `table_4`).
 + Total number of distinct skaters in `talbe_4` is 2480.
