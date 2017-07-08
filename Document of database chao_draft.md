@@ -90,7 +90,7 @@ These two views sum number of GP and TOI in minutes for each season for each pla
 + Excluding year 2003, player stats for skaters in `table_4` including their CSS ranks is saved as view "`chao_draft.elite_zerogames_skaters_stats_10_years_view`"(referred as `view_13`).
 + There are 1236 distinct players in `view_13`; 817 of them have CSS ranks.
 + Union `view_11` and `view_13` to include player stats for all skater, whether player for NHL or not, in one view as "`chao_draft.all_skaters_stats_10_years_view`" (referred as `view_14`)
-+ There are 2200 distinct players in `view_14`; 1539 of them have CSS ranks.
++ There are 964+1236=2200 distinct players in `view_14`; 722+817=1539 of them have CSS ranks.
 
 
 ### Step 8: summerize all players' and seasons' statisticts in one row.
