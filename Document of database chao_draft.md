@@ -2,7 +2,7 @@
 + Data is crawled from NHL.com, under "STATS" --> "PLAYERS". i.e. link here: http://www.nhl.com/stats/player?aggregate=0&gameType=2&report=skatersummary&pos=S&reportType=season&seasonFrom=20162017&seasonTo=20162017&filter=gamesPlayed,gte,1&sort=points,goals,assists
 + Python scripts and sample data files can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/crawl_NHL_season_stats
 + The data is written to database as table "`chao_draft.NHL_season_stats_1998_2016_original`" (referred as `table_1` in this context for convenience).
-++ Note: this dataset also includes skaters who got drafted before 1998 and after 2008 which is outside of the range of our intest.
++ Note: this dataset also includes skaters who got drafted before 1998 and after 2008 which is outside of the range of our intest.
    
 ### Step 2: screen players in table_1; crawl the player statistics for skaters who got drafted between year 1998-2008.
 + With player id (e.g. PlayerId = 8473593) obtained from `table_1`, crawl player stats for skaters for got drafted between 1998-2008 from NHL.com using url = "http://www.nhl.com/player/" + player_id
@@ -79,6 +79,24 @@ These two views sum number of GP and TOI in minutes for each season for each pla
 + Note: there are 28 players among the 1106 players who got drafted between 1998 and 2008 and did play games in NHL. However, they did not play any games in their first seven seasons in NHL. 
 + Based on `table_8`, eliminate players who got drafted in year 2003 (as a large number of them have no CSS ranks) as well as players who played games in their frist seven seasons in NHL, we get `table_9` as "`chao_draft.seven_season_sums_regular_season_only_10_years_view`".
 + There are 964 distinct players in `table_9`.
+
+#### Note on the seven-season stats table.
++ According to one of Schucker's paper: https://arxiv.org/abs/1411.5754, a player's first 7 seasons in NHL is counted in the following way: e.g. for a player who got drafted in 1998, his 1st season in NHL is 1998-1999, 2nd is 1999-2000, .... , his 7th season is 2004-2005. Whether this player played games or not in these 7 seasons, the seasons are unchagned.
+PlayerId | 8465016 |
+--------|----------|
+PlayerName | Scott Parker |
+DraftYear | 1998 |
+1st season | 1998-1999 | 27 |
+2nd season | 1999-2000 | 0 |
+3rd season | 2000-2001 | 69 |
+4th season | 2001-2002 | 63 |
+5th season | 2002-2003 | 43 |
+6th season | 2003-2004 | 50 |
+7th season | 2004-2005 | 0 |
+8th season | 2005-2006 | 10 |
+9th season | 2006-2007 | 21 |
+10th season | 2007-2008 | 25 |
++ However, in Wilson's data, a player's frist 7 seasons in NHL is counted as the 7 seasons in which a player did play games in NHL. Take the player ""
 
 ### Step 7: skater stats with CSS rank for year 1998-2002 and 2004-2008.
 + Player stats for skaters in `table_2` including their CSS ranks is saved as view "`chao_draft.nhl_nonzerogames_skaters_stats_1998_2008_view`"(referred as `view_10`).
