@@ -2,7 +2,7 @@
 + Data is crawled from NHL.com, under "STATS" --> "PLAYERS". i.e. link here: http://www.nhl.com/stats/player?aggregate=0&gameType=2&report=skatersummary&pos=S&reportType=season&seasonFrom=20162017&seasonTo=20162017&filter=gamesPlayed,gte,1&sort=points,goals,assists
 + Python scripts and sample data files can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/crawl_NHL_season_stats
 + The data is written to database as table "`chao_draft.NHL_season_stats_1998_2016_original`" (referred as `table_1` in this context for convenience).
-+ Note: this dataset also includes skaters who got drafted before 1998 and after 2008 which is outside of the range of our intest.
+++ Note: this dataset also includes skaters who got drafted before 1998 and after 2008 which is outside of the range of our intest.
    
 ### Step 2: screen players in table_1; crawl the player statistics for skaters who got drafted between year 1998-2008.
 + With player id (e.g. PlayerId = 8473593) obtained from `table_1`, crawl player stats for skaters for got drafted between 1998-2008 from NHL.com using url = "http://www.nhl.com/player/" + player_id
