@@ -82,8 +82,10 @@ These two views sum number of GP and TOI in minutes for each season for each pla
 
 #### Note on the seven-season stats table.
 + According to one of Schucker's paper: https://arxiv.org/abs/1411.5754, a player's first 7 seasons in NHL is counted in the following way: e.g. for a player who got drafted in 1998, his 1st season in NHL is 1998-1999, 2nd is 1999-2000, .... , his 7th season is 2004-2005. Whether this player played games or not in these 7 seasons, the seasons are unchagned.
+
+
 PlayerId | 8465016 |
---------|----------|
+------- |------- |
 PlayerName | Scott Parker |
 DraftYear | 1998 |
 1st season | 1998-1999 | 27 |
@@ -96,6 +98,7 @@ DraftYear | 1998 |
 8th season | 2005-2006 | 10 |
 9th season | 2006-2007 | 21 |
 10th season | 2007-2008 | 25 |
+
 + However, in Wilson's data, a player's frist 7 seasons in NHL is counted as the 7 seasons in which a player did play games in NHL. Take the player ""
 
 ### Step 7: skater stats with CSS rank for year 1998-2002 and 2004-2008.
