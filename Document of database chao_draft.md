@@ -86,7 +86,7 @@ These two views sum number of GP and TOI in minutes for each season for each pla
 
 PlayerId | 8465016 |         |
 -------- |-------- | --------|
-PlayerName | Scott Parker |
+PlayerName | Scott Parker |   |
 DraftYear | 1998 |       |
           |          | GP |
 1st season | 1998-1999 | 27 |
