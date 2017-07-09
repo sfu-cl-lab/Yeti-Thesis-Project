@@ -81,14 +81,14 @@ These two views sum number of GP and TOI in minutes for each season for each pla
 + There are 964 distinct players in `table_9`.
 
 #### Note on the seven-season stats table.
-+ According to one of Schucker's paper: https://arxiv.org/abs/1411.5754, a player's first 7 seasons in NHL is counted in the following way: e.g. for a player who got drafted in 1998, his 1st season in NHL is 1998-1999, 2nd is 1999-2000, .... , his 7th season is 2004-2005. Whether this player played games or not in these 7 seasons, the seasons are unchagned.
++ According to one of Schucker's paper: https://arxiv.org/abs/1411.5754, a player's first 7 seasons in NHL is counted chronologically in the straightforward way: e.g. for a player who got drafted in 1998, his 1st season in NHL is 1998-1999, 2nd is 1999-2000, .... , his 7th season is 2004-2005. Whether this player played games or not in these 7 seasons, these seasons are unchagned.
++ However, in Wilson's data, a player's frist 7 seasons in NHL are counted as only the 7 seasons in which a player did play games in NHL. Take the player "Scott Parker" for example, Wilson skipped season 1999-2000 and season 2004-2005 during which Parker didn't play games, and added season 2005-2006 and season 2006-2007 as Parker's seven season. As a result, the sum of seven-season of GP for a larger number of players is incorrect in Wilson's dataset.
++ The following example is taken from `table_3`
 
-
-PlayerId | 8465016 |         |
+PlayerId | 8465016 | GP |
 -------- |-------- | --------|
 PlayerName | Scott Parker |   |
 DraftYear | 1998 |       |
--------- |--------| GP |
 1st season | 1998-1999 | 27 |
 2nd season | 1999-2000 | 0 |
 3rd season | 2000-2001 | 69 |
@@ -101,8 +101,6 @@ DraftYear | 1998 |       |
 10th season | 2007-2008 | 25 |
 Wison's sum | = 27 + 69 + 63 + 43 + 50 + 10 + 21 | = 283 |
 Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
-
-+ However, in Wilson's data, a player's frist 7 seasons in NHL is counted as the 7 seasons in which a player did play games in NHL. Take the player ""
 
 ### Step 7: skater stats with CSS rank for year 1998-2002 and 2004-2008.
 + Player stats for skaters in `table_2` including their CSS ranks is saved as view "`chao_draft.nhl_nonzerogames_skaters_stats_1998_2008_view`"(referred as `view_10`).
