@@ -85,9 +85,9 @@ These two views sum number of GP and TOI in minutes for each season for each pla
 
 
 PlayerId | 8465016 |
-------- |------- |
 PlayerName | Scott Parker |
 DraftYear | 1998 |
+          |          | GP |
 1st season | 1998-1999 | 27 |
 2nd season | 1999-2000 | 0 |
 3rd season | 2000-2001 | 69 |
@@ -98,6 +98,8 @@ DraftYear | 1998 |
 8th season | 2005-2006 | 10 |
 9th season | 2006-2007 | 21 |
 10th season | 2007-2008 | 25 |
+Wison's sum | = 27 + 69 + 63 + 43 + 50 + 10 + 21 | = 283 |
+Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
 
 + However, in Wilson's data, a player's frist 7 seasons in NHL is counted as the 7 seasons in which a player did play games in NHL. Take the player ""
 
