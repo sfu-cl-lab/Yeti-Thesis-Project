@@ -88,7 +88,7 @@ PlayerId | 8465016 |         |
 -------- |-------- | --------|
 PlayerName | Scott Parker |   |
 DraftYear | 1998 |       |
-          |          | GP |
+-------- |--------| GP |
 1st season | 1998-1999 | 27 |
 2nd season | 1999-2000 | 0 |
 3rd season | 2000-2001 | 69 |
