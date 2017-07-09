@@ -84,9 +84,10 @@ These two views sum number of GP and TOI in minutes for each season for each pla
 + According to one of Schucker's paper: https://arxiv.org/abs/1411.5754, a player's first 7 seasons in NHL is counted in the following way: e.g. for a player who got drafted in 1998, his 1st season in NHL is 1998-1999, 2nd is 1999-2000, .... , his 7th season is 2004-2005. Whether this player played games or not in these 7 seasons, the seasons are unchagned.
 
 
-PlayerId | 8465016 |
+PlayerId | 8465016 |         |
+-------- |-------- | --------|
 PlayerName | Scott Parker |
-DraftYear | 1998 |
+DraftYear | 1998 |       |
           |          | GP |
 1st season | 1998-1999 | 27 |
 2nd season | 1999-2000 | 0 |
