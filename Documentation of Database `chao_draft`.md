@@ -123,9 +123,10 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
 + Materialize `view_17` as table "`chao_draft.join_skater_and_season_stats_10_years`" (referred as `table_17`). Add 'couutry_group' column (i.e. 'CAN', 'USA' or 'EURO') and 'GP_greater_than_0' column (i.e. 'yes' or 'no'). 
 
 #### Issue: unclear position for 46 skaters in view_17
-+ These skaters with unclear positions(i.e. 'W' or 'F') are from eliteprospects.com.
++ 46 skaters in view_17 have unclear positions (i.e. 'W' or 'F'). They are obtained from eliteprospects.com. 
++ Their information is saved as "`chao_draft.position_unclear_skaters_10_years_view`" (referred as view_17).
 + 28 of the 46 skaters have CSS_rank.
-+ thedraftanalyst.com can provide specifict postition(i.e. 'L', 'R' or 'C') information for some of the skaters.
++ thedraftanalyst.com can provide specifict postition(i.e. 'L', 'R' or 'C') information for only some of the skaters.
 
 
 
