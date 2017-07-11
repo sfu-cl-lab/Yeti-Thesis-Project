@@ -1,0 +1,386 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2 -doNotMakeSplitPointActualValue
+Relation:     QueryResult-weka.filters.unsupervised.attribute.Remove-R1-2,4,22-23
+Instances:    2199
+Attributes:   19
+              DraftAge
+              country_group
+              Height
+              Weight
+              Position
+              CSS_rank
+              rs_GP
+              rs_G
+              rs_A
+              rs_P
+              rs_PIM
+              rs_PlusMinus
+              po_GP
+              po_G
+              po_A
+              po_P
+              po_PIM
+              po_PlusMinus
+              GP_greater_than_0
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+rs_PlusMinus <= -0.5
+|   country_group = CAN
+|   |   po_PlusMinus <= 0.5
+|   |   |   po_G <= 0.5
+|   |   |   |   rs_GP <= 69.5: no (121.0/20.0)
+|   |   |   |   rs_GP > 69.5
+|   |   |   |   |   po_GP <= 4.5
+|   |   |   |   |   |   Weight <= 212.5
+|   |   |   |   |   |   |   Height <= 74.5
+|   |   |   |   |   |   |   |   rs_PlusMinus <= -8: no (13.0/1.0)
+|   |   |   |   |   |   |   |   rs_PlusMinus > -8: yes (6.0/1.0)
+|   |   |   |   |   |   |   Height > 74.5: yes (5.0)
+|   |   |   |   |   |   Weight > 212.5: no (8.0)
+|   |   |   |   |   po_GP > 4.5: yes (9.0/1.0)
+|   |   |   po_G > 0.5
+|   |   |   |   CSS_rank <= 28
+|   |   |   |   |   Weight <= 208.5
+|   |   |   |   |   |   Height <= 71.5: yes (3.0)
+|   |   |   |   |   |   Height > 71.5
+|   |   |   |   |   |   |   CSS_rank <= 18
+|   |   |   |   |   |   |   |   DraftAge <= 18.5: no (4.0)
+|   |   |   |   |   |   |   |   DraftAge > 18.5
+|   |   |   |   |   |   |   |   |   po_G <= 1.5: yes (2.0)
+|   |   |   |   |   |   |   |   |   po_G > 1.5: no (5.0/1.0)
+|   |   |   |   |   |   |   CSS_rank > 18: yes (2.0)
+|   |   |   |   |   Weight > 208.5: yes (8.0)
+|   |   |   |   CSS_rank > 28
+|   |   |   |   |   po_GP <= 5.5: no (11.0)
+|   |   |   |   |   po_GP > 5.5
+|   |   |   |   |   |   po_PlusMinus <= -3.5: no (5.0)
+|   |   |   |   |   |   po_PlusMinus > -3.5
+|   |   |   |   |   |   |   Weight <= 224
+|   |   |   |   |   |   |   |   rs_GP <= 69: no (6.0)
+|   |   |   |   |   |   |   |   rs_GP > 69
+|   |   |   |   |   |   |   |   |   po_G <= 1.5: no (2.0)
+|   |   |   |   |   |   |   |   |   po_G > 1.5: yes (3.0)
+|   |   |   |   |   |   |   Weight > 224: yes (4.0)
+|   |   po_PlusMinus > 0.5: no (24.0/1.0)
+|   country_group = EURO
+|   |   rs_A <= 30: no (133.0)
+|   |   rs_A > 30
+|   |   |   DraftAge <= 19.5
+|   |   |   |   po_GP <= 5.5: no (10.0)
+|   |   |   |   po_GP > 5.5
+|   |   |   |   |   Weight <= 205.5: no (2.0)
+|   |   |   |   |   Weight > 205.5: yes (2.0)
+|   |   |   DraftAge > 19.5: yes (2.0)
+|   country_group = USA
+|   |   rs_A <= 9.5: no (24.0)
+|   |   rs_A > 9.5
+|   |   |   Position = C
+|   |   |   |   po_G <= 0.5
+|   |   |   |   |   rs_GP <= 46: no (3.0)
+|   |   |   |   |   rs_GP > 46: yes (5.0)
+|   |   |   |   po_G > 0.5: no (2.0)
+|   |   |   Position = L: no (3.0/1.0)
+|   |   |   Position = D
+|   |   |   |   DraftAge <= 18.5
+|   |   |   |   |   Weight <= 203.5: no (2.0)
+|   |   |   |   |   Weight > 203.5: yes (4.0)
+|   |   |   |   DraftAge > 18.5
+|   |   |   |   |   Weight <= 200: yes (2.0)
+|   |   |   |   |   Weight > 200: no (2.0)
+|   |   |   Position = R: yes (7.0/1.0)
+rs_PlusMinus > -0.5
+|   rs_PlusMinus <= 0.5
+|   |   rs_GP <= 37.5
+|   |   |   rs_A <= 0.5: no (27.0)
+|   |   |   rs_A > 0.5
+|   |   |   |   rs_P <= 24.5
+|   |   |   |   |   rs_PIM <= 33.5
+|   |   |   |   |   |   country_group = CAN: no (16.0/2.0)
+|   |   |   |   |   |   country_group = EURO
+|   |   |   |   |   |   |   CSS_rank <= 0: no (22.0/3.0)
+|   |   |   |   |   |   |   CSS_rank > 0
+|   |   |   |   |   |   |   |   CSS_rank <= 10.5: yes (7.0)
+|   |   |   |   |   |   |   |   CSS_rank > 10.5
+|   |   |   |   |   |   |   |   |   DraftAge <= 19.5
+|   |   |   |   |   |   |   |   |   |   Weight <= 201: no (10.0/1.0)
+|   |   |   |   |   |   |   |   |   |   Weight > 201
+|   |   |   |   |   |   |   |   |   |   |   rs_G <= 3.5: yes (7.0)
+|   |   |   |   |   |   |   |   |   |   |   rs_G > 3.5
+|   |   |   |   |   |   |   |   |   |   |   |   rs_PIM <= 15: yes (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   rs_PIM > 15: no (6.0)
+|   |   |   |   |   |   |   |   |   DraftAge > 19.5: yes (2.0)
+|   |   |   |   |   |   country_group = USA
+|   |   |   |   |   |   |   rs_GP <= 27.5: no (13.0/1.0)
+|   |   |   |   |   |   |   rs_GP > 27.5
+|   |   |   |   |   |   |   |   CSS_rank <= 71: yes (19.0/5.0)
+|   |   |   |   |   |   |   |   CSS_rank > 71: no (7.0/1.0)
+|   |   |   |   |   rs_PIM > 33.5: no (39.0/4.0)
+|   |   |   |   rs_P > 24.5
+|   |   |   |   |   DraftAge <= 19.5
+|   |   |   |   |   |   rs_GP <= 23.5: no (6.0)
+|   |   |   |   |   |   rs_GP > 23.5
+|   |   |   |   |   |   |   country_group = CAN
+|   |   |   |   |   |   |   |   po_A <= 5
+|   |   |   |   |   |   |   |   |   DraftAge <= 18.5
+|   |   |   |   |   |   |   |   |   |   rs_A <= 17.5: yes (2.0)
+|   |   |   |   |   |   |   |   |   |   rs_A > 17.5: no (2.0)
+|   |   |   |   |   |   |   |   |   DraftAge > 18.5: yes (4.0)
+|   |   |   |   |   |   |   |   po_A > 5: no (2.0)
+|   |   |   |   |   |   |   country_group = EURO
+|   |   |   |   |   |   |   |   po_PIM <= 1
+|   |   |   |   |   |   |   |   |   rs_G <= 12: no (5.0/1.0)
+|   |   |   |   |   |   |   |   |   rs_G > 12: yes (11.0/3.0)
+|   |   |   |   |   |   |   |   po_PIM > 1: yes (7.0/1.0)
+|   |   |   |   |   |   |   country_group = USA
+|   |   |   |   |   |   |   |   CSS_rank <= 111
+|   |   |   |   |   |   |   |   |   Position = C
+|   |   |   |   |   |   |   |   |   |   DraftAge <= 18.5: no (2.0)
+|   |   |   |   |   |   |   |   |   |   DraftAge > 18.5
+|   |   |   |   |   |   |   |   |   |   |   Weight <= 193: no (3.0)
+|   |   |   |   |   |   |   |   |   |   |   Weight > 193: yes (4.0/1.0)
+|   |   |   |   |   |   |   |   |   Position = L
+|   |   |   |   |   |   |   |   |   |   Height <= 73: yes (2.0)
+|   |   |   |   |   |   |   |   |   |   Height > 73: no (4.0/1.0)
+|   |   |   |   |   |   |   |   |   Position = D
+|   |   |   |   |   |   |   |   |   |   Height <= 74.5: yes (6.0)
+|   |   |   |   |   |   |   |   |   |   Height > 74.5
+|   |   |   |   |   |   |   |   |   |   |   rs_GP <= 29: no (3.0)
+|   |   |   |   |   |   |   |   |   |   |   rs_GP > 29: yes (3.0)
+|   |   |   |   |   |   |   |   |   Position = R
+|   |   |   |   |   |   |   |   |   |   Height <= 72.5: yes (2.0)
+|   |   |   |   |   |   |   |   |   |   Height > 72.5: no (3.0)
+|   |   |   |   |   |   |   |   CSS_rank > 111: no (7.0)
+|   |   |   |   |   DraftAge > 19.5: yes (18.0/2.0)
+|   |   rs_GP > 37.5
+|   |   |   CSS_rank <= 62.5
+|   |   |   |   po_A <= 7.5
+|   |   |   |   |   CSS_rank <= 0
+|   |   |   |   |   |   DraftAge <= 22.5
+|   |   |   |   |   |   |   rs_GP <= 58.5
+|   |   |   |   |   |   |   |   country_group = CAN
+|   |   |   |   |   |   |   |   |   Height <= 75.5: no (32.0/8.0)
+|   |   |   |   |   |   |   |   |   Height > 75.5: yes (2.0)
+|   |   |   |   |   |   |   |   country_group = EURO
+|   |   |   |   |   |   |   |   |   po_A <= 4.5
+|   |   |   |   |   |   |   |   |   |   rs_P <= 39.5
+|   |   |   |   |   |   |   |   |   |   |   Position = C
+|   |   |   |   |   |   |   |   |   |   |   |   rs_G <= 18: yes (8.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   rs_G > 18: no (2.0)
+|   |   |   |   |   |   |   |   |   |   |   Position = L
+|   |   |   |   |   |   |   |   |   |   |   |   po_PIM <= 16
+|   |   |   |   |   |   |   |   |   |   |   |   |   rs_P <= 33.5: yes (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   rs_P > 33.5: no (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   po_PIM > 16: no (2.0)
+|   |   |   |   |   |   |   |   |   |   |   Position = D
+|   |   |   |   |   |   |   |   |   |   |   |   po_G <= 0.5
+|   |   |   |   |   |   |   |   |   |   |   |   |   rs_A <= 9.5: no (6.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   rs_A > 9.5: yes (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   po_G > 0.5
+|   |   |   |   |   |   |   |   |   |   |   |   |   po_A <= 1.5: yes (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   po_A > 1.5: no (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   Position = R: yes (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   rs_P > 39.5: no (4.0)
+|   |   |   |   |   |   |   |   |   po_A > 4.5: yes (4.0)
+|   |   |   |   |   |   |   |   country_group = USA
+|   |   |   |   |   |   |   |   |   rs_G <= 27
+|   |   |   |   |   |   |   |   |   |   po_G <= 0.5
+|   |   |   |   |   |   |   |   |   |   |   Position = C
+|   |   |   |   |   |   |   |   |   |   |   |   Weight <= 194.5: no (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   Weight > 194.5: yes (5.0)
+|   |   |   |   |   |   |   |   |   |   |   Position = L: no (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   Position = D
+|   |   |   |   |   |   |   |   |   |   |   |   DraftAge <= 19.5: no (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   DraftAge > 19.5: yes (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   Position = R: yes (1.0)
+|   |   |   |   |   |   |   |   |   |   po_G > 0.5: no (3.0)
+|   |   |   |   |   |   |   |   |   rs_G > 27: yes (5.0)
+|   |   |   |   |   |   |   rs_GP > 58.5
+|   |   |   |   |   |   |   |   po_PlusMinus <= -0.5: no (4.0/1.0)
+|   |   |   |   |   |   |   |   po_PlusMinus > -0.5: yes (51.0/9.0)
+|   |   |   |   |   |   DraftAge > 22.5
+|   |   |   |   |   |   |   po_GP <= 1
+|   |   |   |   |   |   |   |   rs_GP <= 51.5: no (2.0)
+|   |   |   |   |   |   |   |   rs_GP > 51.5: yes (3.0)
+|   |   |   |   |   |   |   po_GP > 1: yes (49.0)
+|   |   |   |   |   CSS_rank > 0: yes (318.0/34.0)
+|   |   |   |   po_A > 7.5: yes (56.0)
+|   |   |   CSS_rank > 62.5
+|   |   |   |   rs_GP <= 60.5
+|   |   |   |   |   Position = C
+|   |   |   |   |   |   DraftAge <= 18.5
+|   |   |   |   |   |   |   rs_G <= 24.5: yes (6.0)
+|   |   |   |   |   |   |   rs_G > 24.5
+|   |   |   |   |   |   |   |   Weight <= 194: no (4.0)
+|   |   |   |   |   |   |   |   Weight > 194: yes (3.0/1.0)
+|   |   |   |   |   |   DraftAge > 18.5
+|   |   |   |   |   |   |   Height <= 72.5
+|   |   |   |   |   |   |   |   Weight <= 188: no (5.0)
+|   |   |   |   |   |   |   |   Weight > 188: yes (6.0/1.0)
+|   |   |   |   |   |   |   Height > 72.5: no (10.0)
+|   |   |   |   |   Position = L
+|   |   |   |   |   |   po_A <= 11
+|   |   |   |   |   |   |   rs_A <= 23.5
+|   |   |   |   |   |   |   |   DraftAge <= 18.5: no (8.0/1.0)
+|   |   |   |   |   |   |   |   DraftAge > 18.5: yes (8.0/1.0)
+|   |   |   |   |   |   |   rs_A > 23.5: no (11.0)
+|   |   |   |   |   |   po_A > 11: yes (3.0)
+|   |   |   |   |   Position = D
+|   |   |   |   |   |   country_group = CAN
+|   |   |   |   |   |   |   rs_G <= 4.5: yes (4.0)
+|   |   |   |   |   |   |   rs_G > 4.5
+|   |   |   |   |   |   |   |   Weight <= 206: no (8.0/1.0)
+|   |   |   |   |   |   |   |   Weight > 206: yes (3.0)
+|   |   |   |   |   |   country_group = EURO
+|   |   |   |   |   |   |   Height <= 74.5: no (5.0/1.0)
+|   |   |   |   |   |   |   Height > 74.5: yes (5.0/1.0)
+|   |   |   |   |   |   country_group = USA
+|   |   |   |   |   |   |   rs_GP <= 40.5: yes (3.0)
+|   |   |   |   |   |   |   rs_GP > 40.5
+|   |   |   |   |   |   |   |   Height <= 71.5: yes (4.0/1.0)
+|   |   |   |   |   |   |   |   Height > 71.5
+|   |   |   |   |   |   |   |   |   po_G <= 0.5: no (20.0/1.0)
+|   |   |   |   |   |   |   |   |   po_G > 0.5: yes (3.0/1.0)
+|   |   |   |   |   Position = R
+|   |   |   |   |   |   CSS_rank <= 72.5: no (5.0/1.0)
+|   |   |   |   |   |   CSS_rank > 72.5: yes (29.0/8.0)
+|   |   |   |   rs_GP > 60.5: yes (42.0/8.0)
+|   rs_PlusMinus > 0.5
+|   |   rs_A <= 20.5
+|   |   |   country_group = CAN
+|   |   |   |   po_PIM <= 20.5
+|   |   |   |   |   Position = C
+|   |   |   |   |   |   rs_GP <= 69.5: no (11.0/1.0)
+|   |   |   |   |   |   rs_GP > 69.5: yes (3.0)
+|   |   |   |   |   Position = L: no (15.0/1.0)
+|   |   |   |   |   Position = D
+|   |   |   |   |   |   po_PIM <= 3: no (17.0)
+|   |   |   |   |   |   po_PIM > 3
+|   |   |   |   |   |   |   po_A <= 1.5
+|   |   |   |   |   |   |   |   po_GP <= 6.5
+|   |   |   |   |   |   |   |   |   Weight <= 216.5
+|   |   |   |   |   |   |   |   |   |   po_PIM <= 7: yes (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   po_PIM > 7: no (6.0)
+|   |   |   |   |   |   |   |   |   Weight > 216.5: yes (3.0)
+|   |   |   |   |   |   |   |   po_GP > 6.5: no (16.0)
+|   |   |   |   |   |   |   po_A > 1.5
+|   |   |   |   |   |   |   |   rs_G <= 2: yes (3.0)
+|   |   |   |   |   |   |   |   rs_G > 2
+|   |   |   |   |   |   |   |   |   CSS_rank <= 40.5: yes (4.0/1.0)
+|   |   |   |   |   |   |   |   |   CSS_rank > 40.5: no (8.0)
+|   |   |   |   |   Position = R: no (8.0)
+|   |   |   |   po_PIM > 20.5
+|   |   |   |   |   rs_G <= 16.5
+|   |   |   |   |   |   po_P <= 1.5: no (3.0)
+|   |   |   |   |   |   po_P > 1.5: yes (11.0/1.0)
+|   |   |   |   |   rs_G > 16.5: no (6.0)
+|   |   |   country_group = EURO: no (171.0/2.0)
+|   |   |   country_group = USA
+|   |   |   |   po_G <= 1.5: no (48.0/3.0)
+|   |   |   |   po_G > 1.5
+|   |   |   |   |   DraftAge <= 18.5: yes (3.0)
+|   |   |   |   |   DraftAge > 18.5: no (2.0)
+|   |   rs_A > 20.5
+|   |   |   country_group = CAN
+|   |   |   |   po_A <= 11.5
+|   |   |   |   |   Weight <= 205.5
+|   |   |   |   |   |   po_PIM <= 35.5
+|   |   |   |   |   |   |   po_P <= 3.5
+|   |   |   |   |   |   |   |   po_G <= 1.5
+|   |   |   |   |   |   |   |   |   rs_G <= 36.5: no (30.0/1.0)
+|   |   |   |   |   |   |   |   |   rs_G > 36.5: yes (4.0/1.0)
+|   |   |   |   |   |   |   |   po_G > 1.5
+|   |   |   |   |   |   |   |   |   rs_G <= 21: no (2.0)
+|   |   |   |   |   |   |   |   |   rs_G > 21: yes (4.0)
+|   |   |   |   |   |   |   po_P > 3.5
+|   |   |   |   |   |   |   |   rs_GP <= 74.5
+|   |   |   |   |   |   |   |   |   Position = C
+|   |   |   |   |   |   |   |   |   |   po_PlusMinus <= 0.5: yes (28.0/13.0)
+|   |   |   |   |   |   |   |   |   |   po_PlusMinus > 0.5: no (10.0/1.0)
+|   |   |   |   |   |   |   |   |   Position = L
+|   |   |   |   |   |   |   |   |   |   po_GP <= 10: yes (4.0)
+|   |   |   |   |   |   |   |   |   |   po_GP > 10
+|   |   |   |   |   |   |   |   |   |   |   po_G <= 5.5: no (8.0)
+|   |   |   |   |   |   |   |   |   |   |   po_G > 5.5: yes (5.0/1.0)
+|   |   |   |   |   |   |   |   |   Position = D
+|   |   |   |   |   |   |   |   |   |   po_PIM <= 7: yes (5.0)
+|   |   |   |   |   |   |   |   |   |   po_PIM > 7
+|   |   |   |   |   |   |   |   |   |   |   Height <= 71: yes (2.0)
+|   |   |   |   |   |   |   |   |   |   |   Height > 71
+|   |   |   |   |   |   |   |   |   |   |   |   rs_A <= 23.5: yes (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   rs_A > 23.5: no (5.0)
+|   |   |   |   |   |   |   |   |   Position = R
+|   |   |   |   |   |   |   |   |   |   CSS_rank <= 43.5: no (11.0)
+|   |   |   |   |   |   |   |   |   |   CSS_rank > 43.5
+|   |   |   |   |   |   |   |   |   |   |   DraftAge <= 18.5: no (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   DraftAge > 18.5: yes (2.0)
+|   |   |   |   |   |   |   |   rs_GP > 74.5: yes (7.0)
+|   |   |   |   |   |   po_PIM > 35.5: yes (7.0)
+|   |   |   |   |   Weight > 205.5
+|   |   |   |   |   |   Position = C
+|   |   |   |   |   |   |   po_PIM <= 7: no (5.0/1.0)
+|   |   |   |   |   |   |   po_PIM > 7: yes (7.0)
+|   |   |   |   |   |   Position = L
+|   |   |   |   |   |   |   po_PlusMinus <= 2: yes (4.0)
+|   |   |   |   |   |   |   po_PlusMinus > 2: no (2.0)
+|   |   |   |   |   |   Position = D
+|   |   |   |   |   |   |   Weight <= 232: yes (15.0/1.0)
+|   |   |   |   |   |   |   Weight > 232: no (2.0)
+|   |   |   |   |   |   Position = R: yes (9.0/1.0)
+|   |   |   |   po_A > 11.5
+|   |   |   |   |   Weight <= 178: no (2.0)
+|   |   |   |   |   Weight > 178: yes (22.0/1.0)
+|   |   |   country_group = EURO: no (83.0/12.0)
+|   |   |   country_group = USA
+|   |   |   |   Weight <= 209.5
+|   |   |   |   |   po_G <= 6.5
+|   |   |   |   |   |   rs_A <= 29.5: no (18.0/1.0)
+|   |   |   |   |   |   rs_A > 29.5
+|   |   |   |   |   |   |   Position = C
+|   |   |   |   |   |   |   |   Height <= 72.5: no (5.0)
+|   |   |   |   |   |   |   |   Height > 72.5: yes (2.0)
+|   |   |   |   |   |   |   Position = L
+|   |   |   |   |   |   |   |   rs_GP <= 43.5: no (2.0)
+|   |   |   |   |   |   |   |   rs_GP > 43.5: yes (2.0)
+|   |   |   |   |   |   |   Position = D: yes (5.0/1.0)
+|   |   |   |   |   |   |   Position = R: yes (5.0/2.0)
+|   |   |   |   |   po_G > 6.5: yes (4.0)
+|   |   |   |   Weight > 209.5: yes (13.0/1.0)
+
+Number of Leaves  : 	174
+
+Size of the tree : 	322
+
+
+Time taken to build model: 0.05 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        1636               74.3975 %
+Incorrectly Classified Instances       563               25.6025 %
+Kappa statistic                          0.4792
+Mean absolute error                      0.2852
+Root mean squared error                  0.4644
+Relative absolute error                 57.9138 %
+Root relative squared error             93.5854 %
+Total Number of Instances             2199     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.778    0.300    0.769      0.778    0.773      0.479    0.769     0.767     no
+                 0.700    0.222    0.711      0.700    0.706      0.479    0.769     0.673     yes
+Weighted Avg.    0.744    0.266    0.744      0.744    0.744      0.479    0.769     0.726     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 961 274 |   a = no
+ 289 675 |   b = yes
+
