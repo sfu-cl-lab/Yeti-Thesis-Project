@@ -10,7 +10,7 @@
 + Record each players demographic info, draft info as well as his season stats for the last season he played before he got drafted into NHL.
 + The data is written to database as table "`chao_draft.NHL_skaters_stats_1998_2008_original`" (referred as `table_2`).
 + Total number of distinct skaters in `talbe_2` is 1106.
-+ Note that skaters in `table_1` and `table_2` have played greater than zero game in NHL. NHL.com does not have statistics for players who got drafted into NHL but didn't play any games in NHL, which is available in Step 3.
++ Note that skaters in `table_1` and `table_2` have played greater than zero game in NHL. 
 + Based on PlayerId, eliminate season stats for skaters who got drafted outside the draft year range of 1998-2008 in `table_1`, save the season stats of our interest as 
 view "`chao_draft.NHL_season_stats_for_skaters_drafted_1998_2008_view`" (referred as `view_3`) and table "`chao_draft.NHL_season_stats_for_skaters_drafted_1998_2008`" (referred as `table_3`).
 + Note: `table_3` contains skaters who got drafted within the draft year range of our interest BUT DID NOT PLAY games in their first 7 seasons in NHL. To be exact, there are 28 of them didn't play games in NHL until their 8th season or later on.
@@ -122,11 +122,12 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
 + Join skaters stats with seasons stats in one row, saved as view"`chao_draft.join_skater_and_season_stats_10_years_view`" (referred as `view_17`).
 + Materialize `view_17` as table "`chao_draft.join_skater_and_season_stats_10_years`" (referred as `table_17`). Add 'couutry_group' column (i.e. 'CAN', 'USA' or 'EURO') and 'GP_greater_than_0' column (i.e. 'yes' or 'no'). 
 
-#### Issue: unclear position for 46 skaters in view_17
+#### Issue solved: unclear position for 46 skaters in view_17
 + 46 skaters in view_17 have unclear positions (i.e. 'W' or 'F'). They are obtained from eliteprospects.com. 
 + Their information is saved as "`chao_draft.position_unclear_skaters_10_years_view`" (referred as view_17).
 + 28 of the 46 skaters have CSS_rank.
 + thedraftanalyst.com can provide specifict postition(i.e. 'L', 'R' or 'C') information for only some of the skaters.
++ Find these players' specific position from NHL.com and hockeydb.com.
 
 
 
