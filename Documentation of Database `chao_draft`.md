@@ -157,7 +157,7 @@ Save as `chao_draft.rerank_overall_2001/2/7/8` (referred as `table_19s`).
       FROM chao_draft.join_skater_and_season_stats_10_years_no_null_values,
         (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
       where DraftYear = 2002
-      order by Overall DESC
+      order by Overall ASC
       
 + calculte the true rankings for players based on their 7-year sum of GP/TOI. Save as `chao_draft`.`rank_sum_7yr_GP_2001/2/7/8` (referred as `table_20s`) and `chao_draft`.`rank_sum_7yr_TOI_2001/2/7/8` (referred as `table_21s`)
 
