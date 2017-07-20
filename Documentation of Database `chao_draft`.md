@@ -141,6 +141,7 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
 ### Step 10: predict formance of players 
 + use models to predict players who got drafted in 2001&2002 in cohort 1, and 2007&2008 in cohort 2, repectivley.
 + python code can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/Logistic_Model_Tree
-
++ When plugging players stats into the model, we need to replace missing values in `table_17` with 0 and save the new table as `chao_draft.join_skater_and_season_stats_10_years_no_null_values` (referred as `table_18`). 
++ The players' probabilty of playing games in NHL or not is written to database and saved as `chao_draft.lmt_prediction_1st_cohort` and `chao_draft.lmt_prediction_2nd_cohort`.
 
 
