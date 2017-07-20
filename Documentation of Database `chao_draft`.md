@@ -129,5 +129,12 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
 + thedraftanalyst.com can provide specifict postition(i.e. 'L', 'R' or 'C') information for only some of the skaters.
 + Find these players' specific position from NHL.com and hockeydb.com.
 
+### Step 9: run Logistic Model Tree(LMT) in Weka on table_17
++ The choice of dataset as the training dataset uses the same shema as in Schucker's paper, i.e. year 1998, 1999 and 2000 are used as training dataset for cohort 1; year 2004, 2005 and 2006 are used as training dataset for cohort 2.
++ Run Weka and read from database sever by following the instructions from here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/How%20to%20connect%20to%20MySql%20database%20in%20WEKA.md
++ Note: we keep the missing values as null because "LMT can deal with binary and multi-class target variables, numeric and nominal attributes and missing values".
++ Save two datasets as .arff files and rename as `skater_and_season_stats_GP0_first3years_cleaned.arff` and `skater_and_season_stats_GP0_second3years_cleaned.arff`, respectively. Weka data files and results are saved in the fold `weka_results` in this repository.
++ To run LMT on the above two datasets in Weka, under 'Classify' --> choose 'Classifier' --> 'trees' --> 'LMT'. Change the following settings for LMT: `doNotMakeSplitPointActualValue = True`, `numDecimalPlaces = 6`.   Under 'Test opstions' choose 'Use training set'. 
++ Run tests, save results as `results_first3years.txt` and `results_second3years.txt`, respectively, saved in the same folder 'weka_results'.
 
 
