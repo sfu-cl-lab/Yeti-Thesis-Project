@@ -144,4 +144,57 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
 + When plugging players stats into the model, we need to replace missing values in `table_17` with 0 and save the new table as `chao_draft.join_skater_and_season_stats_10_years_no_null_values` (referred as `table_18`). 
 + The players' probabilty of playing games in NHL or not is written to database and saved as `chao_draft.lmt_prediction_1st_cohort` and `chao_draft.lmt_prediction_2nd_cohort`.
 
+### Step 11: clean rankings with ties for Spearman rank correlation
++ clean the original discontinuous draft number/overall as we did take goalies into account.
+
+      create table chao_draft.rerank_overall_2002 as
+      SELECT id, PlayerName, DraftYear, Overall as original_overall,
+        @prev := @curr,
+        @curr := Overall,
+        @rank := IF(@prev = @curr, @rank, @rank + @i) AS skaters_overall,
+        IF(@prev <> Overall, @i:=1, @i:=@i+1) AS counter
+      FROM chao_draft.join_skater_and_season_stats_10_years_no_null_values,
+        (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
+      where DraftYear = 2002
+      order by Overall DESC
+      
++ calculte the true rankings  for a player based on their 7-year sum of GP/TOI:
+
+      create table chao_draft.rank_sum_7yr_GP_2002 as
+      SELECT id, PlayerName, DraftYear, sum_7yr_GP,
+        @prev := @curr,
+        @curr := sum_7yr_GP,
+        @rank := IF(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_GP,
+        IF(@prev <> sum_7yr_GP, @i:=1, @i:=@i+1) AS counter
+      FROM chao_draft.join_skater_and_season_stats_10_years_no_null_values,
+        (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
+      where DraftYear = 2002
+      order by sum_7yr_GP DESC;
+      
+      create table chao_draft.rank_sum_7yr_TOI_2002 as
+      SELECT id, PlayerName, DraftYear, sum_7yr_TOI,
+        @prev := @curr,
+        @curr := sum_7yr_TOI,
+        @rank := IF(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_TOI,
+        IF(@prev <> sum_7yr_TOI, @i:=1, @i:=@i+1) AS counter
+      FROM chao_draft.join_skater_and_season_stats_10_years_no_null_values,
+        (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
+      where DraftYear = 2002
+      order by sum_7yr_TOI DESC;
+      
+ + rank the predicitons given by LMT models
+
+         create table chao_draft.rank_lmt_prob_2002 as
+         SELECT id, PlayerName, DraftYear, class_0_prob,
+           @prev := @curr,
+           @curr := class_0_prob,
+           @rank := IF(@prev = @curr, @rank, @rank + @i) AS rank_prob,
+           IF(@prev <> class_0_prob, @i:=1, @i:=@i+1) AS counter
+         FROM chao_draft.lmt_prediction_1st_cohort,
+           (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
+         where DraftYear = 2002
+         order by class_0_prob DESC
+      
+      
+
 
