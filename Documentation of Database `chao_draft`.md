@@ -198,6 +198,9 @@ Save as `chao_draft.rerank_overall_2001/2/7/8` (referred as `table_19s`).
  
  + Union `table_19s`, `table_20s` and `table_21s`. Save as `chao_draft.union_overall_GP_TOI_1278_VIEW`(referred as `view_23`).
  + Union `table_22s`. Save as `chao_draft.union_rank_lmt_prob_1278_view`(referred as `view_24`).
+ + Union `view_23` and `view_24`, save as `chao_draft.union_all_ranks_view` (referred as `view_25`).
+ 
+ ### Step 12: Calculate Spearman Rank Correlation
   
 
 
