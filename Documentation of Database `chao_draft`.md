@@ -135,6 +135,12 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
 + Note: we keep the missing values as null because "LMT can deal with binary and multi-class target variables, numeric and nominal attributes and missing values".
 + Save two datasets as .arff files and rename as `skater_and_season_stats_GP0_first3years_cleaned.arff` and `skater_and_season_stats_GP0_second3years_cleaned.arff`, respectively. Weka data files and results are saved in the fold `weka_results` in this repository.
 + To run LMT on the above two datasets in Weka, under 'Classify' --> choose 'Classifier' --> 'trees' --> 'LMT'. Change the following settings for LMT: `doNotMakeSplitPointActualValue = True`, `numDecimalPlaces = 6`.   Under 'Test opstions' choose 'Use training set'. 
-+ Run tests, save results as `results_first3years.txt` and `results_second3years.txt`, respectively, saved in the same folder 'weka_results'.
++ Run tests, save weka outputs as `results_first3years.txt` and `results_second3years.txt`, respectively, saved in the same folder 'weka_results'.
++ Use the weights from the above two txt files to build models to predict player performance for cohort 1 & 2, repectively.
+
+### Step 10: predict formance of players 
++ use models to predict players who got drafted in 2001&2002 in cohort 1, and 2007&2008 in cohort 2, repectivley.
++ python code can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/Logistic_Model_Tree
+
 
 
