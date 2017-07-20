@@ -144,8 +144,9 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
 + When plugging players stats into the model, we need to replace missing values in `table_17` with 0 and save the new table as `chao_draft.join_skater_and_season_stats_10_years_no_null_values` (referred as `table_18`). 
 + The players' probabilty of playing games in NHL or not is written to database and saved as `chao_draft.lmt_prediction_1st_cohort` and `chao_draft.lmt_prediction_2nd_cohort`.
 
-### Step 11: clean rankings with ties for Spearman rank correlation
-+ clean the original discontinuous draft number/overall as we did take goalies into account.
+### Step 11: calculate rankings with ties for Spearman rank correlation
++ clean the original discontinuous draft number/overall for year 01, 02, 07 & 08 as we didn't take goalies into account.
+Save as `chao_draft.rerank_overall_2001/2/7/8` (referred as `table_19s`).
 
       create table chao_draft.rerank_overall_2002 as
       SELECT id, PlayerName, DraftYear, Overall as original_overall,
@@ -158,7 +159,7 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
       where DraftYear = 2002
       order by Overall DESC
       
-+ calculte the true rankings  for a player based on their 7-year sum of GP/TOI:
++ calculte the true rankings for players based on their 7-year sum of GP/TOI. Save as `chao_draft`.`rank_sum_7yr_GP_2001/2/7/8` (referred as `table_20s`) and `chao_draft`.`rank_sum_7yr_TOI_2001/2/7/8` (referred as `table_21s`)
 
       create table chao_draft.rank_sum_7yr_GP_2002 as
       SELECT id, PlayerName, DraftYear, sum_7yr_GP,
@@ -182,7 +183,7 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
       where DraftYear = 2002
       order by sum_7yr_TOI DESC;
       
- + rank the predicitons given by LMT models
+ + rank the predicitons given by LMT models. `chao_draft`.`rank_lmt_prob_2001/2/7/8` (referred as `table_22s`)
 
          create table chao_draft.rank_lmt_prob_2002 as
          SELECT id, PlayerName, DraftYear, class_0_prob,
@@ -194,7 +195,9 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
            (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
          where DraftYear = 2002
          order by class_0_prob DESC
-      
-      
+ 
+ + Union `table_19s`, `table_20s` and `table_21s`. Save as `chao_draft.union_overall_GP_TOI_1278_VIEW`(referred as `view_23`).
+ + Union `table_22s`. Save as `chao_draft.union_rank_lmt_prob_1278_view`(referred as `view_24`).
+  
 
 
