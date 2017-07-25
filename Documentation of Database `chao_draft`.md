@@ -214,7 +214,9 @@ Save as `chao_draft.rerank_overall_2001/2/7/8` (referred as `table_19s`).
 + M5P input .arff files and outputs are saved in: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Weka_Decision_Tree/M5P 
 
 
-### Step 16: select top 67% players in LMT probability rank for M5P decision tree
+### Step 16: select top 50% players from LMT probability rank for M5P decision tree
++ Join `table_18`with `table_22s` on selecting the top 50% players in LMT rank to get views `chao_draft.m5p_test_set_2001_view`, `chao_draft.m5p_test_set_2002_view`, `chao_draft.m5p_test_set_2007_view` and `chao_draft.m5p_test_set_2008_view` (`view_29s`).
++ Join view_29s to get views `chao_draft`.`m5p_test_set_1st_cohort_view` (`view_30`) and `chao_draft`.`m5p_test_set_2nd_cohort_view` (`view_31`).
 
   
 
