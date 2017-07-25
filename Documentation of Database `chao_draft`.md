@@ -202,5 +202,20 @@ Save as `chao_draft.rerank_overall_2001/2/7/8` (referred as `table_19s`).
  
  ### Step 12: Calculate Spearman Rank Correlation
   
+### Step 13: LMT FOR 3 CLASSES
+
+### Step 14: LMT FOR 3 CLASSES
+
+### Step 15: Build M5P dicision tree model with training dataset
++ M5P in weka can deal with missing values, training dataset only contain skaters who played greater than 0 games in NHL.
++ Create view `chao_draft.m5p_training_set_1st_cohort_view` (`view_27`) and `chao_draft.m5p_training_set_2nd_cohort_view` (`view_28`) based on `table_17`.
++ There are 305 and 282 skaters in `view_27` and `view_28`, respectively.
++ M5P decision tree settings are as follows: numDecimalPlaces = 6, buildRegressionTree = False, unpruned = False, etc.
++ M5P input .arff files and outputs are saved in: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Weka_Decision_Tree/M5P 
+
+
+### Step 16: select top 67% players in LMT probability rank for M5P decision tree
+
+  
 
 
