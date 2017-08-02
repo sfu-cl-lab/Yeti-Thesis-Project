@@ -198,26 +198,31 @@ Save as `chao_draft.rerank_overall_2001/2/7/8` (referred as `table_19s`).
  
  + Union `table_19s`, `table_20s` and `table_21s`. Save as `chao_draft.union_overall_GP_TOI_1278_VIEW`(referred as `view_23`).
  + Union `table_22s`. Save as `chao_draft.union_rank_lmt_prob_1278_view`(referred as `view_24`).
- + Union `view_23` and `view_24`, save as `chao_draft.union_all_ranks_view` (referred as `view_25`).
+
  
- ### Step 12: Calculate Spearman Rank Correlation
-  
-### Step 13: LMT FOR 3 CLASSES
+### Step 12: run 3-class Logistic Model Tree(LMT) in Weka on the new table_17
++ Add 3-class labels in `table_17` as "Good" for sum_7yr_GP = 0, "Better" for 1 <= sum_7yr_GP < 160, & "Better" for sum_7yr_GP >= 160
++ Use the same schema when dividing dataset into training and test datasets.
++ Use the same settings in Weka as in Step 9.
++ Results are saved in https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Weka_Decision_Tree/LMT
 
-### Step 14: LMT FOR 3 CLASSES
-
-### Step 15: Build M5P dicision tree model with training dataset
-+ M5P in weka can deal with missing values, training dataset only contain skaters who played greater than 0 games in NHL.
+### Step 13: Build M5P dicision tree model with training dataset
++ M5P in weka can also deal with missing values. The training dataset should only contain skaters who played greater than 0 games in NHL.
 + Create view `chao_draft.m5p_training_set_1st_cohort_view` (`view_27`) and `chao_draft.m5p_training_set_2nd_cohort_view` (`view_28`) based on `table_17`.
 + There are 305 and 282 skaters in `view_27` and `view_28`, respectively.
 + M5P decision tree settings are as follows: numDecimalPlaces = 6, buildRegressionTree = False, unpruned = False, etc.
 + M5P input .arff files and outputs are saved in: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Weka_Decision_Tree/M5P 
 
+### Step 14: Select players with LMT probability >= 0.5 as M5P test set
++ Join `table_18`with `table_22s` on selecting players with LMT probability >= 0.5 to get views `chao_draft.m5p_test_set_2001_view`, `chao_draft.m5p_test_set_2002_view`, `chao_draft.m5p_test_set_2007_view` and `chao_draft.m5p_test_set_2008_view` (`view_29s`).
++ Need to normalize data by running python code. Then calculate predected sum_7yr_GP with training model. Code can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/M5P_Model_Tree
++ Results are written back to database as `chao_draft.rank_m5p_prob_2001`, `chao_draft.rank_m5p_prob_2002`, `chao_draft.rank_m5p_prob_2007` and `chao_draft.rank_m5p_prob_2008` (`table_30s`)
++ Union `table_30s` to get `chao_draft.union_rank_m5p_prob_1278_view` (`view_31`)
++ Union `view_23`, `view_24` and `view_31`, save as `chao_draft.union_all_ranks_view` (referred as `view_32`).
 
-### Step 16: select top 50% players from LMT probability rank for M5P decision tree
-+ Join `table_18`with `table_22s` on selecting the top 50% players in LMT rank to get views `chao_draft.m5p_test_set_2001_view`, `chao_draft.m5p_test_set_2002_view`, `chao_draft.m5p_test_set_2007_view` and `chao_draft.m5p_test_set_2008_view` (`view_29s`).
-+ Join view_29s to get views `chao_draft`.`m5p_test_set_1st_cohort_view` (`view_30`) and `chao_draft`.`m5p_test_set_2nd_cohort_view` (`view_31`).
 
-  
-
+### Step 15: Calculate Spearman Rank Correlation
++ The following link is a guide to calculating Spearman rank correlation: https://statistics.laerd.com/statistical-guides/spearmans-rank-order-correlation-statistical-guide.php
++ Because we have ties in ranking sum_7yr_GP/TOI & lmt_probability, the corresponding equation for ties were used in our calculation.
++ Results are saved in:
 
