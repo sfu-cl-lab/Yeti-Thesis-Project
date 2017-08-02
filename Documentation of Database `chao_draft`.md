@@ -216,10 +216,11 @@ Save as `chao_draft.rerank_overall_2001/2/7/8` (referred as `table_19s`).
 ### Step 14: Select players with LMT probability >= 0.5 as M5P test set
 + Join `table_18`with `table_22s` on selecting players with LMT probability >= 0.5 to get views `chao_draft.m5p_test_set_2001_view`, `chao_draft.m5p_test_set_2002_view`, `chao_draft.m5p_test_set_2007_view` and `chao_draft.m5p_test_set_2008_view` (`view_29s`).
 + Need to normalize data by running python code. Then calculate predected sum_7yr_GP with training model. Code can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/M5P_Model_Tree
-+ Results are written back to database as `chao_draft.rank_m5p_prob_2001`, `chao_draft.rank_m5p_prob_2002`, `chao_draft.rank_m5p_prob_2007` and `chao_draft.rank_m5p_prob_2008` (`table_30s`)
-+ Union `table_30s` to get `chao_draft.union_rank_m5p_prob_1278_view` (`view_31`)
-+ Union `view_23`, `view_24` and `view_31`, save as `chao_draft.union_all_ranks_view` (referred as `view_32`).
-
++ Results are written back to database as `chao_draft`.`m5p_prediction_1st_cohort` & `chao_draft`.`m5p_prediction_2nd_cohort` (`table_30s`)
++ Rank predicted 7-year GP given by M5P model and obtain `chao_draft.rank_m5p_prob_2001`, `chao_draft.rank_m5p_prob_2002`, `chao_draft.rank_m5p_prob_2007` and `chao_draft.rank_m5p_prob_2008` (`table_31s`)
++ Note: Those player who have LMT probabilty < 0.5, are ranked together with players in table_31s and tied at at the bottom in order to calculate Spearman rank correlation 
++ Union `table_30s` to get `chao_draft.union_rank_m5p_prob_1278_view` (`view_32`)
++ Union `view_23`, `view_24` and `view_31`, save as `chao_draft.union_all_ranks_view` (referred as `view_33`).
 
 ### Step 15: Calculate Spearman Rank Correlation
 + The following link is a guide to calculating Spearman rank correlation: https://statistics.laerd.com/statistical-guides/spearmans-rank-order-correlation-statistical-guide.php
