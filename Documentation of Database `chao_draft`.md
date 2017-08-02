@@ -225,5 +225,5 @@ Save as `chao_draft.rerank_overall_2001/2/7/8` (referred as `table_19s`).
 ### Step 15: Calculate Spearman Rank Correlation
 + The following link is a guide to calculating Spearman rank correlation: https://statistics.laerd.com/statistical-guides/spearmans-rank-order-correlation-statistical-guide.php
 + Because we have ties in ranking sum_7yr_GP/TOI & lmt_probability, the corresponding equation for ties were used in our calculation.
-+ Results are saved in:
++ Results are saved in: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Weka_Decision_Tree/Spearman_rank_correlation
 
