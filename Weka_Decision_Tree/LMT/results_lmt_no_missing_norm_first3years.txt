@@ -1,0 +1,218 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.LMT -I -1 -M 15 -W 0.0 -doNotMakeSplitPointActualValue -num-decimal-places 6
+Relation:     QueryResult-weka.filters.unsupervised.attribute.Remove-R1-2,4,9-10,24-25-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0
+Instances:    699
+Attributes:   19
+              DraftAge
+              country_group
+              Height
+              Weight
+              Position
+              CSS_rank
+              rs_GP
+              rs_G
+              rs_A
+              rs_P
+              rs_PIM
+              rs_PlusMinus
+              po_GP
+              po_G
+              po_A
+              po_P
+              po_PIM
+              po_PlusMinus
+              GP_greater_than_0
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+Logistic model tree 
+------------------
+
+po_PlusMinus <= 0.354167: LM_1:4/8 (74)
+po_PlusMinus > 0.354167
+|   po_PlusMinus <= 0.395833
+|   |   rs_PlusMinus <= 0.561475: LM_2:4/16 (71)
+|   |   rs_PlusMinus > 0.561475
+|   |   |   rs_PlusMinus <= 0.569672: LM_3:4/20 (436)
+|   |   |   rs_PlusMinus > 0.569672: LM_4:4/20 (74)
+|   po_PlusMinus > 0.395833: LM_5:4/12 (44)
+
+Number of Leaves  : 	5
+
+Size of the Tree : 	9
+
+LM_1:
+Class 0 :
+3.193273 + 
+[DraftAge] * -1.603546 +
+[Weight] * -1.481445 +
+[CSS_rank] * 0.71956  +
+[rs_A] * 0.827465 +
+[rs_P] * -1.550749
+
+Class 1 :
+-3.193273 + 
+[DraftAge] * 1.603546 +
+[Weight] * 1.481445 +
+[CSS_rank] * -0.71956 +
+[rs_A] * -0.827465 +
+[rs_P] * 1.550749
+
+
+
+LM_2:
+Class 0 :
+2.792369 + 
+[DraftAge] * -2.744192 +
+[country_group=EURO] * 0.149136 +
+[Weight] * -1.545245 +
+[CSS_rank] * 0.857014 +
+[rs_GP] * -1.084498 +
+[rs_P] * -1.550749 +
+[rs_PIM] * -2.428723 +
+[rs_PlusMinus] * -1.672167 +
+[po_GP] * -0.688455 +
+[po_P] * -1.569313 +
+[po_PIM] * -14.533997 +
+[po_PlusMinus] * 6.906507
+
+Class 1 :
+-2.792369 + 
+[DraftAge] * 2.744192 +
+[country_group=EURO] * -0.149136 +
+[Weight] * 1.545245 +
+[CSS_rank] * -0.857014 +
+[rs_GP] * 1.084498 +
+[rs_P] * 1.550749 +
+[rs_PIM] * 2.428723 +
+[rs_PlusMinus] * 1.672167 +
+[po_GP] * 0.688455 +
+[po_P] * 1.569313 +
+[po_PIM] * 14.533997 +
+[po_PlusMinus] * -6.906507
+
+
+LM_3:
+Class 0 :
+-6.64114 + 
+[DraftAge] * -2.744192 +
+[country_group=EURO] * -0.212107 +
+[country_group=CAN] * -0.329426 +
+[Height] * 0.630752 +
+[Weight] * -2.289088 +
+[CSS_rank] * 1.461598 +
+[rs_GP] * -1.698528 +
+[rs_P] * -1.550749 +
+[rs_PlusMinus] * 9.690418 +
+[po_GP] * -0.688455 +
+[po_P] * -1.569313 +
+[po_PlusMinus] * 6.906507
+
+Class 1 :
+6.64114  + 
+[DraftAge] * 2.744192 +
+[country_group=EURO] * 0.212107 +
+[country_group=CAN] * 0.329426 +
+[Height] * -0.630752 +
+[Weight] * 2.289088 +
+[CSS_rank] * -1.461598 +
+[rs_GP] * 1.698528 +
+[rs_P] * 1.550749 +
+[rs_PlusMinus] * -9.690418 +
+[po_GP] * 0.688455 +
+[po_P] * 1.569313 +
+[po_PlusMinus] * -6.906507
+
+LM_4:
+Class 0 :
+2.516093 + 
+[DraftAge] * -2.744192 +
+[country_group=EURO] * 0.149136 +
+[country_group=CAN] * -0.329426 +
+[Weight] * -1.545245 +
+[CSS_rank] * -0.501161 +
+[rs_GP] * -1.698528 +
+[rs_P] * -1.550749 +
+[rs_PlusMinus] * -0.828339 +
+[po_GP] * -0.688455 +
+[po_P] * -1.569313 +
+[po_PIM] * -3.522389 +
+[po_PlusMinus] * 6.906507
+
+Class 1 :
+-2.516093 + 
+[DraftAge] * 2.744192 +
+[country_group=EURO] * -0.149136 +
+[country_group=CAN] * 0.329426 +
+[Weight] * 1.545245 +
+[CSS_rank] * 0.501161 +
+[rs_GP] * 1.698528 +
+[rs_P] * 1.550749 +
+[rs_PlusMinus] * 0.828339 +
+[po_GP] * 0.688455 +
+[po_P] * 1.569313 +
+[po_PIM] * 3.522389 +
+[po_PlusMinus] * -6.906507
+
+LM_5:
+Class 0 :
+1.156639 + 
+[DraftAge] * -1.603546 +
+[country_group=EURO] * 0.287865 +
+[Weight] * -1.545245 +
+[Position=D] * -0.008604 +
+[Position=R] * 0.079061 +
+[CSS_rank] * 0.857014 +
+[rs_GP] * -1.084498 +
+[rs_P] * -1.550749 +
+[po_GP] * 0.063978 +
+[po_P] * -1.569313 +
+[po_PlusMinus] * 6.906507
+
+Class 1 :
+-1.156639 + 
+[DraftAge] * 1.603546 +
+[country_group=EURO] * -0.287865 +
+[Weight] * 1.545245 +
+[Position=D] * 0.008604 +
+[Position=R] * -0.079061 +
+[CSS_rank] * -0.857014 +
+[rs_GP] * 1.084498 +
+[rs_P] * 1.550749 +
+[po_GP] * -0.063978 +
+[po_P] * 1.569313 +
+[po_PlusMinus] * -6.906507
+
+
+Time taken to build model: 0.52 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0.01 seconds
+
+=== Summary ===
+
+Correctly Classified Instances         623               89.1273 %
+Incorrectly Classified Instances        76               10.8727 %
+Kappa statistic                          0.7807
+Mean absolute error                      0.1723
+Root mean squared error                  0.286 
+Relative absolute error                 35.0214 %
+Root relative squared error             57.6745 %
+Total Number of Instances              699     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.876    0.089    0.927      0.876    0.901      0.782    0.956     0.971     no
+                 0.911    0.124    0.850      0.911    0.880      0.782    0.956     0.936     yes
+Weighted Avg.    0.891    0.104    0.894      0.891    0.892      0.782    0.956     0.956     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 345  49 |   a = no
+  27 278 |   b = yes
+
