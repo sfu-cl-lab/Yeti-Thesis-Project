@@ -1,8 +1,8 @@
 === Run information ===
 
 Scheme:       weka.classifiers.trees.M5P -M 4.0 -num-decimal-places 6
-Relation:     QueryResult-weka.filters.unsupervised.attribute.Remove-R1-2,4,24-26-weka.filters.unsupervised.attribute.Remove-R6-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0
-Instances:    1003
+Relation:     QueryResult-weka.filters.unsupervised.attribute.Remove-R1-2,4,9-10,25-26-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0
+Instances:    629
 Attributes:   19
               DraftAge
               country_group
@@ -30,35 +30,37 @@ Test mode:    evaluate on training data
 M5 pruned model tree:
 (using smoothed linear models)
 
-CSS_rank <= 0.075 : LM1 (124/90.191%)
-CSS_rank >  0.075 : LM2 (342/81.299%)
+CSS_rank <= 0.086 : LM1 (126/97.805%)
+CSS_rank >  0.086 : LM2 (503/76.674%)
 
 LM num: 1
 sum_7yr_GP = 
-	11.7097 * DraftAge 
-	- 12.1298 * Height 
-	+ 274.25 * Weight 
-	- 1935.1111 * CSS_rank 
-	+ 292.8574 * rs_A 
-	- 117.3567 * rs_PIM 
-	+ 260.3904 * rs_PlusMinus 
-	+ 8.8095 * po_A 
-	- 5.1619
+	14.5635 * DraftAge 
+	+ 33.5259 * country_group=USA,CAN 
+	- 11.8391 * Height 
+	+ 223.1182 * Weight 
+	- 2633.7843 * CSS_rank 
+	+ 315.3204 * rs_A 
+	- 149.9007 * rs_PIM 
+	+ 14.1907 * po_P 
+	+ 205.3851 * po_PlusMinus 
+	+ 27.7766
 
 LM num: 2
 sum_7yr_GP = 
-	143.928 * DraftAge 
-	- 113.9251 * Height 
-	+ 102.3741 * Weight 
-	- 6.8365 * CSS_rank 
-	+ 144.0081 * rs_A 
-	+ 4.1126 * rs_PlusMinus 
-	+ 3.43 * po_A 
-	+ 87.0956
+	139.3136 * DraftAge 
+	- 162.171 * Height 
+	+ 112.0546 * Weight 
+	- 35.2837 * CSS_rank 
+	+ 60.7059 * rs_A 
+	- 1.2068 * rs_PIM 
+	+ 85.1316 * po_A 
+	+ 3.8627 * po_P 
+	+ 77.4017
 
 Number of Rules : 2
 
-Time taken to build model: 0.13 seconds
+Time taken to build model: 0.09 seconds
 
 === Evaluation on training set ===
 
@@ -66,11 +68,10 @@ Time taken to test model on training data: 0 seconds
 
 === Summary ===
 
-Correlation coefficient                  0.5474
-Mean absolute error                     98.2521
-Root mean squared error                116.3289
-Relative absolute error                 82.1683 %
-Root relative squared error             83.7238 %
-Total Number of Instances              466     
-Ignored Class Unknown Instances                537     
+Correlation coefficient                  0.5814
+Mean absolute error                     68.9128
+Root mean squared error                 95.7343
+Relative absolute error                 76.5552 %
+Root relative squared error             81.4253 %
+Total Number of Instances              629     
 
