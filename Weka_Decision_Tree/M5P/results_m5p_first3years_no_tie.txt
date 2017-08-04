@@ -1,0 +1,118 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.M5P -M 4.0 -num-decimal-places 6
+Relation:     QueryResult-weka.filters.unsupervised.attribute.Remove-R1-2,4,9,24-26-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0
+Instances:    1197
+Attributes:   19
+              DraftAge
+              country_group
+              Height
+              Weight
+              Position
+              CSS_rank
+              rs_GP
+              rs_G
+              rs_A
+              rs_P
+              rs_PIM
+              rs_PlusMinus
+              po_GP
+              po_G
+              po_A
+              po_P
+              po_PIM
+              po_PlusMinus
+              sum_7yr_GP
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+M5 pruned model tree:
+(using smoothed linear models)
+
+CSS_rank <= 0.098 : 
+|   CSS_rank <= 0.017 : LM1 (39/91.54%)
+|   CSS_rank >  0.017 : LM2 (115/93.73%)
+CSS_rank >  0.098 : 
+|   Height <= 0.464 : LM3 (198/88.114%)
+|   Height >  0.464 : LM4 (146/67.026%)
+
+LM num: 1
+sum_7yr_GP = 
+	147.5844 * DraftAge 
+	- 8.2361 * Height 
+	+ 40.7756 * Weight 
+	+ 2.5907 * Position=D,C 
+	- 4297.0071 * CSS_rank 
+	+ 200.6307 * rs_GP 
+	+ 44.727 * rs_G 
+	+ 128.6211 * rs_A 
+	- 87.2936 * rs_P 
+	- 31.1189 * po_GP 
+	+ 30.6959 * po_G 
+	+ 11.4874 * po_A 
+	+ 130.6786
+
+LM num: 2
+sum_7yr_GP = 
+	61.3043 * DraftAge 
+	- 8.2361 * Height 
+	+ 22.9004 * Weight 
+	+ 2.5907 * Position=D,C 
+	- 170.7029 * CSS_rank 
+	+ 44.727 * rs_G 
+	+ 293.1329 * rs_A 
+	- 87.2936 * rs_P 
+	- 17.1386 * po_GP 
+	+ 12.7506 * po_G 
+	+ 11.4874 * po_A 
+	+ 94.4617
+
+LM num: 3
+sum_7yr_GP = 
+	2.8681 * DraftAge 
+	- 144.373 * Height 
+	+ 191.9288 * Weight 
+	+ 3.1484 * Position=D,C 
+	- 7.5881 * CSS_rank 
+	+ 24.3421 * rs_G 
+	+ 25.2931 * rs_A 
+	- 41.0936 * rs_P 
+	- 150.4007 * po_GP 
+	+ 270.2434 * po_A 
+	+ 91.4052
+
+LM num: 4
+sum_7yr_GP = 
+	110.2324 * DraftAge 
+	- 28.4681 * country_group=EURO,CAN 
+	- 19.6053 * Height 
+	+ 16.9776 * Weight 
+	+ 3.7714 * Position=D,C 
+	- 7.5881 * CSS_rank 
+	+ 94.6175 * rs_GP 
+	+ 25.4037 * rs_G 
+	- 91.7481 * rs_A 
+	- 41.0936 * rs_P 
+	- 10.0081 * po_GP 
+	+ 19.6727 * po_A 
+	+ 54.8476
+
+Number of Rules : 4
+
+Time taken to build model: 0.33 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0.01 seconds
+
+=== Summary ===
+
+Correlation coefficient                  0.5471
+Mean absolute error                     84.1011
+Root mean squared error                101.8191
+Relative absolute error                 80.8684 %
+Root relative squared error             83.8445 %
+Total Number of Instances              498     
+Ignored Class Unknown Instances                699     
+
