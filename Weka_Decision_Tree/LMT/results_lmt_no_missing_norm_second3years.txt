@@ -1,0 +1,612 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.LMT -I -1 -M 15 -W 0.0 -doNotMakeSplitPointActualValue -num-decimal-places 6
+Relation:     QueryResult-weka.filters.unsupervised.attribute.Remove-R1-2,4,9-10,24-25-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0
+Instances:    629
+Attributes:   19
+              DraftAge
+              country_group
+              Height
+              Weight
+              Position
+              CSS_rank
+              rs_GP
+              rs_G
+              rs_A
+              rs_P
+              rs_PIM
+              rs_PlusMinus
+              po_GP
+              po_G
+              po_A
+              po_P
+              po_PIM
+              po_PlusMinus
+              GP_greater_than_0
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+Logistic model tree 
+------------------
+
+CSS_rank <= 0.046185: LM_1:66/132 (72)
+CSS_rank > 0.046185
+|   rs_P <= 0.06117: LM_2:66/198 (97)
+|   rs_P > 0.06117
+|   |   rs_PlusMinus <= 0.362385
+|   |   |   rs_PlusMinus <= 0.353211: LM_3:66/330 (97)
+|   |   |   rs_PlusMinus > 0.353211: LM_4:66/330 (171)
+|   |   rs_PlusMinus > 0.362385
+|   |   |   po_A <= 0.4375
+|   |   |   |   po_PIM <= 0.345588
+|   |   |   |   |   country_group = EURO: LM_5:66/462 (51)
+|   |   |   |   |   country_group = CAN
+|   |   |   |   |   |   po_PlusMinus <= 0.339286: LM_6:66/528 (66)
+|   |   |   |   |   |   po_PlusMinus > 0.339286: LM_7:37/499 (13)
+|   |   |   |   |   country_group = USA: LM_8:66/462 (33)
+|   |   |   |   po_PIM > 0.345588: LM_9:66/396 (16)
+|   |   |   po_A > 0.4375: LM_10:66/330 (13)
+
+Number of Leaves  : 	10
+
+Size of the Tree : 	18
+
+LM_1:
+Class 0 :
+4.276992 + 
+[DraftAge] * -1.451387 +
+[country_group=EURO] * 0.295884 +
+[country_group=CAN] * -4.057568 +
+[Height] * -0.227521 +
+[Weight] * -4.413068 +
+[Position=D] * 0.55487  +
+[Position=R] * 0.382275 +
+[Position=L] * -0.744469 +
+[Position=C] * -0.369076 +
+[CSS_rank] * 32.974305 +
+[rs_GP] * 1.314315 +
+[rs_G] * -6.556981 +
+[rs_A] * -1.26557 +
+[rs_P] * -2.490252 +
+[rs_PIM] * -5.917556 +
+[rs_PlusMinus] * 5.836864 +
+[po_GP] * -1.968666 +
+[po_G] * 1.267453 +
+[po_A] * -8.710957 +
+[po_PIM] * 7.91404  +
+[po_PlusMinus] * -14.978402
+
+Class 1 :
+-4.276992 + 
+[DraftAge] * 1.451387 +
+[country_group=EURO] * -0.295884 +
+[country_group=CAN] * 4.057568 +
+[Height] * 0.227521 +
+[Weight] * 4.413068 +
+[Position=D] * -0.55487 +
+[Position=R] * -0.382275 +
+[Position=L] * 0.744469 +
+[Position=C] * 0.369076 +
+[CSS_rank] * -32.974305 +
+[rs_GP] * -1.314315 +
+[rs_G] * 6.556981 +
+[rs_A] * 1.26557  +
+[rs_P] * 2.490252 +
+[rs_PIM] * 5.917556 +
+[rs_PlusMinus] * -5.836864 +
+[po_GP] * 1.968666 +
+[po_G] * -1.267453 +
+[po_A] * 8.710957 +
+[po_PIM] * -7.91404 +
+[po_PlusMinus] * 14.978402
+
+
+LM_2:
+Class 0 :
+-0.260047 + 
+[DraftAge] * 0.562925 +
+[country_group=EURO] * 0.106061 +
+[country_group=USA] * 0.222589 +
+[Height] * 1.863768 +
+[Weight] * -2.626196 +
+[Position=D] * 0.302859 +
+[Position=R] * -1.011238 +
+[Position=L] * 0.006705 +
+[Position=C] * -0.844502 +
+[CSS_rank] * 0.733924 +
+[rs_GP] * -1.798621 +
+[rs_G] * 1.706195 +
+[rs_A] * -2.71538 +
+[rs_P] * -9.082578 +
+[rs_PIM] * 0.62447  +
+[rs_PlusMinus] * -0.616048 +
+[po_GP] * 5.558669 +
+[po_G] * 8.584349 +
+[po_A] * -8.8646 +
+[po_PIM] * -2.659729 +
+[po_PlusMinus] * 7.020556
+
+Class 1 :
+0.260047 + 
+[DraftAge] * -0.562925 +
+[country_group=EURO] * -0.106061 +
+[country_group=USA] * -0.222589 +
+[Height] * -1.863768 +
+[Weight] * 2.626196 +
+[Position=D] * -0.302859 +
+[Position=R] * 1.011238 +
+[Position=L] * -0.006705 +
+[Position=C] * 0.844502 +
+[CSS_rank] * -0.733924 +
+[rs_GP] * 1.798621 +
+[rs_G] * -1.706195 +
+[rs_A] * 2.71538  +
+[rs_P] * 9.082578 +
+[rs_PIM] * -0.62447 +
+[rs_PlusMinus] * 0.616048 +
+[po_GP] * -5.558669 +
+[po_G] * -8.584349 +
+[po_A] * 8.8646   +
+[po_PIM] * 2.659729 +
+[po_PlusMinus] * -7.020556
+
+
+
+LM_3:
+Class 0 :
+1.682109 + 
+[DraftAge] * -2.740536 +
+[country_group=EURO] * 1.547107 +
+[country_group=CAN] * -0.162832 +
+[country_group=USA] * -0.992669 +
+[Height] * 3.121905 +
+[Weight] * -3.156874 +
+[Position=D] * -0.177564 +
+[Position=R] * 0.139425 +
+[Position=L] * -0.558638 +
+[Position=C] * 0.236215 +
+[CSS_rank] * 1.200933 +
+[rs_GP] * -1.197691 +
+[rs_G] * 0.263758 +
+[rs_A] * -2.301965 +
+[rs_P] * 1.143345 +
+[rs_PIM] * 0.775632 +
+[rs_PlusMinus] * -6.210908 +
+[po_GP] * -0.097385 +
+[po_G] * -0.215499 +
+[po_A] * 1.387659 +
+[po_P] * 2.282496 +
+[po_PIM] * -0.865682 +
+[po_PlusMinus] * 1.53291 
+
+Class 1 :
+-1.682109 + 
+[DraftAge] * 2.740536 +
+[country_group=EURO] * -1.547107 +
+[country_group=CAN] * 0.162832 +
+[country_group=USA] * 0.992669 +
+[Height] * -3.121905 +
+[Weight] * 3.156874 +
+[Position=D] * 0.177564 +
+[Position=R] * -0.139425 +
+[Position=L] * 0.558638 +
+[Position=C] * -0.236215 +
+[CSS_rank] * -1.200933 +
+[rs_GP] * 1.197691 +
+[rs_G] * -0.263758 +
+[rs_A] * 2.301965 +
+[rs_P] * -1.143345 +
+[rs_PIM] * -0.775632 +
+[rs_PlusMinus] * 6.210908 +
+[po_GP] * 0.097385 +
+[po_G] * 0.215499 +
+[po_A] * -1.387659 +
+[po_P] * -2.282496 +
+[po_PIM] * 0.865682 +
+[po_PlusMinus] * -1.53291
+
+LM_4:
+Class 0 :
+-1.106699 + 
+[DraftAge] * -2.497612 +
+[country_group=EURO] * -0.789166 +
+[country_group=CAN] * -0.162832 +
+[country_group=USA] * 0.046925 +
+[Height] * 2.599664 +
+[Weight] * 0.036765 +
+[Position=D] * -0.036731 +
+[Position=R] * -0.019822 +
+[Position=L] * 0.169643 +
+[Position=C] * -0.166198 +
+[CSS_rank] * 1.41561  +
+[rs_GP] * -1.482369 +
+[rs_G] * 0.385185 +
+[rs_A] * 0.098482 +
+[rs_P] * 2.022031 +
+[rs_PIM] * 1.252224 +
+[rs_PlusMinus] * -4.853117 +
+[po_GP] * 1.680884 +
+[po_G] * -1.510557 +
+[po_A] * -0.474227 +
+[po_P] * -0.641317 +
+[po_PIM] * -0.813578 +
+[po_PlusMinus] * 2.774662
+
+Class 1 :
+1.106699 + 
+[DraftAge] * 2.497612 +
+[country_group=EURO] * 0.789166 +
+[country_group=CAN] * 0.162832 +
+[country_group=USA] * -0.046925 +
+[Height] * -2.599664 +
+[Weight] * -0.036765 +
+[Position=D] * 0.036731 +
+[Position=R] * 0.019822 +
+[Position=L] * -0.169643 +
+[Position=C] * 0.166198 +
+[CSS_rank] * -1.41561 +
+[rs_GP] * 1.482369 +
+[rs_G] * -0.385185 +
+[rs_A] * -0.098482 +
+[rs_P] * -2.022031 +
+[rs_PIM] * -1.252224 +
+[rs_PlusMinus] * 4.853117 +
+[po_GP] * -1.680884 +
+[po_G] * 1.510557 +
+[po_A] * 0.474227 +
+[po_P] * 0.641317 +
+[po_PIM] * 0.813578 +
+[po_PlusMinus] * -2.774662
+
+
+
+
+LM_5:
+Class 0 :
+-11.657694 + 
+[DraftAge] * 15.237025 +
+[country_group=EURO] * 0.727991 +
+[country_group=CAN] * -0.202688 +
+[country_group=USA] * 0.08355  +
+[Height] * -6.463398 +
+[Weight] * 11.827772 +
+[Position=D] * -0.542634 +
+[Position=R] * -0.674934 +
+[Position=L] * 5.892194 +
+[Position=C] * 0.258197 +
+[CSS_rank] * 0.257722 +
+[rs_GP] * 16.936773 +
+[rs_G] * -2.677734 +
+[rs_A] * -16.800426 +
+[rs_P] * 0.174963 +
+[rs_PIM] * 1.810755 +
+[rs_PlusMinus] * 17.413221 +
+[po_GP] * -0.048806 +
+[po_G] * -2.203977 +
+[po_A] * -7.832242 +
+[po_P] * -1.473199 +
+[po_PIM] * 22.949204 +
+[po_PlusMinus] * -14.327632
+
+Class 1 :
+11.657694 + 
+[DraftAge] * -15.237025 +
+[country_group=EURO] * -0.727991 +
+[country_group=CAN] * 0.202688 +
+[country_group=USA] * -0.08355 +
+[Height] * 6.463398 +
+[Weight] * -11.827772 +
+[Position=D] * 0.542634 +
+[Position=R] * 0.674934 +
+[Position=L] * -5.892194 +
+[Position=C] * -0.258197 +
+[CSS_rank] * -0.257722 +
+[rs_GP] * -16.936773 +
+[rs_G] * 2.677734 +
+[rs_A] * 16.800426 +
+[rs_P] * -0.174963 +
+[rs_PIM] * -1.810755 +
+[rs_PlusMinus] * -17.413221 +
+[po_GP] * 0.048806 +
+[po_G] * 2.203977 +
+[po_A] * 7.832242 +
+[po_P] * 1.473199 +
+[po_PIM] * -22.949204 +
+[po_PlusMinus] * 14.327632
+
+
+LM_6:
+Class 0 :
+8.561873 + 
+[DraftAge] * 2.52516  +
+[country_group=EURO] * 0.727991 +
+[country_group=CAN] * -0.202688 +
+[country_group=USA] * 0.08355  +
+[Height] * 3.169495 +
+[Weight] * -8.037338 +
+[Position=D] * -1.23235 +
+[Position=R] * -0.197942 +
+[Position=L] * 0.847244 +
+[Position=C] * 0.100009 +
+[CSS_rank] * 0.371092 +
+[rs_GP] * -6.425017 +
+[rs_G] * -5.916002 +
+[rs_A] * 1.045901 +
+[rs_P] * 0.174963 +
+[rs_PIM] * 7.76715  +
+[rs_PlusMinus] * 2.281818 +
+[po_GP] * 0.988531 +
+[po_G] * 5.147397 +
+[po_A] * -3.009838 +
+[po_P] * 1.195032 +
+[po_PIM] * -13.420128 +
+[po_PlusMinus] * -10.544987
+
+Class 1 :
+-8.561873 + 
+[DraftAge] * -2.52516 +
+[country_group=EURO] * -0.727991 +
+[country_group=CAN] * 0.202688 +
+[country_group=USA] * -0.08355 +
+[Height] * -3.169495 +
+[Weight] * 8.037338 +
+[Position=D] * 1.23235  +
+[Position=R] * 0.197942 +
+[Position=L] * -0.847244 +
+[Position=C] * -0.100009 +
+[CSS_rank] * -0.371092 +
+[rs_GP] * 6.425017 +
+[rs_G] * 5.916002 +
+[rs_A] * -1.045901 +
+[rs_P] * -0.174963 +
+[rs_PIM] * -7.76715 +
+[rs_PlusMinus] * -2.281818 +
+[po_GP] * -0.988531 +
+[po_G] * -5.147397 +
+[po_A] * 3.009838 +
+[po_P] * -1.195032 +
+[po_PIM] * 13.420128 +
+[po_PlusMinus] * 10.544987
+
+LM_7:
+Class 0 :
+23.71064 + 
+[DraftAge] * 2.345403 +
+[country_group=EURO] * 0.727991 +
+[country_group=CAN] * -0.202688 +
+[country_group=USA] * 0.08355  +
+[Height] * 1.953791 +
+[Weight] * -5.626128 +
+[Position=D] * -0.542634 +
+[Position=R] * -0.197942 +
+[Position=L] * 0.646369 +
+[Position=C] * 0.100009 +
+[CSS_rank] * -0.176309 +
+[rs_GP] * -4.055031 +
+[rs_G] * -2.677734 +
+[rs_A] * 0.217831 +
+[rs_P] * 0.174963 +
+[rs_PIM] * 3.914087 +
+[rs_PlusMinus] * 0.201104 +
+[po_GP] * 1.722275 +
+[po_G] * 3.137737 +
+[po_A] * -3.112213 +
+[po_P] * 0.31502  +
+[po_PIM] * -4.217191 +
+[po_PlusMinus] * -0.461963
+
+Class 1 :
+-23.71064 + 
+[DraftAge] * -2.345403 +
+[country_group=EURO] * -0.727991 +
+[country_group=CAN] * 0.202688 +
+[country_group=USA] * -0.08355 +
+[Height] * -1.953791 +
+[Weight] * 5.626128 +
+[Position=D] * 0.542634 +
+[Position=R] * 0.197942 +
+[Position=L] * -0.646369 +
+[Position=C] * -0.100009 +
+[CSS_rank] * 0.176309 +
+[rs_GP] * 4.055031 +
+[rs_G] * 2.677734 +
+[rs_A] * -0.217831 +
+[rs_P] * -0.174963 +
+[rs_PIM] * -3.914087 +
+[rs_PlusMinus] * -0.201104 +
+[po_GP] * -1.722275 +
+[po_G] * -3.137737 +
+[po_A] * 3.112213 +
+[po_P] * -0.31502 +
+[po_PIM] * 4.217191 +
+[po_PlusMinus] * 0.461963
+
+LM_8:
+Class 0 :
+4.716948 + 
+[DraftAge] * 6.369889 +
+[country_group=EURO] * 0.727991 +
+[country_group=CAN] * -0.202688 +
+[country_group=USA] * 0.08355  +
+[Height] * 0.970886 +
+[Weight] * -5.589447 +
+[Position=D] * -1.845017 +
+[Position=R] * -0.066839 +
+[Position=L] * 1.432935 +
+[Position=C] * 1.355232 +
+[CSS_rank] * 2.124506 +
+[rs_GP] * 2.763118 +
+[rs_G] * -3.513226 +
+[rs_A] * -3.385491 +
+[rs_P] * -8.758394 +
+[rs_PIM] * 0.93677  +
+[rs_PlusMinus] * 0.995181 +
+[po_GP] * -6.204038 +
+[po_G] * 2.319651 +
+[po_A] * 5.969228 +
+[po_P] * 0.31502  +
+[po_PIM] * -1.719763 +
+[po_PlusMinus] * -3.009949
+
+Class 1 :
+-4.716948 + 
+[DraftAge] * -6.369889 +
+[country_group=EURO] * -0.727991 +
+[country_group=CAN] * 0.202688 +
+[country_group=USA] * -0.08355 +
+[Height] * -0.970886 +
+[Weight] * 5.589447 +
+[Position=D] * 1.845017 +
+[Position=R] * 0.066839 +
+[Position=L] * -1.432935 +
+[Position=C] * -1.355232 +
+[CSS_rank] * -2.124506 +
+[rs_GP] * -2.763118 +
+[rs_G] * 3.513226 +
+[rs_A] * 3.385491 +
+[rs_P] * 8.758394 +
+[rs_PIM] * -0.93677 +
+[rs_PlusMinus] * -0.995181 +
+[po_GP] * 6.204038 +
+[po_G] * -2.319651 +
+[po_A] * -5.969228 +
+[po_P] * -0.31502 +
+[po_PIM] * 1.719763 +
+[po_PlusMinus] * 3.009949
+
+LM_9:
+Class 0 :
+5.814678 + 
+[DraftAge] * 18.772863 +
+[country_group=EURO] * 6.870133 +
+[country_group=CAN] * -0.178649 +
+[country_group=USA] * -0.041694 +
+[Height] * -0.077479 +
+[Weight] * -0.920049 +
+[Position=D] * -0.491099 +
+[Position=R] * -0.066839 +
+[Position=L] * -4.876872 +
+[Position=C] * 0.258197 +
+[CSS_rank] * 0.365416 +
+[rs_GP] * -7.639259 +
+[rs_G] * -2.429052 +
+[rs_A] * 14.604718 +
+[rs_P] * 0.687996 +
+[rs_PIM] * 8.139062 +
+[rs_PlusMinus] * -7.734247 +
+[po_GP] * -0.994717 +
+[po_G] * -3.523132 +
+[po_A] * 1.442879 +
+[po_P] * 0.31502  +
+[po_PIM] * -18.568939 +
+[po_PlusMinus] * 6.969057
+
+Class 1 :
+-5.814678 + 
+[DraftAge] * -18.772863 +
+[country_group=EURO] * -6.870133 +
+[country_group=CAN] * 0.178649 +
+[country_group=USA] * 0.041694 +
+[Height] * 0.077479 +
+[Weight] * 0.920049 +
+[Position=D] * 0.491099 +
+[Position=R] * 0.066839 +
+[Position=L] * 4.876872 +
+[Position=C] * -0.258197 +
+[CSS_rank] * -0.365416 +
+[rs_GP] * 7.639259 +
+[rs_G] * 2.429052 +
+[rs_A] * -14.604718 +
+[rs_P] * -0.687996 +
+[rs_PIM] * -8.139062 +
+[rs_PlusMinus] * 7.734247 +
+[po_GP] * 0.994717 +
+[po_G] * 3.523132 +
+[po_A] * -1.442879 +
+[po_P] * -0.31502 +
+[po_PIM] * 18.568939 +
+[po_PlusMinus] * -6.969057
+
+LM_10:
+Class 0 :
+-33.193205 + 
+[DraftAge] * 1.243125 +
+[country_group=EURO] * 36.171122 +
+[country_group=CAN] * -0.178649 +
+[country_group=USA] * -0.041694 +
+[Height] * 0.089622 +
+[Weight] * -1.909943 +
+[Position=D] * -0.396205 +
+[Position=R] * 0.093529 +
+[Position=L] * 0.114926 +
+[Position=C] * 0.186529 +
+[CSS_rank] * 0.302821 +
+[rs_GP] * -0.9033 +
+[rs_G] * -2.19239 +
+[rs_A] * 4.542756 +
+[rs_P] * 1.041506 +
+[rs_PIM] * 1.274728 +
+[rs_PlusMinus] * 0.441459 +
+[po_GP] * 0.247055 +
+[po_G] * 0.755948 +
+[po_A] * -1.789873 +
+[po_PIM] * -2.650221 +
+[po_PlusMinus] * -0.320983
+
+Class 1 :
+15.526538 + 
+[DraftAge] * 16.756875 +
+[country_group=EURO] * -37.171122 +
+[country_group=CAN] * 0.178649 +
+[country_group=USA] * 0.041694 +
+[Height] * -0.089622 +
+[Weight] * -31.756724 +
+[Position=D] * 0.396205 +
+[Position=R] * -0.093529 +
+[Position=L] * -0.114926 +
+[Position=C] * -0.186529 +
+[CSS_rank] * -0.302821 +
+[rs_GP] * 0.9033   +
+[rs_G] * 2.19239  +
+[rs_A] * -4.542756 +
+[rs_P] * -1.041506 +
+[rs_PIM] * -1.274728 +
+[rs_PlusMinus] * -0.441459 +
+[po_GP] * -0.247055 +
+[po_G] * -0.755948 +
+[po_A] * 1.789873 +
+[po_PIM] * 2.650221 +
+[po_PlusMinus] * 0.320983
+
+
+Time taken to build model: 0.8 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0 seconds
+
+=== Summary ===
+
+Correctly Classified Instances         549               87.2814 %
+Incorrectly Classified Instances        80               12.7186 %
+Kappa statistic                          0.7429
+Mean absolute error                      0.2051
+Root mean squared error                  0.3129
+Relative absolute error                 41.4636 %
+Root relative squared error             62.9116 %
+Total Number of Instances              629     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.885    0.142    0.885      0.885    0.885      0.743    0.941     0.952     no
+                 0.858    0.115    0.858      0.858    0.858      0.743    0.941     0.933     yes
+Weighted Avg.    0.873    0.130    0.873      0.873    0.873      0.743    0.941     0.943     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 307  40 |   a = no
+  40 242 |   b = yes
+
