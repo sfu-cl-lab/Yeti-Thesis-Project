@@ -1,0 +1,76 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.M5P -M 4.0 -num-decimal-places 6
+Relation:     QueryResult-weka.filters.unsupervised.attribute.Remove-R1-2,4,24-26-weka.filters.unsupervised.attribute.Remove-R6-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0
+Instances:    1003
+Attributes:   19
+              DraftAge
+              country_group
+              Height
+              Weight
+              Position
+              CSS_rank
+              rs_GP
+              rs_G
+              rs_A
+              rs_P
+              rs_PIM
+              rs_PlusMinus
+              po_GP
+              po_G
+              po_A
+              po_P
+              po_PIM
+              po_PlusMinus
+              sum_7yr_GP
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+M5 pruned model tree:
+(using smoothed linear models)
+
+CSS_rank <= 0.075 : LM1 (124/90.191%)
+CSS_rank >  0.075 : LM2 (342/81.299%)
+
+LM num: 1
+sum_7yr_GP = 
+	11.7097 * DraftAge 
+	- 12.1298 * Height 
+	+ 274.25 * Weight 
+	- 1935.1111 * CSS_rank 
+	+ 292.8574 * rs_A 
+	- 117.3567 * rs_PIM 
+	+ 260.3904 * rs_PlusMinus 
+	+ 8.8095 * po_A 
+	- 5.1619
+
+LM num: 2
+sum_7yr_GP = 
+	143.928 * DraftAge 
+	- 113.9251 * Height 
+	+ 102.3741 * Weight 
+	- 6.8365 * CSS_rank 
+	+ 144.0081 * rs_A 
+	+ 4.1126 * rs_PlusMinus 
+	+ 3.43 * po_A 
+	+ 87.0956
+
+Number of Rules : 2
+
+Time taken to build model: 0.13 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0 seconds
+
+=== Summary ===
+
+Correlation coefficient                  0.5474
+Mean absolute error                     98.2521
+Root mean squared error                116.3289
+Relative absolute error                 82.1683 %
+Root relative squared error             83.7238 %
+Total Number of Instances              466     
+Ignored Class Unknown Instances                537     
+
