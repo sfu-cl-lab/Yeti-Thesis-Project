@@ -9,7 +9,7 @@
 + Python scripts and sample data files can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/crawl_NHL_player_stats
 + Record each players demographic info, draft info as well as his season stats for the last season he played before he got drafted into NHL.
 + The data is written to database as table "`chao_draft.NHL_skaters_stats_1998_2008_original`" (referred as `table_2`).
-+ Total number of distinct skaters in `talbe_2` is 1106.
++ Total number of distinct skaters in `table_2` is 1106.
 + Note that skaters in `table_1` and `table_2` have played greater than zero game in NHL. 
 + Based on PlayerId, eliminate season stats for skaters who got drafted outside the draft year range of 1998-2008 in `table_1`, save the season stats of our interest as 
 view "`chao_draft.NHL_season_stats_for_skaters_drafted_1998_2008_view`" (referred as `view_3`) and table "`chao_draft.NHL_season_stats_for_skaters_drafted_1998_2008`" (referred as `table_3`).
@@ -21,7 +21,7 @@ view "`chao_draft.NHL_season_stats_for_skaters_drafted_1998_2008_view`" (referre
 + Python scripts and sample data files can be find here: https://github.com/chaostewart/summer_research_2017/tree/master/crawl_elite_prospects
 + Only skaters' stats are recorded. Goalies are ommitted.
 + The data is written to database as table "`chao_draft.elite_prospects_skaters_stats_1998_2008_original`" (referred as `table_4`).
-+ Total number of distinct skaters in `talbe_4` is 2480.
++ Total number of distinct skaters in `table_4` is 2480.
 + Find all 1106 players from `table_2` in `table_4`, saved as "`chao_draft.elite_nhl_duplicated_skaters_view`" (referred as `view_4`).
       
       create view chao_draft.elite_nhl_duplicated_skaters_view as
@@ -39,7 +39,7 @@ view "`chao_draft.elite_zerogames_skaters_find_CSSrank`"(referred as `view_5`) a
       from chao_draft.elite_prospects_skaters_stats_1998_2008_original
       where eliteId not in
       (select eliteId from chao_draft.elite_nhl_duplicated_skaters_view);
-+ Total number of distinct skaters in `talbe_5` is 2480 - 1106 = 1374.
++ Total number of distinct skaters in `table_5` is 2480 - 1106 = 1374.
 + Note: some skaters got drafted twice by NHL, only the stats of their second draft is recorded. Therefore, in the dataset there are players who got drafted later than year 2008. 
  
 ### Step 4: obtain final Cental Scouting Services(CSS) rank for all skaters.
