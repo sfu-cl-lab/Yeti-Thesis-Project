@@ -1,1 +1,2 @@
-input an outputs for J48, LMT and M5P
++ Weka inputs and outputs for Logistic Model Tree
++ Python codes to calculate lmt probability for training and testing datasets
