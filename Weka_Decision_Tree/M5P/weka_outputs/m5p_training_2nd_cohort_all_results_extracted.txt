@@ -1,0 +1,4 @@
+LM_1_pred = 9.1521 * DraftAge_norm + 36.0027 * (country_group == 'USA' or country_group == 'CAN') - 14.049 * Height_norm + 224.1827 * Weight_norm - 2629.5892 * CSS_rank_norm + 314.6759 * rs_A_norm - 150.7916 * rs_PIM_norm + 13.3539 * po_P_norm + 212.7211 * po_PlusMinus_norm + 21.0156 
+
+LM_2_pred = 117.4242 * DraftAge_norm + 15.3064 * (country_group == 'USA' or country_group == 'CAN') - 175.3065 * Height_norm + 118.3986 * Weight_norm - 56.6444 * CSS_rank_norm - 52.7111 * rs_G_norm + 100.6356 * rs_A_norm - 1.4494 * rs_PIM_norm + 106.9622 * po_P_norm + 75.8669 
+
