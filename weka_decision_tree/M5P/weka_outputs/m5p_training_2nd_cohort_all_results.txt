@@ -1,0 +1,78 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.M5P -M 4.0 -num-decimal-places 10
+Relation:     QueryResult-weka.filters.unsupervised.attribute.Remove-R1-2,8-9,24-25
+Instances:    629
+Attributes:   19
+              DraftAge_norm
+              country_group
+              Height_norm
+              Weight_norm
+              Position
+              CSS_rank_norm
+              rs_GP_norm
+              rs_G_norm
+              rs_A_norm
+              rs_P_norm
+              rs_PIM_norm
+              rs_PlusMinus_norm
+              po_GP_norm
+              po_G_norm
+              po_A_norm
+              po_P_norm
+              po_PIM_norm
+              po_PlusMinus_norm
+              sum_7yr_GP
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+M5 pruned model tree:
+(using smoothed linear models)
+
+CSS_rank_norm <= 0.087 : LM1 (126/97.805%)
+CSS_rank_norm >  0.087 : LM2 (503/76.386%)
+
+LM num: 1
+sum_7yr_GP = 
+	9.1521 * DraftAge_norm 
+	+ 36.0027 * country_group=USA,CAN 
+	- 14.049 * Height_norm 
+	+ 224.1827 * Weight_norm 
+	- 2629.5892 * CSS_rank_norm 
+	+ 314.6759 * rs_A_norm 
+	- 150.7916 * rs_PIM_norm 
+	+ 13.3539 * po_P_norm 
+	+ 212.7211 * po_PlusMinus_norm 
+	+ 21.0156
+
+LM num: 2
+sum_7yr_GP = 
+	117.4242 * DraftAge_norm 
+	+ 15.3064 * country_group=USA,CAN 
+	- 175.3065 * Height_norm 
+	+ 118.3986 * Weight_norm 
+	- 56.6444 * CSS_rank_norm 
+	- 52.7111 * rs_G_norm 
+	+ 100.6356 * rs_A_norm 
+	- 1.4494 * rs_PIM_norm 
+	+ 106.9622 * po_P_norm 
+	+ 75.8669
+
+Number of Rules : 2
+
+Time taken to build model: 0.16 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0 seconds
+
+=== Summary ===
+
+Correlation coefficient                  0.5843
+Mean absolute error                     68.6229
+Root mean squared error                 95.4772
+Relative absolute error                 76.2331 %
+Root relative squared error             81.2066 %
+Total Number of Instances              629     
+
