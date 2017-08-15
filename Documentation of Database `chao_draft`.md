@@ -13,7 +13,7 @@
 + Note that skaters in `table_1` and `table_2` have played greater than zero game (GP > 0) in NHL. 
 + Based on PlayerId, eliminate season stats for skaters who got drafted outside the draft year range of 1998-2008 in table_1, save the season stats of our interest as 
 view `chao_draft.NHL_season_stats_for_skaters_drafted_1998_2008_view` (view_3) and table `chao_draft.NHL_season_stats_for_skaters_drafted_1998_2008` (table_3).
-+ Important note: table_3 contains skaters who got drafted within the draft year range of our interest BUT DID NOT PLAY games in their first 7 seasons in NHL. To be exact, there are 28 of them who didn't play games in NHL until their 8th season or later on.
++ Important note: table_3 contains skaters who got drafted within the draft year range of our interest BUT DID NOT PLAY games in their first 7 seasons in NHL. To be exact, there are 28 of them who didn't play any games (including playoffs) in NHL until their 8th season or later on.
  
 ### Step 3: get player stats for skaters who got drafted into NHL but never played games in NHL.
 + Crawl player stats for all skaters who got drafted between 1998-2008 from eliteprospects.com in regardless these skaters ended up playing gmaes in NHL or not.
@@ -77,7 +77,7 @@ view `chao_draft.elite_zerogames_skaters_find_CSSrank_view`(view_5) and table `c
 These two views have summed the number of GP and TOI in minutes for each season for each player.
 + Based on view_7 and view_8, repectively, two tables that contain skaters' first seven-season stats in NHL are created as
 `chao_draft.seven_season_sums_with_playoffs_1998_2008` (table_7) and `chao_draft.seven_season_sums_regular_season_only_1998_2008` (table_8)
-+ Note: as mentioned in step 2, there are 28 players among the 1106 players who got drafted between 1998 and 2008 and did play games in NHL. However, they did not play any games in their first seven seasons in NHL. 
++ Note: as mentioned in step 2, there are 28 players among the 1106 players who got drafted between 1998 and 2008 and eventually did play games in NHL. However, they did not play any games (including playoffs) in their first seven seasons in NHL. 
 + From table_8, eliminate players who got drafted in year 2003 (as a large portion of them have no CSS ranks) we get view_9 as `chao_draft.seven_season_sums_regular_season_only_10_years_view`.
 + There are 988 distinct players in view_9.
 
@@ -104,34 +104,62 @@ Wison's sum | = 27 + 69 + 63 + 43 + 50 + 10 + 21 | = 283 |
 Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
 
 ### Step 7: skater stats with CSS rank for year 1998-2002 and 2004-2008.
-+ Player stats for skaters in table_2 including their CSS ranks is saved as view `chao_draft.nhl_nonzerogames_skaters_stats_1998_2008_view`(view_10).
-+ There are 1106 distinct players in view_10; 778 of them have CSS ranks.
-+ Excluding year 2003, player stats for skaters in view_9 including their CSS ranks is saved as view `chao_draft.nhl_nonzerogames_skaters_stats_10_years_view`(view_11).
-+ There are 988 distinct players in view_11; 741 of them have CSS ranks.
-+ Player stats for skaters in table_4 including their CSS ranks is saved as view `chao_draft.elite_zerogames_skaters_stats_1998_2008_view`(referred as view_12).
-+ There are 1373 distinct players in view_12; 832 of them have CSS ranks.
-+ Excluding year 2003, player stats for skaters in table_4 including their CSS ranks is saved as view `chao_draft.elite_zerogames_skaters_stats_10_years_view`(referred as `view_13`).
-+ There are 1236 distinct players in view_13; 817 of them have CSS ranks.
-+ Union `view_11` and `view_13` to include player stats for all skater, whether player for NHL or not, in one view as "`chao_draft.all_skaters_stats_10_years_view`" (referred as `view_14`)
-+ There are 964+1236=2200 distinct players in `view_14`; 722+817=1539 of them have CSS ranks.
++ Player stats for skaters in table_2 including their CSS ranks is saved as view `chao_draft.nhl_nonzerogames_skaters_stats_1998_2008_view`(view_10). There are 1106 distinct players in view_10; 778 of them have CSS ranks.
++ Excluding year 2003, player stats for skaters in view_9 including their CSS ranks is saved as view `chao_draft.nhl_nonzerogames_skaters_stats_10_years_view`(view_11). There are 988 distinct players in view_11; 741 of them have CSS ranks.
++ Player stats for skaters in table_4 including their CSS ranks is saved as view `chao_draft.elite_zerogames_skaters_stats_1998_2008_view`(view_12). There are 1373 distinct players in view_12; 832 of them have CSS ranks.
++ Excluding year 2003, player stats for skaters in table_4 including their CSS ranks is saved as view `chao_draft.elite_zerogames_skaters_stats_10_years_view`(view_13). There are 1236 distinct players in view_13; 817 of them have CSS ranks.
++ Union view_11 and view_13 to include player stats for all skater, whether played for NHL or not, in one view as `chao_draft.all_skaters_stats_10_years_view` (view_14). There are 988+1236=2224 distinct players in view_14; 741+817=1558 of them have CSS ranks.
 
 
 ### Step 8: summerize all players' and seasons' statisticts in one row.
 + Summerize each skater's demographic info, the stats (such as GP, G, A, P, etc.) of his regular season and playoffs in the last season before he got drafted into NHL, as well as his first seven season's performance in NHL, into one row.
-+ Based on `view_14`, sum each skaters' regular seasons stats in view "`chao_draft.all_skaters_stats_regularseason_sum_10_years_view`" (referred as `view_15`).
-+ Based on `view_14`, sum each skaters' playoffs stats in view "`chao_draft.all_skaters_stats_playoffs_sum_10_years_view`" (referred as `view_16`).
-+ Join skaters stats with seasons stats in one row, saved as view"`chao_draft.join_skater_and_season_stats_10_years_view`" (referred as `view_17`).
-+ Materialize `view_17` as table "`chao_draft.join_skater_and_season_stats_10_years`" (referred as `table_17`). Add 'couutry_group' column (i.e. 'CAN', 'USA' or 'EURO') and 'GP_greater_than_0' column (i.e. 'yes' or 'no'). 
++ Based on view_14, sum each skaters' regular seasons stats in view `chao_draft.all_skaters_stats_regularseason_sum_10_years_view` (view_15).
++ Similarly, based on view_14, sum each skaters' playoffs stats in view `chao_draft.all_skaters_stats_playoffs_sum_10_years_view` (view_16).
++ Join skaters stats with seasons stats in one row, saved as view `chao_draft.join_skater_and_season_stats_10_years_view` (view_17).
++ Materialize view_17 as table `chao_draft.join_skater_and_season_stats_10_years`(table_17). Add 'country_group' column (i.e. 'CAN', 'USA' or 'EURO') and 'GP_greater_than_0' column (i.e. 'yes' or 'no'). 
 
-#### Issue solved: unclear position for 46 skaters in view_17
-+ 46 skaters in view_17 have unclear positions (i.e. 'W' or 'F'). They are obtained from eliteprospects.com. 
-+ Their information is saved as "`chao_draft.position_unclear_skaters_10_years_view`" (referred as view_17).
-+ 28 of the 46 skaters have CSS_rank.
-+ thedraftanalyst.com can provide specifict postition(i.e. 'L', 'R' or 'C') information for only some of the skaters.
-+ Find these players' specific position from NHL.com and hockeydb.com.
+         alter table chao_draft.join_skater_and_season_stats_10_years
+         add column country_group VARCHAR(10) after Country;
+         update chao_draft.join_skater_and_season_stats_10_years
+         set country_group = case
+         when Country = 'Canada' or Country = 'CAN' then 'CAN'
+         when Country = 'USA' then 'USA'
+         else 'EURO'
+         end;
+         
+         alter table chao_draft.join_skater_and_season_stats_10_years
+         add column GP_greater_than_0 VARCHAR(10);
+         update chao_draft.join_skater_and_season_stats_10_years
+         set GP_greater_than_0 = case
+         when sum_7yr_GP > 0 then 'yes'
+         else 'no'
+         end;
+ 
+##### Issue solved: unclear position of 46 skaters in view_17
++ 46 skaters in view_17 have unclear positions (i.e. 'W' or 'F'). They are obtained from eliteprospects.com.
++ These 46 skaters' specific position can be found from NHL.com and hockeydb.com 
++ Their old and new position info is saved as `chao_draft.position_unclear_skaters_10_years` (table_18).
 
-### Step 9: run Logistic Model Tree(LMT) in Weka on table_17
-+ The choice of dataset as the training dataset uses the same shema as in Schucker's paper, i.e. year 1998, 1999 and 2000 are used as training dataset for cohort 1; year 2004, 2005 and 2006 are used as training dataset for cohort 2.
+         update chao_draft.join_skater_and_season_stats_10_years as t1,
+         chao_draft.position_unclear_skaters_10_years as t2
+         set t1.Position = t2.new_position
+         where t1.id = t2.eliteId;
+
++ In table_17, missing/null values exist in several columns such as CSS_rank, po_GP, po_G, ..., sum_7yr_GP and sum_7yr_TOI. However, except for column CSS_rank for a player, other null values are known to be zero. Therefore, we create a new table `chao_draft.join_skater_and_season_stats_10_years_CSS_null`(table_19) to fill those missing values with zero, leaving only the CSS_rank column with missing values.
++ There are 2224 players in table_19; 1558 of them have CSS ranks; 964 of them have GP > 0 in their first seven years in NHL.
+
+### Step 9: normalize data for Logistic/Linear Model Tree in Weka.
++ Using the same schema as in Schuckers' paper, divide the 10 years of skater and season stats into two cohorts.
+   cohort | training set | test set |
+   ---------- |-----| ------- |
+   1st | 1998, 1999 & 2000 | 2001 & 2002 |
+   2nd | 2004, 2005 & 2006 | 2007 & 2008 |
++ Need to normalize training and test data together for each cohort.
++ Normalization code is saved here:  
+
+
+### Step 9: run Logistic Model Tree(LMT) in Weka on table_20
+
 + Run Weka and read from database sever by following the instructions from here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/How%20to%20connect%20to%20MySql%20database%20in%20WEKA.md
 + Note: we keep the missing values as null because "LMT can deal with binary and multi-class target variables, numeric and nominal attributes and missing values".
 + Save two datasets as .arff files and rename as `skater_and_season_stats_GP0_first3years_cleaned.arff` and `skater_and_season_stats_GP0_second3years_cleaned.arff`, respectively. Weka data files and results are saved in the fold `weka_results` in this repository.
