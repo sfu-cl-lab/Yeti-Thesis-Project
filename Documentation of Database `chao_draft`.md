@@ -153,16 +153,17 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
 
 cohort| 1st | | 2nd  | |
 -------|---- |----------- |---| ---- |
-  |training set | test set | training set | test set |
+set| training set | test set | training set | test set |
 years | 1998, 1999 & 2000 | 2001 & 2002 | 2004, 2005 & 2006 | 2007 & 2008 |
-total num. of skaters | 711 | 499 | 637 | 377 |
-num. of skaters with GP > 0 | | | | |
+num. of skaters in cohort | 1210 | | 1014 | |
+num. of skaters in set | 711 | 499 | 637 | 377 |
+num. of skaters with GP > 0 | 305 | 193 | 282 | 184 |
     
 + Need to normalize training and test data together for each cohort.
-+ Normalization code is saved here:  
++ Normalization code and data is saved here:  
++ Normalized data is written to database, saved as table `chao_draft.join_skater_and_season_stats_10_years_CSS_null_norm`(table_20)
 
-
-### Step 9: run Logistic Model Tree(LMT) in Weka on table_20
+### Step 10: run Logistic Model Tree(LMT) in Weka on table_20
 
 + Run Weka and read from database sever by following the instructions from here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/How%20to%20connect%20to%20MySql%20database%20in%20WEKA.md
 + Note: we keep the missing values as null because "LMT can deal with binary and multi-class target variables, numeric and nominal attributes and missing values".
