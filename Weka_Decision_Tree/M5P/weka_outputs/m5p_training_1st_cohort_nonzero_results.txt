@@ -1,0 +1,81 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.M5P -M 4.0 -num-decimal-places 10
+Relation:     m5p_training_1st_cohort_nonzero-weka.filters.unsupervised.attribute.Remove-R1-2,8-9,24-25
+Instances:    305
+Attributes:   19
+              DraftAge_norm
+              country_group
+              Height_norm
+              Weight_norm
+              Position
+              CSS_rank_norm
+              rs_GP_norm
+              rs_G_norm
+              rs_A_norm
+              rs_P_norm
+              rs_PIM_norm
+              rs_PlusMinus_norm
+              po_GP_norm
+              po_G_norm
+              po_A_norm
+              po_P_norm
+              po_PIM_norm
+              po_PlusMinus_norm
+              sum_7yr_GP
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+M5 pruned model tree:
+(using smoothed linear models)
+
+CSS_rank_norm <= 0.093 : 
+|   rs_A_norm <= 0.23 : LM1 (39/78.346%)
+|   rs_A_norm >  0.23 : LM2 (49/107.787%)
+CSS_rank_norm >  0.093 : LM3 (217/81.599%)
+
+LM num: 1
+sum_7yr_GP = 
+	-382.136 * CSS_rank_norm 
+	- 119.3498 * rs_G_norm 
+	+ 171.6135 * rs_P_norm 
+	+ 370.327 * rs_PIM_norm 
+	+ 17.609 * po_P_norm 
+	+ 94.8235
+
+LM num: 2
+sum_7yr_GP = 
+	-1479.405 * CSS_rank_norm 
+	- 100.7014 * rs_G_norm 
+	+ 144.7989 * rs_P_norm 
+	+ 17.609 * po_P_norm 
+	+ 250.0975
+
+LM num: 3
+sum_7yr_GP = 
+	107.9457 * DraftAge_norm 
+	- 164.9679 * Height_norm 
+	+ 159.581 * Weight_norm 
+	- 12.781 * CSS_rank_norm 
+	- 206.3417 * po_G_norm 
+	+ 238.9807 * po_P_norm 
+	+ 81.5214
+
+Number of Rules : 3
+
+Time taken to build model: 0.06 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0 seconds
+
+=== Summary ===
+
+Correlation coefficient                  0.515 
+Mean absolute error                     86.8808
+Root mean squared error                105.0245
+Relative absolute error                 84.6985 %
+Root relative squared error             85.9049 %
+Total Number of Instances              305     
+
