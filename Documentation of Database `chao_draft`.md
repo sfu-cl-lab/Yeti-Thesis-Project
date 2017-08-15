@@ -151,11 +151,11 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
 ### Step 9: normalize data for Logistic/Linear Model Tree in Weka.
 + Using the same schema as in Schuckers' paper, divide the 10 years of skater and season stats into two cohorts.
 
-cohort| 1st | | 2nd  | |
+cohort| <td colspan=2>1st | <td colspan=2>2nd |
 -------|---- |----------- |---| ---- |
 set| training set | test set | training set | test set |
 years | 1998, 1999 & 2000 | 2001 & 2002 | 2004, 2005 & 2006 | 2007 & 2008 |
-num. of skaters in cohort | 1210 | | 1014 | |
+num. of skaters in cohort | <td colspan=2>1210 | <td colspan=2>1014 |
 num. of skaters in set | 711 | 499 | 637 | 377 |
 num. of skaters with GP > 0 | 305 | 193 | 282 | 184 |
     
