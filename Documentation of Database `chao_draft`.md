@@ -188,7 +188,7 @@ Incorrectly Classified Instances | 42 (17.2131 %) | 47 (18.4314 %) | 62	(32.4607
 
 + It's almost guaranteed that the calculated LMT probability has no duplicates. Therefore, ranking the probability for each test year gives no tied ranks. These tables are saved as: `rank_lmt_prob_CSS_null_norm_2001/2/7/8_notie` (table_22's).
 + For those players who have a probabilty of less than 0.5 to play in NHL in the first seven years, assign them a tied bottom rank, giving us tables with tied ranks: `rank_lmt_prob_CSS_null_norm_2001/2/7/8_tied` (table_23's).
-+ Calcualte the Spearman Rank Correlation between the probability rank and the actual rank(the rank of summed 7-year GP), save results in folder "/Decision_Trees/LMT/lmt_rank_corr_cal/". 
++ Calcualte the Spearman Rank Correlation between the probability rank and the actual rank(the rank of summed 7-year GP), save results in folder "/Decision_Trees/LMT/lmt_rank_corr_cal/". Two views, i.e. `chao_draft.union_lmt_prob_view` (view_28) and `chao_draft.union_all_ranks_with_lmt_view` (view_29) are created during calculation.
 
 DraftYear | Overall_rank_corr | lmt_rank_notie_corr | lmt_rank_tied_corr |
 ----------|-------------------|---------------------|--------------------|
@@ -199,61 +199,57 @@ DraftYear | Overall_rank_corr | lmt_rank_notie_corr | lmt_rank_tied_corr |
 
 + Related python codes for LMT calculations are saved in folder "Decision_Trees/LMT/python_code/".
 
+### A Note on the Calculations of Spearman Rank Correlation
++ The following link is a guide to calculating Spearman rank correlation: https://statistics.laerd.com/statistical-guides/spearmans-rank-order-correlation-statistical-guide.php
++ Because we have ties in ranking sum_7yr_GP/TOI & lmt_probability, the corresponding equation for ties were used in our calculation.
++ calculte the true rankings for players based on their summed first 7-year of GP/TOI. Save as `chao_draft`.`rank_sum_7yr_GP_2001/2/7/8` (table_24's) and `chao_draft`.`rank_sum_7yr_TOI_2001/2/7/8` (table_25's)
+
+create table chao_draft.rank_sum_7yr_GP_2001/2/7/8 as
+select id, PlayerName, DraftYear, sum_7yr_GP,
+@prev := @curr,
+@curr := sum_7yr_GP,
+@rank := if(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_GP,
+if(@prev <> sum_7yr_GP, @i:=1, @i:=@i+1) AS counter
+from chao_draft.join_skater_and_season_stats_10_years_CSS_null,
+(select @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
+where DraftYear = 2001/2/7/8
+order by sum_7yr_GP DESC;
+
+create table chao_draft.rank_sum_7yr_TOI_2001/2/7/8 as
+select id, PlayerName, DraftYear, sum_7yr_TOI,
+@prev := @curr,
+@curr := sum_7yr_TOI,
+@rank := if(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_TOI,
+if(@prev <> sum_7yr_TOI, @i:=1, @i:=@i+1) AS counter
+from chao_draft.join_skater_and_season_stats_10_years_CSS_null,
+(select @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
+where DraftYear = 2001/2/7/8
+order by sum_7yr_TOI DESC;
+
++ Clean the original discontinuous draft number/overall for test years 01, 02, 07 & 08 as we didn't take goalies into account. Saved as `chao_draft.rerank_overall_2001/2/7/8` (table_26's).
+
+create table chao_draft.rerank_overall_2001/2/7/8 as
+select id, PlayerName, DraftYear, Overall as original_overall,
+@prev := @curr,
+@curr := Overall,
+@rank := if(@prev = @curr, @rank, @rank + @i) AS skaters_overall,
+if(@prev <> Overall, @i:=1, @i:=@i+1) AS counter
+from chao_draft.join_skater_and_season_stats_10_years_CSS_null,
+(select @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
+where DraftYear = 2001/2/7/8
+order by Overall ASC
+
++ Union `table_24's`, `table_25's` and `table_26's`. Save as `chao_draft.union_overall_GP_TOI_1278_VIEW`(view_27).
+
+
+
+
 ---------- Chao has updated the doc up to here, still working on it. Thank you for your patience! -------------
 
 ### Step 11: calculate rankings with ties for Spearman rank correlation
-+ clean the original discontinuous draft number/overall for year 01, 02, 07 & 08 as we didn't take goalies into account.
-Save as `chao_draft.rerank_overall_2001/2/7/8` (referred as `table_19s`).
 
-      create table chao_draft.rerank_overall_2002 as
-      SELECT id, PlayerName, DraftYear, Overall as original_overall,
-        @prev := @curr,
-        @curr := Overall,
-        @rank := IF(@prev = @curr, @rank, @rank + @i) AS skaters_overall,
-        IF(@prev <> Overall, @i:=1, @i:=@i+1) AS counter
-      FROM chao_draft.join_skater_and_season_stats_10_years_no_null_values,
-        (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
-      where DraftYear = 2002
-      order by Overall ASC
-      
-+ calculte the true rankings for players based on their 7-year sum of GP/TOI. Save as `chao_draft`.`rank_sum_7yr_GP_2001/2/7/8` (referred as `table_20s`) and `chao_draft`.`rank_sum_7yr_TOI_2001/2/7/8` (referred as `table_21s`)
-
-      create table chao_draft.rank_sum_7yr_GP_2002 as
-      SELECT id, PlayerName, DraftYear, sum_7yr_GP,
-        @prev := @curr,
-        @curr := sum_7yr_GP,
-        @rank := IF(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_GP,
-        IF(@prev <> sum_7yr_GP, @i:=1, @i:=@i+1) AS counter
-      FROM chao_draft.join_skater_and_season_stats_10_years_no_null_values,
-        (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
-      where DraftYear = 2002
-      order by sum_7yr_GP DESC;
-      
-      create table chao_draft.rank_sum_7yr_TOI_2002 as
-      SELECT id, PlayerName, DraftYear, sum_7yr_TOI,
-        @prev := @curr,
-        @curr := sum_7yr_TOI,
-        @rank := IF(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_TOI,
-        IF(@prev <> sum_7yr_TOI, @i:=1, @i:=@i+1) AS counter
-      FROM chao_draft.join_skater_and_season_stats_10_years_no_null_values,
-        (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
-      where DraftYear = 2002
-      order by sum_7yr_TOI DESC;
-      
- + rank the predicitons given by LMT models. `chao_draft`.`rank_lmt_prob_2001/2/7/8` (referred as `table_22s`)
-
-         create table chao_draft.rank_lmt_prob_2002 as
-         SELECT id, PlayerName, DraftYear, class_0_prob,
-           @prev := @curr,
-           @curr := class_0_prob,
-           @rank := IF(@prev = @curr, @rank, @rank + @i) AS rank_prob,
-           IF(@prev <> class_0_prob, @i:=1, @i:=@i+1) AS counter
-         FROM chao_draft.lmt_prediction_1st_cohort,
-           (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
-         where DraftYear = 2002
-         order by class_0_prob DESC
  
- + Union `table_19s`, `table_20s` and `table_21s`. Save as `chao_draft.union_overall_GP_TOI_1278_VIEW`(referred as `view_23`).
+
  + Union `table_22s`. Save as `chao_draft.union_rank_lmt_prob_1278_view`(referred as `view_24`).
 
  
@@ -279,8 +275,5 @@ Save as `chao_draft.rerank_overall_2001/2/7/8` (referred as `table_19s`).
 + Union `table_30s` to get `chao_draft.union_rank_m5p_prob_1278_view` (`view_32`)
 + Union `view_23`, `view_24` and `view_31`, save as `chao_draft.union_all_ranks_view` (referred as `view_33`).
 
-### Step 15: Calculate Spearman Rank Correlation
-+ The following link is a guide to calculating Spearman rank correlation: https://statistics.laerd.com/statistical-guides/spearmans-rank-order-correlation-statistical-guide.php
-+ Because we have ties in ranking sum_7yr_GP/TOI & lmt_probability, the corresponding equation for ties were used in our calculation.
-+ Results are saved in: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Weka_Decision_Tree/Spearman_rank_correlation
+
 
