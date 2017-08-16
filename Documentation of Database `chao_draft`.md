@@ -8,9 +8,9 @@
 + With player id (e.g. PlayerId = 8473593) obtained from table_1, crawl player stats for skaters who got drafted between 1998-2008 from NHL.com using url = "http://www.nhl.com/player/" + player_id
 + Python scripts and sample data files can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/crawl_NHL_player_stats
 + Record each players demographic info, draft info as well as his season stats for the last season he played before he got drafted into NHL.
-+ The data is written to database as table `chao_draft.NHL_skaters_stats_1998_2008_original` (referred as table_2).
++ The data is written to database as table `chao_draft.NHL_skaters_stats_1998_2008_original` (table_2).
 + Total number of distinct skaters in table_2 is 1106.
-+ Note that skaters in `table_1` and `table_2` have played greater than zero game (GP > 0) in NHL. 
++ Note that skaters in table_1 and table_2 have played greater than zero game (GP > 0) in NHL. 
 + Based on PlayerId, eliminate season stats for skaters who got drafted outside the draft year range of 1998-2008 in table_1, save the season stats of our interest as 
 view `chao_draft.NHL_season_stats_for_skaters_drafted_1998_2008_view` (view_3) and table `chao_draft.NHL_season_stats_for_skaters_drafted_1998_2008` (table_3).
 + Important note: table_3 contains skaters who got drafted within the draft year range of our interest BUT DID NOT PLAY games in their first 7 seasons in NHL. To be exact, there are 28 of them who didn't play any games (including playoffs) in NHL until their 8th season or later on.
@@ -68,7 +68,7 @@ view `chao_draft.elite_zerogames_skaters_find_CSSrank_view`(view_5) and table `c
 ### Step 5: find corresponding CSS ranks from table_6 for skaters in table_2 (GP > 0) and table_5 (GP = 0).
 + Firstly, many skaters' CSS ranks can be matched by simply joining table_2 (or table_5) with table_6 on same DraftYear and same PlayerName.
 + However, due to misspelling or the use of nicknames, many skaters' ranks need to be matched painfully in the manual way.
-+ Also upated table_6 with corresponding PlayerId from table_2 and eliteId from table_5.
++ Also updated table_6 with corresponding PlayerId from table_2 and eliteId from table_5.
 + Note: many PlayerNames in table_6 have been modified corresponding to table_2 and table_5.
 
 ### Step 6: create seven-season stats tables that are equivalent to Wilson's table.
@@ -151,11 +151,11 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
 ### Step 9: normalize data for Logistic/Linear Model Tree in Weka.
 + Using the same schema as in Schuckers' paper, divide the 10 years of skater and season stats into two cohorts.
 
-cohort <td colspan=2>1st <td colspan=2>2nd |
+cohort | 1st || 2nd ||
 -------|---- |----------- |---| ---- |
 set| training set | test set | training set | test set |
 years | 1998, 1999 & 2000 | 2001 & 2002 | 2004, 2005 & 2006 | 2007 & 2008 |
-num. of skaters in cohort <td colspan=2>1210 <td colspan=2>1014 |
+num. of skaters in cohort | 1210 || 1014 ||
 num. of skaters in set | 711 | 499 | 637 | 377 |
 num. of skaters with GP > 0 | 305 | 193 | 282 | 184 |
     
