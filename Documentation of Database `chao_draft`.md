@@ -158,25 +158,48 @@ years | 1998, 1999 & 2000 | 2001 & 2002 | 2004, 2005 & 2006 | 2007 & 2008 |
 num. of skaters in cohort | 1210 || 1014 ||
 num. of skaters in set | 711 | 499 | 637 | 377 |
 num. of skaters with GP > 0 | 305 | 193 | 282 | 184 |
+num. of skaters with CSS ranks | 429 | 325 | 513 | 291 |
     
 + Need to normalize training and test data together for each cohort.
-+ Normalization code and data is saved here:  
++ Normalization code and data is saved here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Decision_Trees/data_normalization
 + Normalized data is written to database, saved as table `chao_draft.join_skater_and_season_stats_10_years_CSS_null_norm`(table_20)
 
 ### Step 10: run Logistic Model Tree(LMT) in Weka on table_20
 
-+ Run Weka and read from database sever by following the instructions from here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/How%20to%20connect%20to%20MySql%20database%20in%20WEKA.md
-+ Note: we keep the missing values as null because "LMT can deal with binary and multi-class target variables, numeric and nominal attributes and missing values".
-+ Save two datasets as .arff files and rename as `skater_and_season_stats_GP0_first3years_cleaned.arff` and `skater_and_season_stats_GP0_second3years_cleaned.arff`, respectively. Weka data files and results are saved in the fold `weka_results` in this repository.
-+ To run LMT on the above two datasets in Weka, under 'Classify' --> choose 'Classifier' --> 'trees' --> 'LMT'. Change the following settings for LMT: `doNotMakeSplitPointActualValue = True`, `numDecimalPlaces = 6`.   Under 'Test opstions' choose 'Use training set'. 
-+ Run tests, save weka outputs as `results_first3years.txt` and `results_second3years.txt`, respectively, saved in the same folder 'weka_results'.
-+ Use the weights from the above two txt files to build models to predict player performance for cohort 1 & 2, repectively.
++ Run Weka and read training datasets from table_20 by following the instructions here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/How%20to%20connect%20to%20MySql%20database%20in%20WEKA.md
++ Note: we keep the missing values because "LMT can deal with binary and multi-class target variables, numeric and nominal attributes and missing values".
++ Save imported training dataset for each cohort as .arff files `lmt_training_1st_cohort.arff` and `lmt_training_2nd_cohort.arff`, respectively. Remove columns that cannot be used as attributes such as PlayerId, PlayerName, DraftYear, Overall, etc. and save the cleaned datasets as `lmt_training_1st_cohort_cleaned.arff` and `lmt_training_1st_cohort_cleaned.arff`. Weka input files are saved in the folder "Decision_Trees/LMT/weka_inputs".
++ To run LMT on the above two cleaned datasets in Weka, go to 'Classify' --> choose 'Classifier' --> 'trees' --> 'LMT'. Change some of the settings for LMT as follows: `doNotMakeSplitPointActualValue = True`, `numDecimalPlaces = 10`. Under 'Test opstions' choose 'Use training set'. 
++ Build an LMT model for each cohort, visualized tree for each cohort is saved as `lmt_training_1st_cohort_tree.png` and `lmt_training_2nd_cohort_tree.png`, respectively. Weka text outputs are saved as `lmt_training_1st_cohort_results.txt` and `lmt_training_2nd_cohort_results.txt`, respectively. Extracted equations(weights) for each all leaf nodes are saved as `lmt_training_1st_cohort_results_extracted.txt` and `lmt_training_2nd_cohort_results_extracted.txt`. The above outputs are saved in the folder "Decision_Trees/LMT/weka_outputs". 
 
-### Step 10: predict formance of players 
-+ use models to predict players who got drafted in 2001&2002 in cohort 1, and 2007&2008 in cohort 2, repectivley.
-+ python code can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/Logistic_Model_Tree
-+ When plugging players stats into the model, we need to replace missing values in `table_17` with 0 and save the new table as `chao_draft.join_skater_and_season_stats_10_years_no_null_values` (referred as `table_18`). 
-+ The players' probabilty of playing games in NHL or not is written to database and saved as `chao_draft.lmt_prediction_1st_cohort` and `chao_draft.lmt_prediction_2nd_cohort`.
+Training Results | 1st cohort | 2nd cohort |
+-----------------|------------|------------|
+Number of Leaves |	5 | 6 |
+Correctly Classified Instances | 629 (88.4669 %) | 510 (80.0628 %) |
+Incorrectly Classified Instances | 82 (11.5331 %) | 127 (19.9372 %) |
+
++ Calculate LMT probabitly for each cohort (including training and testing data) using definition and equation given by weka for each leafnode. Note: missing CSS_rank is replaced by the maximum normalized value, 1, in our calculation. Calculated LMT probability are saved in folder "/Decision_Trees/LMT/lmt_probability_cal/" and written to database as table `chao_draft.lmt_10years_CSS_null_norm_prob` (table_21).
++ Calculate classification accuracy for test datasets, results (saved in folder "/Decision_Trees/LMT/lmt_probability_cal/") are as follows:
+
+Testing Results | 2001 | 2001 | 2003 | 2004 |
+----------------|------|------|------|------|
+Correctly Classified Instances | 202 (82.7869 %) | 208 (81.5686 %) | 129 (67.5392 %) | 112 (60.2151 %)|
+Incorrectly Classified Instances | 42 (17.2131 %) | 47 (18.4314 %) | 62	(32.4607 %) | 74 (39.7849 %)|
+
++ It's almost guaranteed that the calculated LMT probability has no duplicates. Therefore, ranking the probability for each test year gives no tied ranks. These tables are saved as: `rank_lmt_prob_CSS_null_norm_2001/2/7/8_notie` (table_22's).
++ For those players who have a probabilty of less than 0.5 to play in NHL in the first seven years, assign them a tied bottom rank, giving us tables with tied ranks: `rank_lmt_prob_CSS_null_norm_2001/2/7/8_tied` (table_23's).
++ Calcualte the Spearman Rank Correlation between the probability rank and the actual rank(the rank of summed 7-year GP), save results in folder "/Decision_Trees/LMT/lmt_rank_corr_cal/". 
+
+DraftYear | Overall_rank_corr | lmt_rank_notie_corr | lmt_rank_tied_corr |
+----------|-------------------|---------------------|--------------------|
+2001 | 0.430380118 | 0.532523368 | 0.906244295 |
+2002 | 0.302207324 | 0.372542551 | 0.931912923 |
+2007 | 0.463533835 | 0.435790718 | 0.836970085 |
+2008 | 0.512395284 | 0.391738372 | 0.778907168 |
+
++ Related python codes for LMT calculations are saved in folder "Decision_Trees/LMT/python_code/".
+
+---------- Chao has updated the doc up to here, still working on it. Thank you for your patience! -------------
 
 ### Step 11: calculate rankings with ties for Spearman rank correlation
 + clean the original discontinuous draft number/overall for year 01, 02, 07 & 08 as we didn't take goalies into account.
