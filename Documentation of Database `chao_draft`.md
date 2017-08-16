@@ -181,7 +181,7 @@ Incorrectly Classified Instances | 82 (11.5331 %) | 127 (19.9372 %) |
 + Calculate LMT probabitly for each cohort (including training and testing data) using definition and equation given by weka for each leafnode. Note: missing CSS_rank is replaced by the maximum normalized value, 1, in our calculation. Calculated LMT probability are saved in folder "/Decision_Trees/LMT/lmt_probability_cal/" and written to database as table `chao_draft.lmt_10years_CSS_null_norm_prob` (table_21).
 + Calculate classification accuracy for test datasets, results (saved in folder "/Decision_Trees/LMT/lmt_probability_cal/") are as follows:
 
-Testing Results | 2001 | 2001 | 2003 | 2004 |
+Testing Results | 2001 | 2002 | 2007 | 2008 |
 ----------------|------|------|------|------|
 Correctly Classified Instances | 202 (82.7869 %) | 208 (81.5686 %) | 129 (67.5392 %) | 112 (60.2151 %)|
 Incorrectly Classified Instances | 42 (17.2131 %) | 47 (18.4314 %) | 62	(32.4607 %) | 74 (39.7849 %)|
@@ -192,10 +192,10 @@ Incorrectly Classified Instances | 42 (17.2131 %) | 47 (18.4314 %) | 62	(32.4607
 
 DraftYear | Overall_rank_corr | lmt_rank_notie_corr | lmt_rank_tied_corr |
 ----------|-------------------|---------------------|--------------------|
-2001 | 0.430380118 | 0.532523368 | 0.906244295 |
-2002 | 0.302207324 | 0.372542551 | 0.931912923 |
-2007 | 0.463533835 | 0.435790718 | 0.836970085 |
-2008 | 0.512395284 | 0.391738372 | 0.778907168 |
+2001 |	0.430380118 |	0.532523368 |	0.906244295|
+2002 |	0.299957301	| 0.379735989 |	0.932484657|
+2007 |	0.457963626	| 0.452261298 |	0.841046087|
+2008 |	0.510830858	| 0.40145089 | 0.781614908|
 
 + Related python codes for LMT calculations are saved in folder "Decision_Trees/LMT/python_code/".
 
