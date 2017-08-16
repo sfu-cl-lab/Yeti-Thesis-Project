@@ -1,0 +1,302 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.LMT -I -1 -M 15 -W 0.0 -doNotMakeSplitPointActualValue -num-decimal-places 10
+Relation:     QueryResult-weka.filters.unsupervised.attribute.Remove-R1-2,8-9,23-24
+Instances:    637
+Attributes:   19
+              DraftAge_norm
+              country_group
+              Height_norm
+              Weight_norm
+              Position
+              CSS_rank_norm
+              rs_GP_norm
+              rs_G_norm
+              rs_A_norm
+              rs_P_norm
+              rs_PIM_norm
+              rs_PlusMinus_norm
+              po_GP_norm
+              po_G_norm
+              po_A_norm
+              po_P_norm
+              po_PIM_norm
+              po_PlusMinus_norm
+              GP_greater_than_0
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+Logistic model tree 
+------------------
+
+CSS_rank_norm <= 0.046371: LM_1:7/14 (72)
+CSS_rank_norm > 0.046371
+|   rs_P_norm <= 0.061171: LM_2:7/21 (99)
+|   rs_P_norm > 0.061171
+|   |   rs_PlusMinus_norm <= 0.362385
+|   |   |   rs_PlusMinus_norm <= 0.353211: LM_3:7/35 (99)
+|   |   |   rs_PlusMinus_norm > 0.353211: LM_4:7/35 (175)
+|   |   rs_PlusMinus_norm > 0.362385
+|   |   |   po_A_norm <= 0.35: LM_5:7/35 (179)
+|   |   |   po_A_norm > 0.35: LM_6:7/35 (13)
+
+Number of Leaves  : 	6
+
+Size of the Tree : 	11
+
+LM_1:
+Class 0 :
+1.682576219  + 
+[DraftAge_norm] * -0.6521969619 +
+[country_group=EURO] * 0.2515058744 +
+[country_group=CAN] * -0.7372739476 +
+[Height_norm] * 0.9108602568 +
+[Weight_norm] * -3.0647516341 +
+[Position=D] * 0.3626622956 +
+[CSS_rank_norm] * 19.0327179101 +
+[rs_A_norm] * -1.416228717 +
+[rs_P_norm] * -2.5182072847 +
+[po_A_norm] * -2.5818151743 +
+[po_PlusMinus_norm] * -4.5578802919
+
+Class 1 :
+-1.682576219 + 
+[DraftAge_norm] * 0.6521969619 +
+[country_group=EURO] * -0.2515058744 +
+[country_group=CAN] * 0.7372739476 +
+[Height_norm] * -0.9108602568 +
+[Weight_norm] * 3.0647516341 +
+[Position=D] * -0.3626622956 +
+[CSS_rank_norm] * -19.0327179101 +
+[rs_A_norm] * 1.416228717  +
+[rs_P_norm] * 2.5182072847 +
+[po_A_norm] * 2.5818151743 +
+[po_PlusMinus_norm] * 4.5578802919
+
+
+LM_2:
+Class 0 :
+0.0225110366 + 
+[DraftAge_norm] * -0.6521969619 +
+[country_group=EURO] * 0.3823693577 +
+[country_group=USA] * 0.2452964509 +
+[Height_norm] * 1.6148625242 +
+[Weight_norm] * -1.1902369165 +
+[Position=D] * 0.2475813803 +
+[Position=R] * -0.6514414089 +
+[CSS_rank_norm] * 1.7003217418 +
+[rs_GP_norm] * -0.623606065 +
+[rs_G_norm] * 0.4156266673 +
+[rs_A_norm] * -1.416228717 +
+[rs_P_norm] * -9.2361288366 +
+[rs_PIM_norm] * 0.4704279537 +
+[rs_PlusMinus_norm] * 0.516339445  +
+[po_GP_norm] * 0.6961231358 +
+[po_PIM_norm] * -0.7606931178
+
+Class 1 :
+-0.0225110366 + 
+[DraftAge_norm] * 0.6521969619 +
+[country_group=EURO] * -0.3823693577 +
+[country_group=USA] * -0.2452964509 +
+[Height_norm] * -1.6148625242 +
+[Weight_norm] * 1.1902369165 +
+[Position=D] * -0.2475813803 +
+[Position=R] * 0.6514414089 +
+[CSS_rank_norm] * -1.7003217418 +
+[rs_GP_norm] * 0.623606065  +
+[rs_G_norm] * -0.4156266673 +
+[rs_A_norm] * 1.416228717  +
+[rs_P_norm] * 9.2361288366 +
+[rs_PIM_norm] * -0.4704279537 +
+[rs_PlusMinus_norm] * -0.516339445 +
+[po_GP_norm] * -0.6961231358 +
+[po_PIM_norm] * 0.7606931178
+
+
+
+LM_3:
+Class 0 :
+0.2596899624 + 
+[DraftAge_norm] * -1.2673609724 +
+[country_group=EURO] * 1.2307595534 +
+[country_group=USA] * -0.8069462064 +
+[Height_norm] * 2.2083451086 +
+[Weight_norm] * -2.1613141404 +
+[Position=D] * -0.105873252 +
+[Position=L] * -0.4271360663 +
+[CSS_rank_norm] * 1.9138640157 +
+[rs_GP_norm] * -1.5673201838 +
+[rs_G_norm] * 0.4156266673 +
+[rs_A_norm] * -0.4239688038 +
+[rs_PIM_norm] * 0.8031514348 +
+[rs_PlusMinus_norm] * -2.9754056872 +
+[po_P_norm] * 2.6843997425 +
+[po_PIM_norm] * -0.7606931178 +
+[po_PlusMinus_norm] * 2.447755103 
+
+Class 1 :
+-0.2596899624 + 
+[DraftAge_norm] * 1.2673609724 +
+[country_group=EURO] * -1.2307595534 +
+[country_group=USA] * 0.8069462064 +
+[Height_norm] * -2.2083451086 +
+[Weight_norm] * 2.1613141404 +
+[Position=D] * 0.105873252  +
+[Position=L] * 0.4271360663 +
+[CSS_rank_norm] * -1.9138640157 +
+[rs_GP_norm] * 1.5673201838 +
+[rs_G_norm] * -0.4156266673 +
+[rs_A_norm] * 0.4239688038 +
+[rs_PIM_norm] * -0.8031514348 +
+[rs_PlusMinus_norm] * 2.9754056872 +
+[po_P_norm] * -2.6843997425 +
+[po_PIM_norm] * 0.7606931178 +
+[po_PlusMinus_norm] * -2.447755103
+
+LM_4:
+Class 0 :
+-1.0888160283 + 
+[DraftAge_norm] * -1.2673609724 +
+[country_group=EURO] * -0.463850402 +
+[Height_norm] * 2.2083451086 +
+[Weight_norm] * -0.2293666258 +
+[Position=D] * -0.105873252 +
+[Position=L] * 0.0688557505 +
+[CSS_rank_norm] * 1.4879418811 +
+[rs_GP_norm] * -1.0477475885 +
+[rs_G_norm] * 0.4156266673 +
+[rs_A_norm] * -0.4239688038 +
+[rs_P_norm] * 0.5796943481 +
+[rs_PIM_norm] * 0.8031514348 +
+[rs_PlusMinus_norm] * -2.9754056872 +
+[po_P_norm] * 0.2898101074 +
+[po_PIM_norm] * -0.7606931178 +
+[po_PlusMinus_norm] * 2.447755103 
+
+Class 1 :
+1.0888160283 + 
+[DraftAge_norm] * 1.2673609724 +
+[country_group=EURO] * 0.463850402  +
+[Height_norm] * -2.2083451086 +
+[Weight_norm] * 0.2293666258 +
+[Position=D] * 0.105873252  +
+[Position=L] * -0.0688557505 +
+[CSS_rank_norm] * -1.4879418811 +
+[rs_GP_norm] * 1.0477475885 +
+[rs_G_norm] * -0.4156266673 +
+[rs_A_norm] * 0.4239688038 +
+[rs_P_norm] * -0.5796943481 +
+[rs_PIM_norm] * -0.8031514348 +
+[rs_PlusMinus_norm] * 2.9754056872 +
+[po_P_norm] * -0.2898101074 +
+[po_PIM_norm] * 0.7606931178 +
+[po_PlusMinus_norm] * -2.447755103
+
+
+LM_5:
+Class 0 :
+1.5482744147 + 
+[DraftAge_norm] * 1.1198806299 +
+[country_group=EURO] * 0.9510946135 +
+[Height_norm] * -0.1943101707 +
+[Weight_norm] * -1.1902369165 +
+[Position=D] * -0.310508047 +
+[Position=R] * -0.1937918628 +
+[Position=L] * -0.1239741776 +
+[CSS_rank_norm] * 0.3503937449 +
+[rs_GP_norm] * -1.0504894229 +
+[rs_G_norm] * -0.1686151641 +
+[rs_A_norm] * -0.4239688038 +
+[rs_P_norm] * -0.5370008872 +
+[rs_PIM_norm] * 0.8031514348 +
+[rs_PlusMinus_norm] * 0.8075548697 +
+[po_GP_norm] * -0.3212562576 +
+[po_PIM_norm] * -1.4663079409
+
+Class 1 :
+-1.5482744147 + 
+[DraftAge_norm] * -1.1198806299 +
+[country_group=EURO] * -0.9510946135 +
+[Height_norm] * 0.1943101707 +
+[Weight_norm] * 1.1902369165 +
+[Position=D] * 0.310508047  +
+[Position=R] * 0.1937918628 +
+[Position=L] * 0.1239741776 +
+[CSS_rank_norm] * -0.3503937449 +
+[rs_GP_norm] * 1.0504894229 +
+[rs_G_norm] * 0.1686151641 +
+[rs_A_norm] * 0.4239688038 +
+[rs_P_norm] * 0.5370008872 +
+[rs_PIM_norm] * -0.8031514348 +
+[rs_PlusMinus_norm] * -0.8075548697 +
+[po_GP_norm] * 0.3212562576 +
+[po_PIM_norm] * 1.4663079409
+
+LM_6:
+Class 0 :
+-3.106876138 + 
+[DraftAge_norm] * -0.0975778883 +
+[country_group=EURO] * 8.8551596038 +
+[Height_norm] * 0.6618192176 +
+[Weight_norm] * -1.1902369165 +
+[Position=D] * -0.105873252 +
+[Position=L] * -0.1239741776 +
+[CSS_rank_norm] * 0.3503937449 +
+[rs_GP_norm] * -1.0504894229 +
+[rs_G_norm] * 0.4156266673 +
+[rs_A_norm] * -0.4239688038 +
+[rs_PIM_norm] * 0.8031514348 +
+[rs_PlusMinus_norm] * 0.8075548697 +
+[po_GP_norm] * -1.089093825 +
+[po_PIM_norm] * -1.4663079409
+
+Class 1 :
+3.106876138  + 
+[DraftAge_norm] * 0.0975778883 +
+[country_group=EURO] * -8.8551596038 +
+[Height_norm] * -0.6618192176 +
+[Weight_norm] * 1.1902369165 +
+[Position=D] * 0.105873252  +
+[Position=L] * 0.1239741776 +
+[CSS_rank_norm] * -0.3503937449 +
+[rs_GP_norm] * 1.0504894229 +
+[rs_G_norm] * -0.4156266673 +
+[rs_A_norm] * 0.4239688038 +
+[rs_PIM_norm] * -0.8031514348 +
+[rs_PlusMinus_norm] * -0.8075548697 +
+[po_GP_norm] * 1.089093825  +
+[po_PIM_norm] * 1.4663079409
+
+
+Time taken to build model: 0.28 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0 seconds
+
+=== Summary ===
+
+Correctly Classified Instances         510               80.0628 %
+Incorrectly Classified Instances       127               19.9372 %
+Kappa statistic                          0.5931
+Mean absolute error                      0.2937
+Root mean squared error                  0.3732
+Relative absolute error                 59.5234 %
+Root relative squared error             75.1267 %
+Total Number of Instances              637     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.848    0.259    0.805      0.848    0.826      0.594    0.880     0.888     no
+                 0.741    0.152    0.795      0.741    0.767      0.594    0.880     0.870     yes
+Weighted Avg.    0.801    0.212    0.800      0.801    0.800      0.594    0.880     0.880     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 301  54 |   a = no
+  73 209 |   b = yes
+
