@@ -192,7 +192,7 @@ Incorrectly Classified Instances | 42 (17.2131 %) | 47 (18.4314 %) | 62	(32.4607
 
 DraftYear | Overall_rank_corr | lmt_rank_notie_corr | lmt_rank_tied_corr |
 ----------|-------------------|---------------------|--------------------|
-2001 |	0.430380118 |	0.532523368 |	0.906244295|
+2001 |	0.430380118 | 0.532523368 |	0.906244295|
 2002 |	0.299957301	| 0.379735989 |	0.932484657|
 2007 |	0.457963626	| 0.452261298 |	0.841046087|
 2008 |	0.510830858	| 0.40145089 | 0.781614908|
@@ -246,21 +246,8 @@ DraftYear | Overall_rank_corr | lmt_rank_notie_corr | lmt_rank_tied_corr |
 
 ---------- Chao has updated the doc up to here, still working on it. Thank you for your patience! -------------
 
-### Step 11: calculate rankings with ties for Spearman rank correlation
-
- 
-
- + Union `table_22s`. Save as `chao_draft.union_rank_lmt_prob_1278_view`(referred as `view_24`).
-
- 
-### Step 12: run 3-class Logistic Model Tree(LMT) in Weka on the new table_17
-+ Add 3-class labels in `table_17` as "Good" for sum_7yr_GP = 0, "Better" for 1 <= sum_7yr_GP < 160, & "Better" for sum_7yr_GP >= 160
-+ Use the same schema when dividing dataset into training and test datasets.
-+ Use the same settings in Weka as in Step 9.
-+ Results are saved in https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Weka_Decision_Tree/LMT
-
-### Step 13: Build M5P dicision tree model with training dataset
-+ M5P in weka can also deal with missing values. The training dataset should only contain skaters who played greater than 0 games in NHL.
+### Step 11: Build M5P dicision tree model on table_20
++ M5P in weka can also deal with missing values. Two M5P models were built for each cohort: one model was built on the training set containing all skaters, whether GP > 0 or not; the other model was built on the training set that contains only skaters with GP > 0. Weka inputs are saved in the folder ""
 + Create view `chao_draft.m5p_training_set_1st_cohort_view` (`view_27`) and `chao_draft.m5p_training_set_2nd_cohort_view` (`view_28`) based on `table_17`.
 + There are 305 and 282 skaters in `view_27` and `view_28`, respectively.
 + M5P decision tree settings are as follows: numDecimalPlaces = 6, buildRegressionTree = False, unpruned = False, etc.
@@ -275,5 +262,13 @@ DraftYear | Overall_rank_corr | lmt_rank_notie_corr | lmt_rank_tied_corr |
 + Union `table_30s` to get `chao_draft.union_rank_m5p_prob_1278_view` (`view_32`)
 + Union `view_23`, `view_24` and `view_31`, save as `chao_draft.union_all_ranks_view` (referred as `view_33`).
 
+
+
+
+### Step 12: run 3-class Logistic Model Tree(LMT) in Weka on the new table_17
++ Add 3-class labels in `table_17` as "Good" for sum_7yr_GP = 0, "Better" for 1 <= sum_7yr_GP < 160, & "Better" for sum_7yr_GP >= 160
++ Use the same schema when dividing dataset into training and test datasets.
++ Use the same settings in Weka as in Step 9.
++ Results are saved in https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Weka_Decision_Tree/LMT
 
 
