@@ -204,42 +204,42 @@ DraftYear | Overall_rank_corr | lmt_rank_notie_corr | lmt_rank_tied_corr |
 + Because we have ties in ranking sum_7yr_GP/TOI & lmt_probability, the corresponding equation for ties were used in our calculation.
 + calculte the true rankings for players based on their summed first 7-year of GP/TOI. Save as `chao_draft`.`rank_sum_7yr_GP_2001/2/7/8` (table_24's) and `chao_draft`.`rank_sum_7yr_TOI_2001/2/7/8` (table_25's)
 
-create table chao_draft.rank_sum_7yr_GP_2001/2/7/8 as
-select id, PlayerName, DraftYear, sum_7yr_GP,
-@prev := @curr,
-@curr := sum_7yr_GP,
-@rank := if(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_GP,
-if(@prev <> sum_7yr_GP, @i:=1, @i:=@i+1) AS counter
-from chao_draft.join_skater_and_season_stats_10_years_CSS_null,
-(select @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
-where DraftYear = 2001/2/7/8
-order by sum_7yr_GP DESC;
+      create table chao_draft.rank_sum_7yr_GP_2001/2/7/8 as
+      select id, PlayerName, DraftYear, sum_7yr_GP,
+      @prev := @curr,
+      @curr := sum_7yr_GP,
+      @rank := if(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_GP,
+      if(@prev <> sum_7yr_GP, @i:=1, @i:=@i+1) AS counter
+      from chao_draft.join_skater_and_season_stats_10_years_CSS_null,
+      (select @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
+      where DraftYear = 2001/2/7/8
+      order by sum_7yr_GP DESC;
 
-create table chao_draft.rank_sum_7yr_TOI_2001/2/7/8 as
-select id, PlayerName, DraftYear, sum_7yr_TOI,
-@prev := @curr,
-@curr := sum_7yr_TOI,
-@rank := if(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_TOI,
-if(@prev <> sum_7yr_TOI, @i:=1, @i:=@i+1) AS counter
-from chao_draft.join_skater_and_season_stats_10_years_CSS_null,
-(select @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
-where DraftYear = 2001/2/7/8
-order by sum_7yr_TOI DESC;
+      create table chao_draft.rank_sum_7yr_TOI_2001/2/7/8 as
+      select id, PlayerName, DraftYear, sum_7yr_TOI,
+      @prev := @curr,
+      @curr := sum_7yr_TOI,
+      @rank := if(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_TOI,
+      if(@prev <> sum_7yr_TOI, @i:=1, @i:=@i+1) AS counter
+      from chao_draft.join_skater_and_season_stats_10_years_CSS_null,
+      (select @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
+      where DraftYear = 2001/2/7/8
+      order by sum_7yr_TOI DESC;
 
 + Clean the original discontinuous draft number/overall for test years 01, 02, 07 & 08 as we didn't take goalies into account. Saved as `chao_draft.rerank_overall_2001/2/7/8` (table_26's).
 
-create table chao_draft.rerank_overall_2001/2/7/8 as
-select id, PlayerName, DraftYear, Overall as original_overall,
-@prev := @curr,
-@curr := Overall,
-@rank := if(@prev = @curr, @rank, @rank + @i) AS skaters_overall,
-if(@prev <> Overall, @i:=1, @i:=@i+1) AS counter
-from chao_draft.join_skater_and_season_stats_10_years_CSS_null,
-(select @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
-where DraftYear = 2001/2/7/8
-order by Overall ASC
+      create table chao_draft.rerank_overall_2001/2/7/8 as
+      select id, PlayerName, DraftYear, Overall as original_overall,
+      @prev := @curr,
+      @curr := Overall,
+      @rank := if(@prev = @curr, @rank, @rank + @i) AS skaters_overall,
+      if(@prev <> Overall, @i:=1, @i:=@i+1) AS counter
+      from chao_draft.join_skater_and_season_stats_10_years_CSS_null,
+      (select @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
+      where DraftYear = 2001/2/7/8
+      order by Overall ASC
 
-+ Union `table_24's`, `table_25's` and `table_26's`. Save as `chao_draft.union_overall_GP_TOI_1278_VIEW`(view_27).
++ Union table_24's, table_25's and table_26's and save as `chao_draft.union_overall_GP_TOI_1278_VIEW`(view_27).
 
 
 
