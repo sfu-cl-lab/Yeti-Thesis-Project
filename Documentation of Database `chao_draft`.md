@@ -241,17 +241,18 @@ DraftYear | Overall_rank_corr | lmt_rank_notie_corr | lmt_rank_tied_corr |
 
 + Union table_24's, table_25's and table_26's and save as `chao_draft.union_overall_GP_TOI_1278_VIEW`(view_27).
 
-
+### Step 11: Build M5P dicision tree model on table_20
++ M5P in weka can also deal with missing values. Two M5P models were built for each cohort: one model (model_1) was built on the training set containing all skaters from training years whether GP > 0 or not; the other model (model_2) was built on the training set that contains only skaters in training years with GP > 0. Weka inputs are saved in the folder "/Decision_Trees/M5P/weka_inputs/".
++ Only change one setting in M5P which is `numDecimalPlaces = 10`. Keep other settings as default.
++ M5P output files for both models are saved in the folder "/Decision_Trees/M5P/weka_outputs/".
++ Test set
++ Calculate the predicted GP for both cohorts using both models and save results in the folder "/Decision_Trees/M5P/m5p_prediction_cal/". Write predicted results to database as `chao_draft.m5p_10years_CSS_null_norm_pred` (table_30) and `chao_draft.m5p_10years_nonzero_CSS_null_norm_pred` (table_31).
++ 
 
 
 ---------- Chao has updated the doc up to here, still working on it. Thank you for your patience! -------------
 
-### Step 11: Build M5P dicision tree model on table_20
-+ M5P in weka can also deal with missing values. Two M5P models were built for each cohort: one model was built on the training set containing all skaters, whether GP > 0 or not; the other model was built on the training set that contains only skaters with GP > 0. Weka inputs are saved in the folder ""
-+ Create view `chao_draft.m5p_training_set_1st_cohort_view` (`view_27`) and `chao_draft.m5p_training_set_2nd_cohort_view` (`view_28`) based on `table_17`.
-+ There are 305 and 282 skaters in `view_27` and `view_28`, respectively.
-+ M5P decision tree settings are as follows: numDecimalPlaces = 6, buildRegressionTree = False, unpruned = False, etc.
-+ M5P input .arff files and outputs are saved in: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Weka_Decision_Tree/M5P 
+
 
 ### Step 14: Select players with LMT probability >= 0.5 as M5P test set
 + Join `table_18`with `table_22s` on selecting players with LMT probability >= 0.5 to get views `chao_draft.m5p_test_set_2001_view`, `chao_draft.m5p_test_set_2002_view`, `chao_draft.m5p_test_set_2007_view` and `chao_draft.m5p_test_set_2008_view` (`view_29s`).
