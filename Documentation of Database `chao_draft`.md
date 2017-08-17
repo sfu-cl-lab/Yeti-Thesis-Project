@@ -245,31 +245,26 @@ DraftYear | Overall_rank_corr | lmt_rank_notie_corr | lmt_rank_tied_corr |
 + M5P in weka can also deal with missing values. Two M5P models were built for each cohort: one model (model_1) was built on the training set containing all skaters from training years whether GP > 0 or not; the other model (model_2) was built on the training set that contains only skaters in training years with GP > 0. Weka inputs are saved in the folder "/Decision_Trees/M5P/weka_inputs/".
 + Only change one setting in M5P which is `numDecimalPlaces = 10`. Keep other settings as default.
 + M5P output files for both models are saved in the folder "/Decision_Trees/M5P/weka_outputs/".
-+ Test set
-+ Calculate the predicted GP for both cohorts using both models and save results in the folder "/Decision_Trees/M5P/m5p_prediction_cal/". Write predicted results to database as `chao_draft.m5p_10years_CSS_null_norm_pred` (table_30) and `chao_draft.m5p_10years_nonzero_CSS_null_norm_pred` (table_31).
-+ 
++ Use model_1 to calculate predicted GP on datasets `1st_cohort_all_5_year_norm.csv` and `2nd_cohort_all_5_year_norm.csv`; use model_2 to calculate predicted GP on datasets `1st_cohort_nonzero_5_year_norm.csv` and `2nd_cohort_nonzero_5_year_norm.csv`. Results are saved in folder "/Decision_Trees/M5P/m5p_prediction_cal/". Write predicted results to database as `chao_draft.m5p_10years_CSS_null_norm_pred` (table_30) and `chao_draft.m5p_10years_nonzero_CSS_null_norm_pred` (table_31).
++ Three types of rankings are calculated for 4 test years, i.e., 2001, 2002, 2007 and 2008, respectively.
+++ Ranking_1 is calculated based on the original prediction from table_30, due to the precision of the predicted GP, no ties appear in ranking_1. Rank tables are saved as `chao_draft.rank_m5p_pred_CSS_null_norm_2001/2/7/8_notie` (table_32's).
+++ Ranking_2 is also calculated based on table_30 except that first we rank those players who are assigned a probability of >= 0.5 by our LMT model then we moved those with probability < 0.5 to the bottom of the ranking, assigning them the same tied bottom rank. Rankings are saved as `chao_draft.rank_m5p_pred_CSS_null_norm_2001/2/7/8_tied` (table_33's).
+++ Ranking_3 is calculated based on table_31, bottom players in ranking_2 are filled at the bottom of ranking_3 with the same bottom rank. Rankings are saved as `chao_draft.rank_m5p_pred_CSS_null_norm_2001/2/7/8_nonzero` (table_34's).
++ Union ranking 1, 2 and 3 gives the view `chao_draft.union_m5p_pred_view` (view_35).
++ Creating view `chao_draft.union_all_ranks_with_m5p_view` (view_36) for the calculation of Spearman rank correlation between the m5p ranks and the true rank. Results are saved as "/Decision_Trees/M5P/m5p_rank_corr_cal/m5p_rank_correlation_calculation.csv".
+
+DraftYear	|	m5p_rank_notie_corr |	m5p_rank_tied_corr	| m5p_rank_nonzero_corr |
+------------|-----------------------|-----------------------|-----------------------|
+2001	|	0.509833587	| 0.926401332 |	0.919660566 |
+2002	|	0.344241402	| 0.929059316 |	0.933811226 |
+2007	|	0.377621246 | 0.842728713 |	0.84110981 |
+2008	|	0.467960595	| 0.803435141 |	0.796198406 |
+
++ Generally speaking, ranking with ties calculated based on model_1 has better correlation than the counterpart calculated based on model_2 as the number of players in the training set to build model_1 is more than doubled the number to build model_2. 
+
+
 
 
 ---------- Chao has updated the doc up to here, still working on it. Thank you for your patience! -------------
-
-
-
-### Step 14: Select players with LMT probability >= 0.5 as M5P test set
-+ Join `table_18`with `table_22s` on selecting players with LMT probability >= 0.5 to get views `chao_draft.m5p_test_set_2001_view`, `chao_draft.m5p_test_set_2002_view`, `chao_draft.m5p_test_set_2007_view` and `chao_draft.m5p_test_set_2008_view` (`view_29s`).
-+ Need to normalize data by running python code. Then calculate predected sum_7yr_GP with training model. Code can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/M5P_Model_Tree
-+ Results are written back to database as `chao_draft`.`m5p_prediction_1st_cohort` & `chao_draft`.`m5p_prediction_2nd_cohort` (`table_30s`)
-+ Rank predicted 7-year GP given by M5P model and obtain `chao_draft.rank_m5p_prob_2001`, `chao_draft.rank_m5p_prob_2002`, `chao_draft.rank_m5p_prob_2007` and `chao_draft.rank_m5p_prob_2008` (`table_31s`)
-+ Note: Those player who have LMT probabilty < 0.5, are ranked together with players in table_31s and tied at at the bottom in order to calculate Spearman rank correlation 
-+ Union `table_30s` to get `chao_draft.union_rank_m5p_prob_1278_view` (`view_32`)
-+ Union `view_23`, `view_24` and `view_31`, save as `chao_draft.union_all_ranks_view` (referred as `view_33`).
-
-
-
-
-### Step 12: run 3-class Logistic Model Tree(LMT) in Weka on the new table_17
-+ Add 3-class labels in `table_17` as "Good" for sum_7yr_GP = 0, "Better" for 1 <= sum_7yr_GP < 160, & "Better" for sum_7yr_GP >= 160
-+ Use the same schema when dividing dataset into training and test datasets.
-+ Use the same settings in Weka as in Step 9.
-+ Results are saved in https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Weka_Decision_Tree/LMT
 
 
