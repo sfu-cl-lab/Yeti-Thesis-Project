@@ -1,0 +1,36 @@
+if CSS_rank_norm <= 0.091  and CSS_rank_norm <= 0.034  and CSS_rank_norm <= 0.006 :
+    leafNode = 1
+    m5p_pred = 167.7573 * DraftAge_norm + 34.4004 * (country_group == 'USA' or country_group == 'CAN') + 4520.3124 * Height_norm + 5295.4732 * Weight_norm - 314989.0034 * CSS_rank_norm + 4558.1496 * rs_A_norm - 8200.0205 * rs_PIM_norm - 861.9936 * po_G_norm + 177.4996 * po_A_norm + 2431.5377 * po_P_norm + 877.4118 
+
+elif CSS_rank_norm <= 0.091  and CSS_rank_norm <= 0.034  and CSS_rank_norm >  0.006  and rs_A_norm <= 0.15  and rs_PlusMinus_norm <= 0.39  and po_P_norm <= 0.054  and Height_norm <= 0.719 :
+    leafNode = 2
+    m5p_pred = 167.7573 * DraftAge_norm + 34.4004 * (country_group == 'USA' or country_group == 'CAN') + 2191.2929 * Height_norm + 3210.945 * Weight_norm - 551.972 * (Position == 'R' or Position == 'L' or Position == 'C') - 27386.8678 * CSS_rank_norm - 1941.651 * rs_GP_norm + 5962.7819 * rs_A_norm - 1861.6987 * rs_PIM_norm - 1307.5802 * po_G_norm + 177.4996 * po_A_norm + 6243.6764 * po_P_norm + 712.6242 
+
+elif CSS_rank_norm <= 0.091  and CSS_rank_norm <= 0.034  and CSS_rank_norm >  0.006  and rs_A_norm <= 0.15  and rs_PlusMinus_norm <= 0.39  and po_P_norm <= 0.054  and Height_norm >  0.719 :
+    leafNode = 3
+    m5p_pred = 167.7573 * DraftAge_norm + 34.4004 * (country_group == 'USA' or country_group == 'CAN') + 2247.1651 * Height_norm + 3210.945 * Weight_norm - 551.972 * (Position == 'R' or Position == 'L' or Position == 'C') - 27386.8678 * CSS_rank_norm - 1941.651 * rs_GP_norm + 5962.7819 * rs_A_norm - 1861.6987 * rs_PIM_norm - 1307.5802 * po_G_norm + 177.4996 * po_A_norm + 6243.6764 * po_P_norm + 724.5735 
+
+elif CSS_rank_norm <= 0.091  and CSS_rank_norm <= 0.034  and CSS_rank_norm >  0.006  and rs_A_norm <= 0.15  and rs_PlusMinus_norm <= 0.39  and po_P_norm >  0.054 :
+    leafNode = 4
+    m5p_pred = 167.7573 * DraftAge_norm + 34.4004 * (country_group == 'USA' or country_group == 'CAN') + 2616.463 * Height_norm + 3210.945 * Weight_norm - 551.972 * (Position == 'R' or Position == 'L' or Position == 'C') - 27386.8678 * CSS_rank_norm - 1941.651 * rs_GP_norm + 5962.7819 * rs_A_norm - 1861.6987 * rs_PIM_norm - 1307.5802 * po_G_norm + 177.4996 * po_A_norm + 6686.5627 * po_P_norm + 667.5456 
+
+elif CSS_rank_norm <= 0.091  and CSS_rank_norm <= 0.034  and CSS_rank_norm >  0.006  and rs_A_norm <= 0.15  and rs_PlusMinus_norm >  0.39 :
+    leafNode = 5
+    m5p_pred = 167.7573 * DraftAge_norm + 34.4004 * (country_group == 'USA' or country_group == 'CAN') + 1762.504 * Height_norm + 3210.945 * Weight_norm - 551.972 * (Position == 'R' or Position == 'L' or Position == 'C') - 27386.8678 * CSS_rank_norm - 1941.651 * rs_GP_norm + 5962.7819 * rs_A_norm - 1861.6987 * rs_PIM_norm - 1307.5802 * po_G_norm + 177.4996 * po_A_norm + 5895.1386 * po_P_norm + 839.8362 
+
+elif CSS_rank_norm <= 0.091  and CSS_rank_norm <= 0.034  and CSS_rank_norm >  0.006  and rs_A_norm >  0.15  and rs_GP_norm <= 0.675 :
+    leafNode = 6
+    m5p_pred = 167.7573 * DraftAge_norm + 34.4004 * (country_group == 'USA' or country_group == 'CAN') - 197.5876 * Height_norm + 3210.945 * Weight_norm - 1322.8024 * (Position == 'R' or Position == 'L' or Position == 'C') - 27386.8678 * CSS_rank_norm - 4388.3025 * rs_GP_norm + 5962.7819 * rs_A_norm - 1861.6987 * rs_PIM_norm + 1580.7687 * rs_PlusMinus_norm - 1307.5802 * po_G_norm + 177.4996 * po_A_norm + 1151.781 * po_P_norm + 4846.0332 
+
+elif CSS_rank_norm <= 0.091  and CSS_rank_norm <= 0.034  and CSS_rank_norm >  0.006  and rs_A_norm >  0.15  and rs_GP_norm >  0.675 :
+    leafNode = 7
+    m5p_pred = 167.7573 * DraftAge_norm + 34.4004 * (country_group == 'USA' or country_group == 'CAN') - 197.5876 * Height_norm + 3210.945 * Weight_norm - 1059.7911 * (Position == 'R' or Position == 'L' or Position == 'C') - 27386.8678 * CSS_rank_norm - 5436.8674 * rs_GP_norm + 5962.7819 * rs_A_norm - 1861.6987 * rs_PIM_norm + 2258.2411 * rs_PlusMinus_norm - 1307.5802 * po_G_norm + 177.4996 * po_A_norm + 1151.781 * po_P_norm + 4511.0261 
+
+elif CSS_rank_norm <= 0.091  and CSS_rank_norm >  0.034 :
+    leafNode = 8
+    m5p_pred = 167.7573 * DraftAge_norm + 668.1857 * (country_group == 'USA' or country_group == 'CAN') - 197.5876 * Height_norm + 1080.6367 * Weight_norm - 7985.6913 * CSS_rank_norm + 4300.3035 * rs_A_norm - 552.7515 * rs_PIM_norm + 177.4996 * po_A_norm + 4371.865 * po_PlusMinus_norm - 1269.4154 
+
+elif CSS_rank_norm >  0.091 :
+    leafNode = 9
+    m5p_pred = 2215.7209 * DraftAge_norm + 9.7247 * (country_group == 'USA' or country_group == 'CAN') - 2772.3565 * Height_norm + 1870.7797 * Weight_norm - 355.6245 * (Position == 'C') - 960.7474 * CSS_rank_norm - 1683.0563 * rs_G_norm + 3229.8694 * rs_A_norm - 650.0636 * rs_PIM_norm + 1212.8107 * po_G_norm + 50.1778 * po_A_norm + 1463.4346 
+
