@@ -73,7 +73,7 @@ for fileName in pathList:
                                     cleaned_cond = temp_lst[0] + ' != ' + '\'' + temp_lst[1][0] + '\''
 
                             if indx != len(cond_list) -1 :
-                                cond_list[indx] = cleaned_cond + ' and '
+                                cond_list[indx] = cleaned_cond[:-1] + ' and '
                             else:
                                 cond_list[indx] = cleaned_cond + ':'
 

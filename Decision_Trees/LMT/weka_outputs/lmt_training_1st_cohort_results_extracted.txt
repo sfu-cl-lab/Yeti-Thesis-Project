@@ -18,7 +18,7 @@ elif po_PlusMinus_norm > 0.354166 and po_PlusMinus_norm <= 0.395834 and rs_PlusM
     wx_sum = 1.9780057039 + DraftAge_norm * -2.2681273438 + (country_group == 'EURO') * 0.1901788186 + (country_group == 'CAN') * -0.332912836 + Weight_norm * -1.5706434401 + CSS_rank_norm * 1.4750414248 + rs_GP_norm * -1.8403281774 + rs_P_norm * -1.5706334136 + rs_PIM_norm * 1.0367303956 + rs_PlusMinus_norm * -0.7777586333 + po_P_norm * -4.3659576659 + po_PIM_norm * -5.2983383711 + po_PlusMinus_norm * 7.1433895008 
     lmt_prob = 1/(1 + np.exp(wx_sum))
 
-elif po_PlusMinus_norm > 0.354166 and po_PlusMinus_norm <= 0.395834 and rs_PlusMinus_norm > 0.548 and po_PlusMinus_norm > 0.395834:
+elif po_PlusMinus_norm > 0.354166 and po_PlusMinus_norm > 0.395834:
     leafNode = 5
     wx_sum = 1.1012862109 + DraftAge_norm * -0.7210529086 + Weight_norm * -1.5706434401 + (Position == 'R') * 0.1171557532 + CSS_rank_norm * 1.4750414248 + rs_GP_norm * -1.1639704533 + rs_P_norm * -1.5706334136 + po_P_norm * -1.4172451085 + po_PlusMinus_norm * 7.1433895008 
     lmt_prob = 1/(1 + np.exp(wx_sum))
