@@ -242,32 +242,36 @@ DraftYear | Overall_rank_corr | lmt_rank_notie_corr | lmt_rank_tied_corr |
 + Union table_24's, table_25's and table_26's and save as `chao_draft.union_overall_GP_TOI_1278_VIEW`(view_27).
 
 ### Step 11: Build M5P dicision tree model on GP
++ Build M5P models on the same dataset, table_20, using numerical summed 7-year GP as target values.
 + M5P in weka can also deal with missing values. Two M5P models were built for each cohort: one model (model_1) was built on the training set containing all skaters from training years whether GP > 0 or not; the other model (model_2) was built on the training set that contains only skaters in training years with GP > 0. Weka inputs are saved in the folder "/Decision_Trees/M5P_GP/weka_inputs/".
 + Only change one setting in M5P which is `numDecimalPlaces = 10`. Keep other settings as default.
 + M5P output files for both models are saved in the folder "/Decision_Trees/M5P_GP/weka_outputs/".
-+ Use model_1 to calculate predicted GP on datasets `1st_cohort_all_5_year_norm.csv` and `2nd_cohort_all_5_year_norm.csv`; use model_2 to calculate predicted GP on datasets `1st_cohort_nonzero_5_year_norm.csv` and `2nd_cohort_nonzero_5_year_norm.csv`. Results are saved in folder "/Decision_Trees/M5P_GP/m5p_prediction_cal/". Write predicted results to database as `chao_draft.m5p_10years_CSS_null_norm_pred` (table_30) and `chao_draft.m5p_10years_nonzero_CSS_null_norm_pred` (table_31).
++ Use model_1 to calculate predicted GP on datasets `1st_cohort_all_5_year_norm.csv` and `2nd_cohort_all_5_year_norm.csv`; use model_2 to calculate predicted GP on datasets `1st_cohort_nonzero_5_year_norm.csv` and `2nd_cohort_nonzero_5_year_norm.csv`. Results are saved in folder "/Decision_Trees/M5P_GP/m5p_prediction_cal/". Write predicted results to database as `chao_draft.m5p_10years_CSS_null_norm_GP_pred` (table_30) and `chao_draft.m5p_10years_nonzero_CSS_null_norm_GP_pred` (table_31).
 + Three types of rankings are calculated for 4 test years, i.e., 2001, 2002, 2007 and 2008, respectively.
-+ Ranking_1 is calculated based on the original prediction from table_30, due to the precision of the predicted GP, no ties appear in ranking_1. Rank tables are saved as `chao_draft.rank_m5p_pred_CSS_null_norm_2001/2/7/8_notie` (table_32's).
-+ Ranking_2 is also calculated based on table_30 except that first we rank those players who are assigned a probability of >= 0.5 by our LMT model then we moved those with probability < 0.5 to the bottom of the ranking, assigning them the same tied bottom rank. Rankings are saved as `chao_draft.rank_m5p_pred_CSS_null_norm_2001/2/7/8_tied` (table_33's).
-+ Ranking_3 is calculated based on table_31, bottom players in ranking_2 are filled at the bottom of ranking_3 with the same bottom rank. Rankings are saved as `chao_draft.rank_m5p_pred_CSS_null_norm_2001/2/7/8_nonzero` (table_34's).
-+ Union ranking 1, 2 and 3 gives the view `chao_draft.union_m5p_pred_view` (view_35).
-+ Creating view `chao_draft.union_all_ranks_with_m5p_view` (view_36) for the calculation of Spearman rank correlation between the m5p ranks and the true rank. Results are saved as "/Decision_Trees/M5P_GP/m5p_rank_corr_cal/m5p_rank_correlation_calculation.csv".
++ Ranking_1 is calculated based on the original prediction from table_30, due to the precision of the predicted GP, no ties appear in ranking_1. Rank tables are saved as `chao_draft.rank_m5p_pred_CSS_null_norm_GP_2001/2/7/8_notie` (table_32's).
++ Ranking_2 is also calculated based on table_30 except that first we rank those players who are assigned a probability of >= 0.5 by our LMT model then we moved those with probability < 0.5 to the bottom of the ranking, assigning them the same tied bottom rank. Rankings are saved as `chao_draft.rank_m5p_pred_CSS_null_norm_GP_2001/2/7/8_tied` (table_33's).
++ Ranking_3 is calculated based on table_31, bottom players in ranking_2 are filled at the bottom of ranking_3 with the same bottom rank. Rankings are saved as `chao_draft.rank_m5p_pred_CSS_null_norm_GP_2001/2/7/8_nonzero` (table_34's).
++ Union ranking 1, 2 and 3 gives the view `chao_draft.union_m5p_GP_pred_view` (view_35).
++ Creating view `chao_draft.union_all_ranks_with_m5p_GP_view` (view_36) for the calculation of Spearman rank correlation between the m5p ranks and the true rank. Results are saved as "/Decision_Trees/M5P_GP/m5p_rank_corr_cal/m5p_rank_correlation_calculation.csv".
 
-DraftYear	|	m5p_rank_notie_corr |	m5p_rank_tied_corr	| m5p_rank_nonzero_corr |
-------------|-----------------------|-----------------------|-----------------------|
-2001	|	0.509833587	| 0.926401332 |	0.919660566 |
-2002	|	0.344241402	| 0.929059316 |	0.933811226 |
-2007	|	0.377621246 | 0.842728713 |	0.84110981 |
-2008	|	0.467960595	| 0.803435141 |	0.796198406 |
+DraftYear | Overall_rank_corr |	m5p_GP_rank_notie_corr | m5p_GP_rank_tied_corr | m5p_GP_rank_nonzero_corr |
+------------|-------------------|-----------------------|-----------------------|-----------------------|
+2001	|	0.430380118 | 	0.509833587	| 0.926401332 |	0.919660566 |
+2002	|	0.299957301	|	0.344241402	| 0.929059316 |	0.933811226 |
+2007	|	0.457963626	|	0.377621246 | 0.842728713 |	0.84110981 |
+2008	|   0.510830858	|	0.467960595	| 0.803435141 |	0.796198406 |
 
 + Generally speaking, ranking with ties calculated based on model_1 has better correlation than the counterpart calculated based on model_2 as the number of players in the training set to build model_1 is more than doubled the number to build model_2. 
 
 ### Step 12: Build M5P dicision tree model on TOI
-+ 
-DraftYear |	Overall_rank_corr |	m5p_rank_notie_corr |	m5p_rank_tied_corr | m5p_rank_nonzero_corr |
----------|--------------------|---------------------|----------------------|-----------------------|
++ Build another set of M5P models, using TOI as target values.
++ Follow the same workflow as in step 11, obtained the following tables and views: `chao_draft.m5p_10years_CSS_null_norm_TOI_pred` (table_37), `chao_draft.m5p_10years_nonzero_CSS_null_norm_TOI_pred` (table_38), `chao_draft.rank_m5p_pred_CSS_null_norm_TOI_2001/2/7/8_notie` (table_39's), `chao_draft.rank_m5p_pred_CSS_null_norm_TOI_2001/2/7/8_tied` (table_40's), `chao_draft.rank_m5p_pred_CSS_null_norm_TOI_2001/2/7/8_nonzero` (table_41's), `chao_draft.union_m5p_TOI_pred_view` (view_42) and `chao_draft.union_all_ranks_with_m5p_TOI_view` (view_43) .
++ Calculated Spearman rank correlation is as follows:
+
+DraftYear |	Overall_rank_corr |	m5p_TOI_rank_notie_corr | m5p_TOI_rank_tied_corr | m5p_TOI_rank_nonzero_corr |
+----------|-------------------|-------------------------|------------------------|---------------------------|
 2001 |	0.430836111 |	0.498366851 |	0.924641381 |	0.916742046 |
-2002 |	0.297016124 |	0.34603911 |	0.932957967 |	0.928088091 |
+2002 |	0.297016124 |	0.34603911  |	0.932957967 |	0.928088091 |
 2007 |	0.462434555 |	0.395363737 |	0.844413061 |	0.853713144 |
 2008 |	0.509584174 |	0.476665004 |	0.804154992 |	0.800458765 |
 
