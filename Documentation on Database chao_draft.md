@@ -178,7 +178,7 @@ Number of Leaves |	5 | 6 |
 Correctly Classified Instances | 629 (88.4669 %) | 510 (80.0628 %) |
 Incorrectly Classified Instances | 82 (11.5331 %) | 127 (19.9372 %) |
 
-+ Calculate LMT probabitly for each cohort (including training and testing data) using definition and equation given by weka for each leafnode. Note: missing CSS_rank is replaced by the maximum normalized value, 1, in our calculation. Calculated LMT probability are saved in folder "/Decision_Trees/LMT/lmt_probability_cal/" and written to database as table `chao_draft.lmt_10years_CSS_null_norm_prob` (table_21).
++ Calculate LMT probabitly for each cohort (including training and testing data) using definition and equation given by weka for each leafnode. Note: missing CSS_rank is replaced by the maximum normalized value, 1, in our calculation. Calculated LMT probability are saved in folder "/Decision_Trees/LMT/lmt_probability_cal/" and written to database as table `chao_draft.lmt_10years_CSS_null_norm_prob_yes` (table_21).
 + Calculate classification accuracy for test datasets, results (saved in folder "/Decision_Trees/LMT/lmt_probability_cal/") are as follows:
 
 Testing Results | 2001 | 2002 | 2007 | 2008 |
@@ -186,9 +186,9 @@ Testing Results | 2001 | 2002 | 2007 | 2008 |
 Correctly Classified Instances | 202 (82.7869 %) | 208 (81.5686 %) | 129 (67.5392 %) | 112 (60.2151 %)|
 Incorrectly Classified Instances | 42 (17.2131 %) | 47 (18.4314 %) | 62	(32.4607 %) | 74 (39.7849 %)|
 
-+ It's almost guaranteed that the calculated LMT probability has no duplicates. Therefore, ranking the probability for each test year gives no tied ranks. These tables are saved as: `rank_lmt_prob_CSS_null_norm_2001/2/7/8_notie` (table_22's).
-+ For those players who have a probabilty of less than 0.5 to play in NHL in the first seven years, assign them a tied bottom rank, giving us tables with tied ranks: `rank_lmt_prob_CSS_null_norm_2001/2/7/8_tied` (table_23's).
-+ Calcualte the Spearman Rank Correlation between the probability rank and the actual rank(the rank of summed 7-year GP), save results in folder "/Decision_Trees/LMT/lmt_rank_corr_cal/". Two views, i.e. `chao_draft.union_lmt_prob_view` (view_28) and `chao_draft.union_all_ranks_with_lmt_view` (view_29) are created during calculation.
++ It's almost guaranteed that the calculated LMT probability has no duplicates. Therefore, ranking the probability for each test year gives no tied ranks. These tables are saved as: `rank_lmt_prob_yes_CSS_null_norm_2001/2/7/8_notie` (table_22's).
++ For those players who have a probabilty of less than 0.5 to play in NHL in the first seven years, assign them a tied bottom rank, giving us tables with tied ranks: `rank_lmt_prob_yes_CSS_null_norm_2001/2/7/8_tied` (table_23's).
++ Calcualte the Spearman Rank Correlation between the probability rank and the actual rank(the rank of summed 7-year GP), save results in folder "/Decision_Trees/LMT/lmt_rank_corr_cal/". Two views, i.e. `chao_draft.union_lmt_prob_yes_view` (view_28) and `chao_draft.union_all_ranks_with_lmt_view` (view_29) are created during calculation.
 
 DraftYear | Overall_rank_corr | lmt_rank_notie_corr | lmt_rank_tied_corr |
 ----------|-------------------|---------------------|--------------------|
