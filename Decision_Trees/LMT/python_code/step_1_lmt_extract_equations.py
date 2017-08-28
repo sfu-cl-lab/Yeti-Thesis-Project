@@ -110,7 +110,7 @@ for fileName in pathList:
                 equation = 'wx_sum = '
                 #print 'Leaf node is ' + str(leaf_node)
 
-            elif row.startswith('Class 0 :'):
+            elif row.startswith('Class 1 :'):
                 start_recording = True
 
             elif start_recording and row.startswith('\n'):
@@ -140,7 +140,7 @@ for fileName in pathList:
 
     with open(fileName + "_extracted.txt", 'wb') as output_file:
         for leaf_i in range(0, num_leaves):
-            leaf_str = """if %s\n    leafNode = %d\n    %s\n    lmt_prob = 1/(1 + np.exp(wx_sum))""" % (leaf_def_list[leaf_i], leaf_i + 1, equation_list[leaf_i])
+            leaf_str = """if %s\n    leafNode = %d\n    %s\n    lmt_prob = 1/(1 + np.exp(-wx_sum))""" % (leaf_def_list[leaf_i], leaf_i + 1, equation_list[leaf_i])
             if leaf_i != 0:
                 leaf_str = "el" + leaf_str
             output_file.write(leaf_str + '\n\n')
