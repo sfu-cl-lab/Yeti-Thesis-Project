@@ -11,6 +11,42 @@ weight_pos_val | **∑+wi(xi- x̄)**, sum of attributes difference with positive
 weight_neg_val | **∑-wi(xi- x̄)**, sum of attributes difference with negative weights |
 weighed_attribute_diff | w<sub>attribute</sub>(x<sub>attribute</sub> - x̄<sub>attribute</sub>) |
 
++ Strongest player in strong LeafNodes(if the rate of GP_greater_than_0 > 50%)
+
+id | PlayerName | DraftYear | LeafNode | GP_greater_than_0 | player_diff_total_sum | lmt_prob | weight_pos_val | weight_neg_val |
+---| ---------- | --------- | -------- | -------------- | -------- | ------ | ----- | ----- |
+8469455 | Jason Spezza | 2001 | 3 | yes | 9.719777296332897 | 0.9282017673222154 | 1.5149518724634254 | 1.0582500989694714 |
+8469474 | Colby Armstrong | 2001 | 3 | yes | 9.524942646744485 | 0.9140841746450182 | 1.733848766183595 | 0.6445185556608896 | 
+8469454 | Ilya Kovalchuk | 2001 | 3 | yes | 9.338141037115147 | 0.8982338589620239 | 1.3044223178129801 | 0.8871433944021676 | 
+8474040 | Sam Gagner | 2007 | 1 | yes | 2.3438598209140795 | 0.9969284587291163 | 3.607425146070099 | 0.4190108938439805 |
+8474141 | Patrick Kane | 2007 | 1 | yes | 1.892934696857473 | 0.995186829189845 | 2.8495207008828474 | 0.7259902149746256 |
+8474102 | David Perron | 2007 | 1 | yes | 1.5230848290408914 | 0.9930478269051884 | 3.150558241377556 | 0.05510280666333528 |
+8474059 | Linus Omark | 2007 | 4 | yes | 2.4859291363309772 | 0.7998548932406279 | 0.3747145573109591 | 1.0223985507200184 |
+8474114 | Oscar Moller | 2007 | 4 | yes | 2.4789442835225337 | 0.7987343664858106 | 0.4388812508432919 | 0.951247004379242 |
+8474627 | Jori Lehtera | 2008 | 4 | yes | 2.4431671870556544 | 0.7929214120046657 | 0.7584214819873075 | 0.5959296767683472 |
+8474146 | Spencer Machacek | 2007 | 6 | yes | 4.997080355086426 | 0.9900950944178386 | -0.021663440345763063 | 1.9118676574321887 |
+8474631 | Marc-Andre Bourdon | 2008 | 6 | yes | 4.744052233444547 | 0.9872795553672469 | 0.16824162116048047 | 1.4689344742840669 |
+8474138 | Dustin Jeffrey | 2007 | 6 | yes | 4.702633280319114 | 0.9867487527563449 | -0.24565675795411995 | 1.841413900273234 |
+
++ Some players have high value in weight_pos_val(∑+ wi(xi- x̄)) but lower value in player_diff_total_sum(∑+wi(xi- x̄)). It means they are exceptional in some fields but also have obvious weaknesses in other fileds. e.g.
+
+id | PlayerName | DraftYear | LeafNode | GP_greater_than_0 | player_diff_total_sum | lmt_prob | weight_pos_val | weight_neg_val | weighed_DraftAge_norm_diff | weighed_Weight_norm_diff | weighed_CSS_rank_norm_diff | weighed_rs_P_norm_diff | weighed_country_EURO_diff | weighed_rs_GP_norm_diff | weighed_rs_PIM_norm_diff | weighed_rs_PlusMinus_norm_diff | weighed_po_A_norm_diff | weighed_po_P_norm_diff | weighed_po_PIM_norm_diff | weighed_country_CAN_diff 
+---| --- | ----| ---- | ---- | -- | --- | -- | --- | --- | ---| --- | ----| ---- | ---- | -- | --- | -- | --- | --- | ---- |
+8469542 | Stephane Veilleux | 2001 | 3 | yes | 8.641748262585226 | 0.814777948388665 | 3.348573604539732 | -1.8534006668545049 | 0.0848315345122045 | -0.061360691633222 | -1.0909036201709423 | 0.8416343954816107 | -0.00243652510311 | 0.6469990348517232 | -0.06601310452150307 | 0.000000000000024159255961331284 | -0.6964839421620836 | 1.0981102334175368 | 0.5179770618781889 | 0.2228185611348 |
+
++ Some players have high value in our prediction(wx_sum, lmt_prob, player_diff_total_sum) but have GP_greater_than_0 = 'no' in
+NHL. Partly because they are drafted but never sign a contract. Instead, they play in other competitive leagues.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
