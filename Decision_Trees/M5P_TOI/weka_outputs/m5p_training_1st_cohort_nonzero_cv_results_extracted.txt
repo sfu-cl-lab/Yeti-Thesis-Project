@@ -1,0 +1,16 @@
+if CSS_rank_norm <= 0.093  and CSS_rank_norm <= 0.017 :
+    leafNode = 1
+    m5p_pred = 3573.3658 * DraftAge_norm + 179.522 * (Position == 'D') - 9208.6277 * CSS_rank_norm - 106.1984 * rs_G_norm + 3739.3463 * rs_A_norm - 1807.4276 * rs_P_norm - 246.5753 * rs_PIM_norm - 174.3255 * po_GP_norm + 481.9355 * po_A_norm + 3510.762 
+
+elif CSS_rank_norm <= 0.093  and CSS_rank_norm >  0.017 :
+    leafNode = 2
+    m5p_pred = 1697.3487 * DraftAge_norm + 179.522 * (Position == 'D') - 4622.9578 * CSS_rank_norm - 2149.257 * rs_G_norm + 7403.2933 * rs_A_norm - 1807.4276 * rs_P_norm - 246.5753 * rs_PIM_norm - 174.3255 * po_GP_norm + 481.9355 * po_A_norm + 1729.0252 
+
+elif CSS_rank_norm >  0.093  and Position == 'D':
+    leafNode = 3
+    m5p_pred = 157.843 * DraftAge_norm - 2056.1705 * Height_norm + 1981.9355 * Weight_norm + 157.9098 * (Position == 'D') - 315.7615 * CSS_rank_norm - 1051.8231 * rs_GP_norm + 406.4032 * rs_G_norm + 549.5855 * rs_A_norm - 802.4355 * rs_P_norm - 310.1854 * rs_PIM_norm - 1204.8065 * po_GP_norm + 3033.1403 * po_A_norm + 1808.4096 
+
+elif CSS_rank_norm >  0.093  and Position != 'D':
+    leafNode = 4
+    m5p_pred = 3554.2616 * DraftAge_norm - 478.9424 * Height_norm + 429.0829 * Weight_norm + 231.4628 * (Position == 'D') - 414.8065 * CSS_rank_norm + 9273.5456 * rs_G_norm - 3279.5259 * rs_A_norm - 802.4355 * rs_P_norm - 498.9527 * rs_PIM_norm - 77.3945 * po_GP_norm + 3640.9323 * po_A_norm + 856.2872 
+

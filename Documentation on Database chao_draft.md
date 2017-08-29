@@ -158,106 +158,124 @@ years | 1998, 1999 & 2000 | 2001 & 2002 | 2004, 2005 & 2006 | 2007 & 2008 |
 num. of skaters in cohort | 1210 || 1014 ||
 num. of skaters in set | 711 | 499 | 637 | 377 |
 num. of skaters with GP > 0 | 305 | 193 | 282 | 184 |
+num. of skaters with CSS ranks | 429 | 325 | 513 | 291 |
     
 + Need to normalize training and test data together for each cohort.
-+ Normalization code and data is saved here:  
++ Normalization code and data is saved here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Decision_Trees/data_normalization
 + Normalized data is written to database, saved as table `chao_draft.join_skater_and_season_stats_10_years_CSS_null_norm`(table_20)
 
 ### Step 10: run Logistic Model Tree(LMT) in Weka on table_20
 
-+ Run Weka and read from database sever by following the instructions from here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/How%20to%20connect%20to%20MySql%20database%20in%20WEKA.md
-+ Note: we keep the missing values as null because "LMT can deal with binary and multi-class target variables, numeric and nominal attributes and missing values".
-+ Save two datasets as .arff files and rename as `skater_and_season_stats_GP0_first3years_cleaned.arff` and `skater_and_season_stats_GP0_second3years_cleaned.arff`, respectively. Weka data files and results are saved in the fold `weka_results` in this repository.
-+ To run LMT on the above two datasets in Weka, under 'Classify' --> choose 'Classifier' --> 'trees' --> 'LMT'. Change the following settings for LMT: `doNotMakeSplitPointActualValue = True`, `numDecimalPlaces = 6`.   Under 'Test opstions' choose 'Use training set'. 
-+ Run tests, save weka outputs as `results_first3years.txt` and `results_second3years.txt`, respectively, saved in the same folder 'weka_results'.
-+ Use the weights from the above two txt files to build models to predict player performance for cohort 1 & 2, repectively.
++ Run Weka and read training datasets from table_20 by following the instructions here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/How%20to%20connect%20to%20MySql%20database%20in%20WEKA.md
++ Note: we keep the missing values because "LMT can deal with binary and multi-class target variables, numeric and nominal attributes and missing values".
++ Save imported training dataset for each cohort as .arff files `lmt_training_1st_cohort.arff` and `lmt_training_2nd_cohort.arff`, respectively. Remove columns that cannot be used as attributes such as PlayerId, PlayerName, DraftYear, Overall, etc. and save the cleaned datasets as `lmt_training_1st_cohort_cleaned.arff` and `lmt_training_1st_cohort_cleaned.arff`. Weka input files are saved in the folder "Decision_Trees/LMT/weka_inputs".
++ To run LMT on the above two cleaned datasets in Weka, go to 'Classify' --> choose 'Classifier' --> 'trees' --> 'LMT'. Change some of the settings for LMT as follows: `doNotMakeSplitPointActualValue = True`, `numDecimalPlaces = 10`. Under 'Test opstions' choose 'Use training set'. 
++ Build an LMT model for each cohort, visualized tree for each cohort is saved as `lmt_training_1st_cohort_tree.png` and `lmt_training_2nd_cohort_tree.png`, respectively. Weka text outputs are saved as `lmt_training_1st_cohort_results.txt` and `lmt_training_2nd_cohort_results.txt`, respectively. Extracted equations(weights) for each all leaf nodes are saved as `lmt_training_1st_cohort_results_extracted.txt` and `lmt_training_2nd_cohort_results_extracted.txt`. The above outputs are saved in the folder "Decision_Trees/LMT/weka_outputs". 
 
-### Step 10: predict formance of players 
-+ use models to predict players who got drafted in 2001&2002 in cohort 1, and 2007&2008 in cohort 2, repectivley.
-+ python code can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/Logistic_Model_Tree
-+ When plugging players stats into the model, we need to replace missing values in `table_17` with 0 and save the new table as `chao_draft.join_skater_and_season_stats_10_years_no_null_values` (referred as `table_18`). 
-+ The players' probabilty of playing games in NHL or not is written to database and saved as `chao_draft.lmt_prediction_1st_cohort` and `chao_draft.lmt_prediction_2nd_cohort`.
+Training Results | 1st cohort | 2nd cohort |
+-----------------|------------|------------|
+Number of Leaves |	5 | 6 |
+Correctly Classified Instances | 629 (88.4669 %) | 510 (80.0628 %) |
+Incorrectly Classified Instances | 82 (11.5331 %) | 127 (19.9372 %) |
 
-### Step 11: calculate rankings with ties for Spearman rank correlation
-+ clean the original discontinuous draft number/overall for year 01, 02, 07 & 08 as we didn't take goalies into account.
-Save as `chao_draft.rerank_overall_2001/2/7/8` (referred as `table_19s`).
++ Calculate LMT probabitly for each cohort (including training and testing data) using definition and equation given by weka for each leafnode. Note: missing CSS_rank is replaced by the maximum normalized value, 1, in our calculation. Calculated LMT probability are saved in folder "/Decision_Trees/LMT/lmt_probability_cal/" and written to database as table `chao_draft.lmt_10years_CSS_null_norm_prob_yes` (table_21).
++ Calculate classification accuracy for test datasets, results (saved in folder "/Decision_Trees/LMT/lmt_probability_cal/") are as follows:
 
-      create table chao_draft.rerank_overall_2002 as
-      SELECT id, PlayerName, DraftYear, Overall as original_overall,
-        @prev := @curr,
-        @curr := Overall,
-        @rank := IF(@prev = @curr, @rank, @rank + @i) AS skaters_overall,
-        IF(@prev <> Overall, @i:=1, @i:=@i+1) AS counter
-      FROM chao_draft.join_skater_and_season_stats_10_years_no_null_values,
-        (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
-      where DraftYear = 2002
-      order by Overall ASC
-      
-+ calculte the true rankings for players based on their 7-year sum of GP/TOI. Save as `chao_draft`.`rank_sum_7yr_GP_2001/2/7/8` (referred as `table_20s`) and `chao_draft`.`rank_sum_7yr_TOI_2001/2/7/8` (referred as `table_21s`)
+Testing Results | 2001 | 2002 | 2007 | 2008 |
+----------------|------|------|------|------|
+Correctly Classified Instances | 202 (82.7869 %) | 208 (81.5686 %) | 129 (67.5392 %) | 112 (60.2151 %)|
+Incorrectly Classified Instances | 42 (17.2131 %) | 47 (18.4314 %) | 62	(32.4607 %) | 74 (39.7849 %)|
 
-      create table chao_draft.rank_sum_7yr_GP_2002 as
-      SELECT id, PlayerName, DraftYear, sum_7yr_GP,
-        @prev := @curr,
-        @curr := sum_7yr_GP,
-        @rank := IF(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_GP,
-        IF(@prev <> sum_7yr_GP, @i:=1, @i:=@i+1) AS counter
-      FROM chao_draft.join_skater_and_season_stats_10_years_no_null_values,
-        (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
-      where DraftYear = 2002
-      order by sum_7yr_GP DESC;
-      
-      create table chao_draft.rank_sum_7yr_TOI_2002 as
-      SELECT id, PlayerName, DraftYear, sum_7yr_TOI,
-        @prev := @curr,
-        @curr := sum_7yr_TOI,
-        @rank := IF(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_TOI,
-        IF(@prev <> sum_7yr_TOI, @i:=1, @i:=@i+1) AS counter
-      FROM chao_draft.join_skater_and_season_stats_10_years_no_null_values,
-        (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
-      where DraftYear = 2002
-      order by sum_7yr_TOI DESC;
-      
- + rank the predicitons given by LMT models. `chao_draft`.`rank_lmt_prob_2001/2/7/8` (referred as `table_22s`)
++ It's almost guaranteed that the calculated LMT probability has no duplicates. Therefore, ranking the probability for each test year gives no tied ranks. These tables are saved as: `rank_lmt_prob_yes_CSS_null_norm_2001/2/7/8_notie` (table_22's).
++ For those players who have a probabilty of less than 0.5 to play in NHL in the first seven years, assign them a tied bottom rank, giving us tables with tied ranks: `rank_lmt_prob_yes_CSS_null_norm_2001/2/7/8_tied` (table_23's).
++ Calcualte the Spearman Rank Correlation between the probability rank and the actual rank(the rank of summed 7-year GP), save results in folder "/Decision_Trees/LMT/lmt_rank_corr_cal/". Two views, i.e. `chao_draft.union_lmt_prob_yes_view` (view_28) and `chao_draft.union_all_ranks_with_lmt_view` (view_29) are created during calculation.
 
-         create table chao_draft.rank_lmt_prob_2002 as
-         SELECT id, PlayerName, DraftYear, class_0_prob,
-           @prev := @curr,
-           @curr := class_0_prob,
-           @rank := IF(@prev = @curr, @rank, @rank + @i) AS rank_prob,
-           IF(@prev <> class_0_prob, @i:=1, @i:=@i+1) AS counter
-         FROM chao_draft.lmt_prediction_1st_cohort,
-           (SELECT @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
-         where DraftYear = 2002
-         order by class_0_prob DESC
- 
- + Union `table_19s`, `table_20s` and `table_21s`. Save as `chao_draft.union_overall_GP_TOI_1278_VIEW`(referred as `view_23`).
- + Union `table_22s`. Save as `chao_draft.union_rank_lmt_prob_1278_view`(referred as `view_24`).
+DraftYear | Overall_rank_corr | lmt_rank_notie_corr | lmt_rank_tied_corr |
+----------|-------------------|---------------------|--------------------|
+2001 |	0.430380118 | 0.532523368 |	0.906244295|
+2002 |	0.299957301	| 0.379735989 |	0.932484657|
+2007 |	0.457963626	| 0.452261298 |	0.841046087|
+2008 |	0.510830858	| 0.40145089 | 0.781614908|
 
- 
-### Step 12: run 3-class Logistic Model Tree(LMT) in Weka on the new table_17
-+ Add 3-class labels in `table_17` as "Good" for sum_7yr_GP = 0, "Better" for 1 <= sum_7yr_GP < 160, & "Better" for sum_7yr_GP >= 160
-+ Use the same schema when dividing dataset into training and test datasets.
-+ Use the same settings in Weka as in Step 9.
-+ Results are saved in https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Weka_Decision_Tree/LMT
++ Related python codes for LMT calculations are saved in folder "Decision_Trees/LMT/python_code/".
 
-### Step 13: Build M5P dicision tree model with training dataset
-+ M5P in weka can also deal with missing values. The training dataset should only contain skaters who played greater than 0 games in NHL.
-+ Create view `chao_draft.m5p_training_set_1st_cohort_view` (`view_27`) and `chao_draft.m5p_training_set_2nd_cohort_view` (`view_28`) based on `table_17`.
-+ There are 305 and 282 skaters in `view_27` and `view_28`, respectively.
-+ M5P decision tree settings are as follows: numDecimalPlaces = 6, buildRegressionTree = False, unpruned = False, etc.
-+ M5P input .arff files and outputs are saved in: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Weka_Decision_Tree/M5P 
-
-### Step 14: Select players with LMT probability >= 0.5 as M5P test set
-+ Join `table_18`with `table_22s` on selecting players with LMT probability >= 0.5 to get views `chao_draft.m5p_test_set_2001_view`, `chao_draft.m5p_test_set_2002_view`, `chao_draft.m5p_test_set_2007_view` and `chao_draft.m5p_test_set_2008_view` (`view_29s`).
-+ Need to normalize data by running python code. Then calculate predected sum_7yr_GP with training model. Code can be found here: https://github.com/chaostewart/summer_research_2017/tree/master/M5P_Model_Tree
-+ Results are written back to database as `chao_draft`.`m5p_prediction_1st_cohort` & `chao_draft`.`m5p_prediction_2nd_cohort` (`table_30s`)
-+ Rank predicted 7-year GP given by M5P model and obtain `chao_draft.rank_m5p_prob_2001`, `chao_draft.rank_m5p_prob_2002`, `chao_draft.rank_m5p_prob_2007` and `chao_draft.rank_m5p_prob_2008` (`table_31s`)
-+ Note: Those player who have LMT probabilty < 0.5, are ranked together with players in table_31s and tied at at the bottom in order to calculate Spearman rank correlation 
-+ Union `table_30s` to get `chao_draft.union_rank_m5p_prob_1278_view` (`view_32`)
-+ Union `view_23`, `view_24` and `view_31`, save as `chao_draft.union_all_ranks_view` (referred as `view_33`).
-
-### Step 15: Calculate Spearman Rank Correlation
+### A Note on the Calculations of Spearman Rank Correlation
 + The following link is a guide to calculating Spearman rank correlation: https://statistics.laerd.com/statistical-guides/spearmans-rank-order-correlation-statistical-guide.php
 + Because we have ties in ranking sum_7yr_GP/TOI & lmt_probability, the corresponding equation for ties were used in our calculation.
-+ Results are saved in: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/tree/master/Weka_Decision_Tree/Spearman_rank_correlation
++ calculte the true rankings for players based on their summed first 7-year of GP/TOI. Save as `chao_draft`.`rank_sum_7yr_GP_2001/2/7/8` (table_24's) and `chao_draft`.`rank_sum_7yr_TOI_2001/2/7/8` (table_25's)
+
+      create table chao_draft.rank_sum_7yr_GP_2001/2/7/8 as
+      select id, PlayerName, DraftYear, sum_7yr_GP,
+      @prev := @curr,
+      @curr := sum_7yr_GP,
+      @rank := if(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_GP,
+      if(@prev <> sum_7yr_GP, @i:=1, @i:=@i+1) AS counter
+      from chao_draft.join_skater_and_season_stats_10_years_CSS_null,
+      (select @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
+      where DraftYear = 2001/2/7/8
+      order by sum_7yr_GP DESC;
+
+      create table chao_draft.rank_sum_7yr_TOI_2001/2/7/8 as
+      select id, PlayerName, DraftYear, sum_7yr_TOI,
+      @prev := @curr,
+      @curr := sum_7yr_TOI,
+      @rank := if(@prev = @curr, @rank, @rank + @i) AS rank_sum_7yr_TOI,
+      if(@prev <> sum_7yr_TOI, @i:=1, @i:=@i+1) AS counter
+      from chao_draft.join_skater_and_season_stats_10_years_CSS_null,
+      (select @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
+      where DraftYear = 2001/2/7/8
+      order by sum_7yr_TOI DESC;
+
++ Clean the original discontinuous draft number/overall for test years 01, 02, 07 & 08 as we didn't take goalies into account. Saved as `chao_draft.rerank_overall_2001/2/7/8` (table_26's).
+
+      create table chao_draft.rerank_overall_2001/2/7/8 as
+      select id, PlayerName, DraftYear, Overall as original_overall,
+      @prev := @curr,
+      @curr := Overall,
+      @rank := if(@prev = @curr, @rank, @rank + @i) AS skaters_overall,
+      if(@prev <> Overall, @i:=1, @i:=@i+1) AS counter
+      from chao_draft.join_skater_and_season_stats_10_years_CSS_null,
+      (select @curr := null, @prev := null, @rank:= 1, @i := 0) tmp_tbl
+      where DraftYear = 2001/2/7/8
+      order by Overall ASC
+
++ Union table_24's, table_25's and table_26's and save as `chao_draft.union_overall_GP_TOI_1278_VIEW`(view_27).
+
+### Step 11: Build M5P dicision tree model on GP
++ Build M5P models on the same dataset, table_20, using numerical summed 7-year GP as target values.
++ M5P in weka can also deal with missing values. Two M5P models were built for each cohort: one model (model_1) was built on the training set containing all skaters from training years whether GP > 0 or not; the other model (model_2) was built on the training set that contains only skaters in training years with GP > 0. Weka inputs are saved in the folder "/Decision_Trees/M5P_GP/weka_inputs/".
++ Only change one setting in M5P which is `numDecimalPlaces = 10`. Keep other settings as default.
++ M5P output files for both models are saved in the folder "/Decision_Trees/M5P_GP/weka_outputs/".
++ Use model_1 to calculate predicted GP on datasets `1st_cohort_all_5_year_norm.csv` and `2nd_cohort_all_5_year_norm.csv`; use model_2 to calculate predicted GP on datasets `1st_cohort_nonzero_5_year_norm.csv` and `2nd_cohort_nonzero_5_year_norm.csv`. Results are saved in folder "/Decision_Trees/M5P_GP/m5p_prediction_cal/". Write predicted results to database as `chao_draft.m5p_10years_CSS_null_norm_GP_pred` (table_30) and `chao_draft.m5p_10years_nonzero_CSS_null_norm_GP_pred` (table_31).
++ Three types of rankings are calculated for 4 test years, i.e., 2001, 2002, 2007 and 2008, respectively.
++ Ranking_1 is calculated based on the original prediction from table_30, due to the precision of the predicted GP, no ties appear in ranking_1. Rank tables are saved as `chao_draft.rank_m5p_pred_CSS_null_norm_GP_2001/2/7/8_notie` (table_32's).
++ Ranking_2 is also calculated based on table_30 except that first we rank those players who are assigned a probability of >= 0.5 by our LMT model then we moved those with probability < 0.5 to the bottom of the ranking, assigning them the same tied bottom rank. Rankings are saved as `chao_draft.rank_m5p_pred_CSS_null_norm_GP_2001/2/7/8_tied` (table_33's).
++ Ranking_3 is calculated based on table_31, bottom players in ranking_2 are filled at the bottom of ranking_3 with the same bottom rank. Rankings are saved as `chao_draft.rank_m5p_pred_CSS_null_norm_GP_2001/2/7/8_nonzero` (table_34's).
++ Union ranking 1, 2 and 3 gives the view `chao_draft.union_m5p_GP_pred_view` (view_35).
++ Creating view `chao_draft.union_all_ranks_with_m5p_GP_view` (view_36) for the calculation of Spearman rank correlation between the m5p ranks and the true rank. Results are saved as "/Decision_Trees/M5P_GP/m5p_rank_corr_cal/m5p_rank_correlation_calculation.csv".
+
+DraftYear | Overall_rank_corr |	m5p_GP_rank_notie_corr | m5p_GP_rank_tied_corr | m5p_GP_rank_nonzero_corr |
+------------|-------------------|-----------------------|-----------------------|-----------------------|
+2001	|	0.430380118 | 	0.509833587	| 0.926401332 |	0.919660566 |
+2002	|	0.299957301	|	0.344241402	| 0.929059316 |	0.933811226 |
+2007	|	0.457963626	|	0.377621246 | 0.842728713 |	0.84110981 |
+2008	|   0.510830858	|	0.467960595	| 0.803435141 |	0.796198406 |
+
++ Generally speaking, ranking with ties calculated based on model_1 has better correlation than the counterpart calculated based on model_2 as the number of players in the training set to build model_1 is more than doubled the number to build model_2. 
+
+### Step 12: Build M5P dicision tree model on TOI
++ Build another set of M5P models, using TOI as target values.
++ Follow the same workflow as in step 11, obtained the following tables and views: `chao_draft.m5p_10years_CSS_null_norm_TOI_pred` (table_37), `chao_draft.m5p_10years_nonzero_CSS_null_norm_TOI_pred` (table_38), `chao_draft.rank_m5p_pred_CSS_null_norm_TOI_2001/2/7/8_notie` (table_39's), `chao_draft.rank_m5p_pred_CSS_null_norm_TOI_2001/2/7/8_tied` (table_40's), `chao_draft.rank_m5p_pred_CSS_null_norm_TOI_2001/2/7/8_nonzero` (table_41's), `chao_draft.union_m5p_TOI_pred_view` (view_42) and `chao_draft.union_all_ranks_with_m5p_TOI_view` (view_43) .
++ Calculated Spearman rank correlation is as follows:
+
+DraftYear |	Overall_rank_corr |	m5p_TOI_rank_notie_corr | m5p_TOI_rank_tied_corr | m5p_TOI_rank_nonzero_corr |
+----------|-------------------|-------------------------|------------------------|---------------------------|
+2001 |	0.430836111 |	0.498366851 |	0.924641381 |	0.916742046 |
+2002 |	0.297016124 |	0.34603911  |	0.932957967 |	0.928088091 |
+2007 |	0.462434555 |	0.395363737 |	0.844413061 |	0.853713144 |
+2008 |	0.509584174 |	0.476665004 |	0.804154992 |	0.800458765 |
+
+
+---------- Chao has updated the doc up to here, still working on it. Thank you for your patience! -------------
+
 

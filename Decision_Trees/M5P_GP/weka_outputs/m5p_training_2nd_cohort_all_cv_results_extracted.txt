@@ -1,0 +1,8 @@
+if CSS_rank_norm <= 0.099 : 
+    leafNode = 1
+    m5p_pred = 425.6766 * DraftAge_norm + 43.4886 * (country_group == 'USA' or country_group == 'CAN') - 12.4919 * Height_norm + 243.3054 * Weight_norm - 2166.2277 * CSS_rank_norm + 155.4306 * rs_G_norm + 149.7534 * rs_A_norm - 128.7662 * rs_PIM_norm + 10.8102 * po_A_norm + 43.8309 
+
+elif CSS_rank_norm >  0.099 :
+    leafNode = 2
+    m5p_pred = 107.2844 * DraftAge_norm + 0.6481 * (country_group == 'USA' or country_group == 'CAN') - 150.2056 * Height_norm + 92.6511 * Weight_norm - 46.1297 * CSS_rank_norm - 91.0789 * rs_G_norm + 162.4417 * rs_A_norm - 1.4299 * rs_PIM_norm + 107.4633 * po_G_norm + 3.3835 * po_A_norm + 76.2806 
+
