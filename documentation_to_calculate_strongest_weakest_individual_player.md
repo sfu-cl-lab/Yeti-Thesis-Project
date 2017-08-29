@@ -36,7 +36,7 @@ id | PlayerName | DraftYear | LeafNode | GP_greater_than_0 | player_diff_total_s
 8469542 | Stephane Veilleux | 2001 | 3 | yes | 8.641748262585226 | 0.814777948388665 | 3.348573604539732 | -1.8534006668545049 | 0.0848315345122045 | -0.061360691633222 | -1.0909036201709423 | 0.8416343954816107 | -0.00243652510311 | 0.6469990348517232 | -0.06601310452150307 | 0.000000000000024159255961331284 | -0.6964839421620836 | 1.0981102334175368 | 0.5179770618781889 | 0.2228185611348 |
 
 + Some players have high value in our prediction(wx_sum, lmt_prob, player_diff_total_sum) but have GP_greater_than_0 = 'no' in
-NHL. Partly because they are drafted but never sign a contract. Instead, they play in other competitive leagues.
+NHL. Partly because they are drafted but never sign a contract. Instead, they play in other competitive leagues. e.g.
 
 id | PlayerName | DraftYear | LeafNode | GP_greater_than_0 | player_diff_total_sum | lmt_prob | weight_pos_val | weight_neg_val | career league |
 ---| ---------- | --------- | -------- | -------------- | -------- | ------ | ----- | ----- | ---- |
