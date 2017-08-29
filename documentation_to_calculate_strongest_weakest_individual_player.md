@@ -1,15 +1,16 @@
  + Create view `chao_draft.lmt_testYears_CSS_null_norm_prob_for_points` by adding numeric columns for position_L/R/D/C and country_USA/CAN/EURO.
  
- + Calculate sum of attributes difference with positive weight, sum of attributes difference with negative weight, and individual attribute difference times weight in two cohorts(players drafted in 2001/2 ; players drafted in 2007/8). code can be found here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/Decision_Trees/LMT/calculate_diff_sum_with_pos_neg_weights.py , https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/Decision_Trees/LMT/calculate_individual_attribute_diff_times_weight.py
+ + Calculate sum of positive weights multiplying attribute difference, sum of negative weights multiplying attribute difference, and individual attribute difference multiplying weight for two cohorts.(player drafted in 2001/2 ; player drafted in 2007/8). code can be found here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/Decision_Trees/LMT/calculate_diff_sum_with_pos_neg_weights.py , https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/Decision_Trees/LMT/calculate_individual_attribute_diff_times_weight.py
  
- + Store results in view 'chao_draft.individual_player_01_02/07_08'. Some fields in this view are explained in the following table:
+ + Store results in view `chao_draft.individual_player_01_02/07_08_check`. Some fields in the view are explained as follows:
  
  Field | Details |
  ----- |----------------|
-player_diff_total_sum | **∑+w<sub>i</sub>(x<sub>i</sub>- x̄) + ∑-w<sub>i</sub>(x<sub>i</sub>- x̄)**, sum of all attributes difference compared to the mean value of each LeafNode |
-weight_pos_val | **∑+w<sub>i</sub>(x<sub>i</sub>- x̄)**, sum of attributes difference with positive weights |
-weight_neg_val | **∑-w<sub>i</sub>(x<sub>i</sub>- x̄)**, sum of attributes difference with negative weights |
-weighed_$attribute$_diff | w<sub>attribute</sub>(x<sub>attribute</sub> - x̄<sub>attribute</sub>) |
+player_diff_total_sum | ∑+w<sub>i</sub>(x<sub>i</sub>- x̄) + ∑-w<sub>i</sub>(x<sub>i</sub>- x̄), sum of all attributes difference compared to the mean value of each LeafNode |
+weight_pos_val | ∑+w<sub>i</sub>(x<sub>i</sub>- x̄), sum of attributes difference with positive weights |
+weight_neg_val | ∑-w<sub>i</sub>(x<sub>i</sub>- x̄), sum of attributes difference with negative weights |
+weighted_mean_in_LeafNode | ∑wx̄, sum of attributes mean value in each LeafNode |
+weighed_$attribute$_norm_diff | w<sub>attribute</sub>(x<sub>attribute</sub> - x̄<sub>attribute</sub>), e.g. weighed_DraftAge_norm_diff|
 
 + Strongest player in strong LeafNodes(if the rate of GP_greater_than_0 > 50%)
 
@@ -29,14 +30,13 @@ id | PlayerName | DraftYear | LeafNode | GP_greater_than_0 | player_diff_total_s
 8474631 | Marc-Andre Bourdon | 2008 | 6 | yes | 1.6371760954445473 | 0.9872795553672469 | 0.16824162116048047 | 1.4689344742840669 |
 
 
-+ Some players have high value in weight_pos_val(∑+ wi(xi- x̄)) but lower value in player_diff_total_sum(∑+wi(xi- x̄)). It means they are exceptional in some fields but also have obvious weaknesses in other fileds. e.g.
++ Some players have high weight_pos_val(∑+ wi(xi- x̄)) but lower player_diff_total_sum(∑wi(xi- x̄)). It implies they might be exceptional in some fields but also have obvious weakness in other fileds. e.g.
 
 id | PlayerName | DraftYear | LeafNode | GP_greater_than_0 | player_diff_total_sum | lmt_prob | weight_pos_val | weight_neg_val | weighed_DraftAge_norm_diff | weighed_Weight_norm_diff | weighed_CSS_rank_norm_diff | weighed_rs_P_norm_diff | weighed_country_EURO_diff | weighed_rs_GP_norm_diff | weighed_rs_PIM_norm_diff | weighed_rs_PlusMinus_norm_diff | weighed_po_A_norm_diff | weighed_po_P_norm_diff | weighed_po_PIM_norm_diff | weighed_country_CAN_diff 
 ---| --- | ----| ---- | ---- | -- | --- | -- | --- | --- | ---| --- | ----| ---- | ---- | -- | --- | -- | --- | --- | ---- |
 8469542 | Stephane Veilleux | 2001 | 3 | yes | 8.641748262585226 | 0.814777948388665 | 3.348573604539732 | -1.8534006668545049 | 0.0848315345122045 | -0.061360691633222 | -1.0909036201709423 | 0.8416343954816107 | -0.00243652510311 | 0.6469990348517232 | -0.06601310452150307 | 0.000000000000024159255961331284 | -0.6964839421620836 | 1.0981102334175368 | 0.5179770618781889 | 0.2228185611348 |
 
-+ Some players have high value in our prediction(wx_sum, lmt_prob, player_diff_total_sum) but have GP_greater_than_0 = 'no' in
-NHL. Partly because they are drafted but never sign a contract. Instead, they play in other competitive leagues. e.g.
++ Some players are ranked high in our prediction(in terms of wx_sum, lmt_prob, player_diff_total_sum) but have GP_greater_than_0 = 'no'. The reason can be that they are drafted but never signed a contract with any NHL team. Instead, they play in other competitive leagues. e.g.
 
 id | PlayerName | DraftYear | LeafNode | GP_greater_than_0 | player_diff_total_sum | lmt_prob | weight_pos_val | weight_neg_val | career league |
 ---| ---------- | --------- | -------- | -------------- | -------- | ------ | ----- | ----- | ---- |
