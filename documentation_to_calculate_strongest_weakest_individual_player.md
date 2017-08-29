@@ -6,9 +6,9 @@
  
  Field | Details |
  ----- |----------------|
-player_diff_total_sum | **∑wi(xi- x̄)**, sum of all attributes difference compared to the mean value of each LeafNode |
-weight_pos_val | **∑+wi(xi- x̄)**, sum of attributes difference with positive weights |
-weight_neg_val | **∑-wi(xi- x̄)**, sum of attributes difference with negative weights |
+player_diff_total_sum | **∑+w<sub>i</sub>(x<sub>i</sub>- x̄) + ∑-w<sub>i</sub>(x<sub>i</sub>- x̄)**, sum of all attributes difference compared to the mean value of each LeafNode |
+weight_pos_val | **∑+w<sub>i</sub>(x<sub>i</sub>- x̄)**, sum of attributes difference with positive weights |
+weight_neg_val | **∑-w<sub>i</sub>(x<sub>i</sub>- x̄)**, sum of attributes difference with negative weights |
 weighed_attribute_diff | w<sub>attribute</sub>(x<sub>attribute</sub> - x̄<sub>attribute</sub>) |
 
 + Strongest player in strong LeafNodes(if the rate of GP_greater_than_0 > 50%)
