@@ -6,9 +6,9 @@
  
  Field | Details |
  ----- |----------------|
-player_diff_total_sum | ∑+w<sub>i</sub>(x<sub>i</sub>- x̄) + ∑-w<sub>i</sub>(x<sub>i</sub>- x̄), sum of all attributes difference compared to the mean value of each LeafNode |
-weight_pos_val | ∑+w<sub>i</sub>(x<sub>i</sub>- x̄), sum of attributes difference with positive weights |
-weight_neg_val | ∑-w<sub>i</sub>(x<sub>i</sub>- x̄), sum of attributes difference with negative weights |
+player_diff_total_sum | ∑w<sub>i(sign='+')</sub>(x<sub>i</sub>- x̄) + ∑w<sub>i(sign='-')</sub>(x<sub>i</sub>- x̄), sum of all attributes difference compared to the mean value of each LeafNode |
+weight_pos_val | ∑w<sub>i(sign='+')</sub>(x<sub>i</sub>- x̄), sum of attributes difference with positive weights |
+weight_neg_val | ∑w<sub>i(sign='-')</sub>(x<sub>i</sub>- x̄), sum of attributes difference with negative weights |
 weighted_mean_in_LeafNode | ∑wx̄, sum of attributes mean value in each LeafNode |
 weighed_$attribute$_norm_diff | w<sub>attribute</sub>(x<sub>attribute</sub> - x̄<sub>attribute</sub>), e.g. weighed_DraftAge_norm_diff|
 
@@ -30,7 +30,7 @@ id | PlayerName | DraftYear | LeafNode | GP_greater_than_0 | player_diff_total_s
 8474631 | Marc-Andre Bourdon | 2008 | 6 | yes | 1.6371760954445473 | 0.9872795553672469 | 0.16824162116048047 | 1.4689344742840669 |
 
 
-+ Some players have high weight_pos_val(∑+ wi(xi- x̄)) but lower player_diff_total_sum(∑wi(xi- x̄)). It implies they might be exceptional in some fields but also have obvious weakness in other fileds. e.g.
++ Some players have high weight_pos_val(∑wi(x<sub>i(sign='+')</sub>- x̄)) but lower player_diff_total_sum(∑w<sub>i</sub>(x<sub>i</sub>- x̄)). It implies they might be exceptional in some fields but also have obvious weakness in other fileds. e.g.
 
 id | PlayerName | DraftYear | LeafNode | GP_greater_than_0 | player_diff_total_sum | lmt_prob | weight_pos_val | weight_neg_val | weighed_DraftAge_norm_diff | weighed_Weight_norm_diff | weighed_CSS_rank_norm_diff | weighed_rs_P_norm_diff | weighed_country_EURO_diff | weighed_rs_GP_norm_diff | weighed_rs_PIM_norm_diff | weighed_rs_PlusMinus_norm_diff | weighed_po_A_norm_diff | weighed_po_P_norm_diff | weighed_po_PIM_norm_diff | weighed_country_CAN_diff 
 ---| --- | ----| ---- | ---- | -- | --- | -- | --- | --- | ---| --- | ----| ---- | ---- | -- | --- | -- | --- | --- | ---- |
