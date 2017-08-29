@@ -1,6 +1,6 @@
  + Create view `chao_draft.lmt_testYears_CSS_null_norm_prob_for_points` by adding numeric columns for position_L/R/D/C and country_USA/CAN/EURO.
  
- + Calculate sum of positive weights multiplying attribute difference, sum of negative weights multiplying attribute difference, and individual attribute difference multiplying weight for two cohorts.(player drafted in 2001/2 ; player drafted in 2007/8). code can be found here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/Decision_Trees/LMT/calculate_diff_sum_with_pos_neg_weights.py , https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/Decision_Trees/LMT/calculate_individual_attribute_diff_times_weight.py
+ + Calculate sum of positive weights multiplying attribute difference, sum of negative weights multiplying attribute difference, and individual attribute difference multiplying weight for two cohorts.(player drafted in 2001/2 ; player drafted in 2007/8). code can be found here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/Decision_Trees/LMT/calculate_diff_sum_with_pos_neg_weights.py , https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/Decision_Trees/LMT/calculate_individual_attribute_diff_times_weight.py, https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/Decision_Trees/LMT/calculate_weighted_mean_in_leafNode.py
  
  + Store results in view `chao_draft.individual_player_01_02/07_08_check`. Some fields in the view are explained as follows:
  
