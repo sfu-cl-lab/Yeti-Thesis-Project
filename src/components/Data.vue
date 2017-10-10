@@ -1,6 +1,7 @@
 <template>
   <div style="width:100%;height:100%;position:absolute;">
     <div style="padding:2em;">
+      <div>Large dataset may slow down your computer, Chrome is recommended.</div>
       <div id='nhldata' style="min-width:400px;min-height:400px;">
       </div>
       <div>
@@ -13,6 +14,7 @@
         </el-date-picker>
         <el-date-picker v-model="endYear" type="year" @change="updateGraph" placeholder="Ending year">
         </el-date-picker>
+        <el-button @click="updateGraph">Refresh</el-button>
       </div>
     </div>
   </div>
@@ -23,6 +25,7 @@ import echarts from 'echarts'
 import playerRawData from '../assets/joinData.csv'
 const INDEX_Y = 22
 const INDEX_YEAR = 8
+const INDEX_NAME = 1
 export default {
   name: 'template',
   data() {
@@ -31,7 +34,7 @@ export default {
       labels: '',
       allData: '',
       plotData: [],
-      selectedColumn: '',
+      selectedColumn: 'Weight',
       startYear: new Date(2004, 1, 1),
       endYear: new Date(2008, 1, 1)
     }
@@ -42,10 +45,8 @@ export default {
     this.allData = playerRawData.slice(1)
   },
   methods: {
-    loadData: function(plotData) {
+    drawPlot: function(plotData) {
       let self = this
-      let columnIndex = this.labels.indexOf(this.selectedColumn)
-      let drawData = plotData.map(item => [item[columnIndex], item[INDEX_Y], item[1]])
       this.myChart.setOption({
         title: { text: 'sum_7yr_GP vs ' + self.selectedColumn },
         xAxis: {
@@ -76,7 +77,7 @@ export default {
           }
         },
         series: [{
-          data: drawData,
+          data: plotData,
           type: 'scatter',
           label: {
             emphasis: {
@@ -91,10 +92,13 @@ export default {
     updateGraph: function() {
       let start = this.startYear.getFullYear()
       let end = this.endYear.getFullYear()
-      let yearLimited = this.allData.filter(item => {
+      let columnIndex = this.labels.indexOf(this.selectedColumn)
+
+      let cleanData = this.allData.filter(item => {
         return parseInt(item[INDEX_YEAR]) >= start && parseInt(item[INDEX_YEAR]) <= end
       })
-      this.loadData(yearLimited)
+      cleanData = cleanData.map(item => [item[columnIndex], item[INDEX_Y], item[INDEX_NAME]])
+      this.drawPlot(cleanData)
     }
   }
 }
