@@ -2,7 +2,9 @@
 
 Data visualization using echarts and vue.js
 
-## Simple Setup
+Demo: https://datavs.haoxp.xyz (accessibility guaranteed till Oct. 2018)
+
+## Quick Setup
 
 ```bash
 npm install
