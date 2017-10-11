@@ -4,25 +4,33 @@
       <div style="margin:0 auto 2em auto;">
         <div style="display:flex;justify-content:space-evenly;">
           <div style="display:flex;justify-content:center;flex-direction:column;">Control Panel: </div>
-          <el-select @change="updateGraph" v-model="selectedColumn" placeholder="select predictor">
-            <el-option v-for="(item,index) in labels" :key="index" :label="item" :value="item">
-            </el-option>
-          </el-select>
-          <el-select @change="updateGraph" v-model="leafNode" placeholder="select leaf node">
-            <el-option label="all" :value="-1">
-            </el-option>
-            <el-option v-for="(item,index) in allLeaf" :key="index" :label="item" :value="item">
-            </el-option>
-          </el-select>
-          <el-date-picker v-model="startYear" type="year" @change="updateGraph" placeholder="Starting year">
-          </el-date-picker>
-          <el-date-picker v-model="endYear" type="year" @change="updateGraph" placeholder="Ending year">
-          </el-date-picker>
-          <el-button @click="updateGraph">Refresh</el-button>
+          <div>
+            <el-select @change="updateGraph" v-model="selectedColumn" placeholder="select predictor">
+              <el-option v-for="(item,index) in labels" :key="index" :label="item" :value="item">
+              </el-option>
+            </el-select>
+            <el-select @change="updateGraph" v-model="leafNode" placeholder="select leaf node">
+              <el-option label="all" :value="-1">
+              </el-option>
+              <el-option v-for="(item,index) in allLeaf" :key="index" :label="item" :value="item">
+              </el-option>
+            </el-select>
+            <el-date-picker v-model="startYear" type="year" @change="updateGraph" placeholder="Starting year">
+            </el-date-picker>
+            <el-date-picker v-model="endYear" type="year" @change="updateGraph" placeholder="Ending year">
+            </el-date-picker>
+          </div>
+          <div>
+            <el-button @click="forkGraph">Fork</el-button>
+            <el-button @click="cutGraph">Cut</el-button>
+          </div>
         </div>
       </div>
-      <div id='nhldata' style="min-width:400px;min-height:400px;">
+      <div v-loading.body="showLoading" id='nhldata' style="min-width:400px;min-height:400px;">
       </div>
+    </div>
+    <div style="display:flex; flex-wrap:wrap;justify-content:flex-start;">
+      <div style="width:500px;height:300px;" :id="'fork'+index" v-for="(item,index) in allForks" :key="index"></div>
     </div>
   </div>
 </template>
@@ -46,25 +54,35 @@ export default {
       startYear: new Date(2004, 1, 1),
       endYear: new Date(2008, 1, 1),
       leafNode: -1,
-      allLeaf: [1, 2, 3, 4, 5, 6, 7]
+      allLeaf: [1, 2, 3, 4, 5, 6, 7],
+      currentOption: '',
+      allForks: [],
+      showLoading: true
     }
   },
   mounted() {
     this.myChart = echarts.init(document.getElementById('nhldata'))
     this.labels = playerRawData[0]
     this.allData = playerRawData.slice(1)
-    this.$message('Large dataset may slow down your computer, Chrome is recommended.')
+    let self = this
+    self.showLoading = true
+    setTimeout(function() {
+      self.updateGraph()
+      self.showLoading = false
+    }, 2000)
   },
   methods: {
     drawPlot: function(plotData) {
       let self = this
-      this.myChart.setOption({
+      self.currentOption = {
         title: {
-          text: 'sum_7yr_GP vs ' + self.selectedColumn,
+          text: 'sum_7yr_GP vs ' + self.selectedColumn + ' (leaf: ' + (self.leafNode === -1 ? 'all' : self.leafNode) + ')',
           left: 'center'
         },
         xAxis: {
           name: self.selectedColumn,
+          nameLocation: 'middle',
+          nameGap: 20,
           splitLine: {
             lineStyle: {
               type: 'dashed'
@@ -103,7 +121,8 @@ export default {
             }
           }
         }]
-      })
+      }
+      this.myChart.setOption(self.currentOption)
     },
     updateGraph: function() {
       let self = this
@@ -119,6 +138,18 @@ export default {
       }
       cleanData = cleanData.map(item => [item[columnIndex], item[INDEX_Y], item[INDEX_NAME]])
       this.drawPlot(cleanData)
+    },
+    forkGraph: function() {
+      let self = this
+      this.allForks.push(this.currentOption)
+      this.$nextTick(function() {
+        let dom = document.getElementById('fork' + (self.allForks.length - 1))
+        let smallChart = echarts.init(dom)
+        smallChart.setOption(this.currentOption)
+      })
+    },
+    cutGraph: function() {
+      this.allForks.pop()
     }
   }
 }
