@@ -19,7 +19,7 @@
             </el-date-picker>
             <el-date-picker v-model="endYear" type="year" @change="updateGraph" placeholder="Ending year">
             </el-date-picker>
-            <el-checkbox @change="updateGraph" v-model="drawLoess">LOESS</el-checkbox>
+            <el-checkbox @change="updateGraph" v-model="drawLoess">LOESS(with jitter)</el-checkbox>
           </div>
           <div>
             <el-button @click="forkGraph">Fork</el-button>
@@ -45,6 +45,7 @@ const INDEX_Y = 11
 const INDEX_YEAR = 5
 // const INDEX_NAME = 1
 const INDEX_LEAF = 10
+let jitterValue = 3
 export default {
   name: 'template',
   data() {
@@ -76,18 +77,8 @@ export default {
     }, 2000)
   },
   methods: {
-    drawPlot: function(plotData) {
+    drawPlot: function(scatterData, loessData) {
       let self = this
-      let loessData = []
-      if (self.drawLoess) {
-        let cleanPlot = plotData.sort((a, b) => a[0] - b[0])
-        let cleanX = cleanPlot.map(item => item[0])
-        let cleanY = cleanPlot.map(item => item[1])
-        let loessF = science.stats.loess().bandwidth(0.2)
-        loessData = loessF(cleanX, cleanY).filter(item => item)
-        loessData = loessData.map((item, i) => [cleanX[i], item])
-      }
-
       self.currentOption = {
         title: {
           text: 'sum_7yr_GP vs ' + self.selectedColumn + ' (leaf: ' + (self.leafNode === -1 ? 'all' : self.leafNode) + ')',
@@ -125,7 +116,7 @@ export default {
           }
         },
         series: [{
-          data: plotData,
+          data: scatterData,
           type: 'scatter',
           label: {
             emphasis: {
@@ -156,7 +147,31 @@ export default {
         cleanData = cleanData.filter(item => parseInt(item[INDEX_LEAF]) === self.leafNode)
       }
       cleanData = cleanData.map(item => [parseInt(item[columnIndex]), parseInt(item[INDEX_Y])])
-      this.drawPlot(cleanData)
+
+      let loessData = []
+      if (self.drawLoess) {
+        let xAxisValues = cleanData.map(item => item[0])
+
+        let maxX = Math.max(...xAxisValues)
+        let minX = Math.min(...xAxisValues)
+        console.log(maxX, minX)
+        jitterValue = (maxX - minX) / 40
+        console.log(jitterValue)
+        let loessPlot = cleanData.sort((a, b) => a[0] - b[0]).map((item, index, self) => {
+          if (self[index + 1] && Math.abs(item[0] - self[index + 1][0]) < jitterValue) {
+            item[0] += Math.random() * jitterValue - jitterValue / 2
+            return item
+          } else {
+            return item
+          }
+        }).sort((a, b) => a[0] - b[0])
+        let cleanX = loessPlot.map(item => item[0])
+        let cleanY = loessPlot.map(item => item[1])
+        let loessF = science.stats.loess().bandwidth(0.2)
+        loessData = loessF(cleanX, cleanY).filter(item => item)
+        loessData = loessData.map((item, i) => [cleanX[i], item])
+      }
+      this.drawPlot(cleanData, loessData)
     },
     forkGraph: function() {
       let self = this
