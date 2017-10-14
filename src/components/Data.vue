@@ -19,6 +19,7 @@
             </el-date-picker>
             <el-date-picker v-model="endYear" type="year" @change="updateGraph" placeholder="Ending year">
             </el-date-picker>
+            <el-checkbox @change="updateGraph" v-model="drawLoess">LOESS</el-checkbox>
           </div>
           <div>
             <el-button @click="forkGraph">Fork</el-button>
@@ -36,11 +37,13 @@
 </template>
 
 <script>
+// import loess from '../assets/loess.js'
+import science from 'science'
 import echarts from 'echarts'
 import playerRawData from '../assets/joined_leaf_node.csv'
 const INDEX_Y = 11
 const INDEX_YEAR = 5
-const INDEX_NAME = 1
+// const INDEX_NAME = 1
 const INDEX_LEAF = 10
 export default {
   name: 'template',
@@ -53,11 +56,12 @@ export default {
       selectedColumn: 'Weight',
       startYear: new Date(2004, 1, 1),
       endYear: new Date(2008, 1, 1),
-      leafNode: -1,
+      leafNode: 4,
       allLeaf: [1, 2, 3, 4, 5, 6, 7],
       currentOption: '',
       allForks: [],
-      showLoading: true
+      showLoading: true,
+      drawLoess: true
     }
   },
   mounted() {
@@ -74,6 +78,16 @@ export default {
   methods: {
     drawPlot: function(plotData) {
       let self = this
+      let loessData = []
+      if (self.drawLoess) {
+        let cleanPlot = plotData.sort((a, b) => a[0] - b[0])
+        let cleanX = cleanPlot.map(item => item[0])
+        let cleanY = cleanPlot.map(item => item[1])
+        let loessF = science.stats.loess().bandwidth(0.2)
+        loessData = loessF(cleanX, cleanY).filter(item => item)
+        loessData = loessData.map((item, i) => [cleanX[i], item])
+      }
+
       self.currentOption = {
         title: {
           text: 'sum_7yr_GP vs ' + self.selectedColumn + ' (leaf: ' + (self.leafNode === -1 ? 'all' : self.leafNode) + ')',
@@ -97,7 +111,7 @@ export default {
               type: 'dashed'
             }
           },
-          scale: true
+          scale: false
         },
         tooltip: {
           showDelay: 0,
@@ -120,6 +134,11 @@ export default {
               position: 'top'
             }
           }
+        }, {
+          data: loessData,
+          type: 'line',
+          smooth: true,
+          showSymbol: false
         }]
       }
       this.myChart.setOption(self.currentOption)
@@ -136,7 +155,7 @@ export default {
       if (self.leafNode !== -1) {
         cleanData = cleanData.filter(item => parseInt(item[INDEX_LEAF]) === self.leafNode)
       }
-      cleanData = cleanData.map(item => [item[columnIndex], item[INDEX_Y], item[INDEX_NAME]])
+      cleanData = cleanData.map(item => [parseInt(item[columnIndex]), parseInt(item[INDEX_Y])])
       this.drawPlot(cleanData)
     },
     forkGraph: function() {
