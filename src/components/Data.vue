@@ -5,21 +5,27 @@
         <div style="display:flex;justify-content:space-evenly;">
           <div style="display:flex;justify-content:center;flex-direction:column;">Control Panel: </div>
           <div>
-            <el-select @change="updateGraph" v-model="selectedColumn" placeholder="select predictor">
-              <el-option v-for="(item,index) in labels" :key="index" :label="item" :value="item">
-              </el-option>
-            </el-select>
-            <el-select @change="updateGraph" v-model="leafNode" placeholder="select leaf node">
-              <el-option label="all" :value="-1">
-              </el-option>
-              <el-option v-for="(item,index) in allLeaf" :key="index" :label="item" :value="item">
-              </el-option>
-            </el-select>
-            <el-date-picker v-model="startYear" type="year" @change="updateGraph" placeholder="Starting year">
-            </el-date-picker>
-            <el-date-picker v-model="endYear" type="year" @change="updateGraph" placeholder="Ending year">
-            </el-date-picker>
-            <el-checkbox @change="updateGraph" v-model="drawLoess">LOESS(with jitter)</el-checkbox>
+            <div>
+              <el-select @change="updateGraph" v-model="selectedColumn" placeholder="select predictor">
+                <el-option v-for="(item,index) in labels" :key="index" :label="item" :value="item">
+                </el-option>
+              </el-select>
+              <el-select @change="updateGraph" v-model="leafNode" placeholder="select leaf node">
+                <el-option label="all" :value="-1">
+                </el-option>
+                <el-option v-for="(item,index) in allLeaf" :key="index" :label="item" :value="item">
+                </el-option>
+              </el-select>
+              <el-date-picker v-model="startYear" type="year" @change="updateGraph" placeholder="Starting year">
+              </el-date-picker>
+              <el-date-picker v-model="endYear" type="year" @change="updateGraph" placeholder="Ending year">
+              </el-date-picker>
+            </div>
+            <div style="margin-top:0.5em;">
+              <el-checkbox @change="updateGraph" v-model="drawLoess">LOESS</el-checkbox>
+              <el-checkbox @change="updateGraph" v-model="jitterThem">Jitter</el-checkbox>
+              <el-checkbox @change="updateGraph" v-model="excludeZero">Exclude 0</el-checkbox>
+            </div>
           </div>
           <div>
             <el-button @click="forkGraph">Fork</el-button>
@@ -30,7 +36,7 @@
       <div v-loading.body="showLoading" id='nhldata' style="min-width:400px;min-height:400px;">
       </div>
     </div>
-    <div style="display:flex; flex-wrap:wrap;justify-content:flex-start;">
+    <div style="display:flex; flex-wrap:wrap;justify-content:space-around;">
       <div style="width:500px;height:300px;" :id="'fork'+index" v-for="(item,index) in allForks" :key="index"></div>
     </div>
   </div>
@@ -45,7 +51,7 @@ const INDEX_Y = 11
 const INDEX_YEAR = 5
 // const INDEX_NAME = 1
 const INDEX_LEAF = 10
-let jitterValue = 3
+let JITTERCONST = 50
 export default {
   name: 'template',
   data() {
@@ -57,12 +63,14 @@ export default {
       selectedColumn: 'Weight',
       startYear: new Date(2004, 1, 1),
       endYear: new Date(2008, 1, 1),
-      leafNode: 4,
+      leafNode: 1,
       allLeaf: [1, 2, 3, 4, 5, 6, 7],
       currentOption: '',
       allForks: [],
       showLoading: true,
-      drawLoess: true
+      drawLoess: true,
+      excludeZero: false,
+      jitterThem: true
     }
   },
   mounted() {
@@ -148,23 +156,28 @@ export default {
       }
       cleanData = cleanData.map(item => [parseInt(item[columnIndex]), parseInt(item[INDEX_Y])])
 
+      if (self.excludeZero) {
+        cleanData = cleanData.filter(item => {
+          return item[1] !== 0
+        })
+      }
       let loessData = []
       if (self.drawLoess) {
-        let xAxisValues = cleanData.map(item => item[0])
-
-        let maxX = Math.max(...xAxisValues)
-        let minX = Math.min(...xAxisValues)
-        console.log(maxX, minX)
-        jitterValue = (maxX - minX) / 40
-        console.log(jitterValue)
-        let loessPlot = cleanData.sort((a, b) => a[0] - b[0]).map((item, index, self) => {
-          if (self[index + 1] && Math.abs(item[0] - self[index + 1][0]) < jitterValue) {
-            item[0] += Math.random() * jitterValue - jitterValue / 2
-            return item
-          } else {
-            return item
-          }
-        }).sort((a, b) => a[0] - b[0])
+        let loessPlot = cleanData.sort((a, b) => a[0] - b[0])
+        if (self.jitterThem) {
+          let xAxisValues = cleanData.map(item => item[0])
+          let maxX = Math.max(...xAxisValues)
+          let minX = Math.min(...xAxisValues)
+          let jitterValue = (maxX - minX) / JITTERCONST
+          loessPlot = loessPlot.map((item, index, self) => {
+            if (self[index + 1] && Math.abs(item[0] - self[index + 1][0]) < jitterValue) {
+              item[0] += Math.random() * jitterValue - jitterValue / 2
+              return item
+            } else {
+              return item
+            }
+          }).sort((a, b) => a[0] - b[0])
+        }
         let cleanX = loessPlot.map(item => item[0])
         let cleanY = loessPlot.map(item => item[1])
         let loessF = science.stats.loess().bandwidth(0.2)
