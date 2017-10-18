@@ -6,11 +6,13 @@
           <div style="display:flex;justify-content:center;flex-direction:column;">Control Panel: </div>
           <div>
             <div>
-              <el-select @change="updateGraph" v-model="selectedColumn" placeholder="select predictor">
+              <span>X-Axis:</span>
+              <el-select style="max-width:10em;" @change="updateGraph" v-model="selectedColumn" placeholder="select predictor">
                 <el-option v-for="(item,index) in labels" :key="index" :label="item" :value="item">
                 </el-option>
               </el-select>
-              <el-select @change="updateGraph" v-model="leafNode" placeholder="select leaf node">
+              <span>Leaf node:</span>
+              <el-select style="max-width:5em;" @change="updateGraph" v-model="leafNode" placeholder="select leaf node">
                 <el-option label="all" :value="-1">
                 </el-option>
                 <el-option v-for="(item,index) in allLeaf" :key="index" :label="item" :value="item">
