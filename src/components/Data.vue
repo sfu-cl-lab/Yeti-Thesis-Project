@@ -2,36 +2,37 @@
   <div style="width:100%;height:100%;position:absolute;">
     <div style="padding:2em;">
       <div style="margin:0 auto 2em auto;">
-        <div style="display:flex;justify-content:space-evenly;">
-          <div style="display:flex;justify-content:center;flex-direction:column;">Control Panel: </div>
+        <div style="display:flex;justify-content:center;">
+          <!-- <div style="display:flex;justify-content:center;flex-direction:column;">Control Panel: </div> -->
           <div>
             <div>
               <span>X-Axis:</span>
-              <el-select style="max-width:10em;" @change="updateGraph" v-model="selectedColumn" placeholder="select predictor">
-                <el-option v-for="(item,index) in labels" :key="index" :label="item" :value="item">
+              <el-select size="small" style="max-width:10em;" @change="updateGraph" v-model="selectedColumn" placeholder="select predictor">
+                <el-option  v-for="(item,index) in labels" :key="index" :label="item" :value="item">
                 </el-option>
               </el-select>
-              <span>Leaf node:</span>
-              <el-select style="max-width:5em;" @change="updateGraph" v-model="leafNode" placeholder="select leaf node">
+              <span style="padding-left:1.5em;">Leaf node:</span>
+              <el-select  size="small" style="max-width:5em;" @change="updateGraph" v-model="leafNode" placeholder="select leaf node">
                 <el-option label="all" :value="-1">
                 </el-option>
                 <el-option v-for="(item,index) in allLeaf" :key="index" :label="item" :value="item">
                 </el-option>
               </el-select>
-              <el-date-picker v-model="startYear" type="year" @change="updateGraph" placeholder="Starting year">
+              <span style="padding-left:1.5em;">Year:</span>              
+              <el-date-picker style="max-width:10em;" size="small" v-model="startYear" type="year" @change="updateGraph" placeholder="Starting year">
               </el-date-picker>
-              <el-date-picker v-model="endYear" type="year" @change="updateGraph" placeholder="Ending year">
+              <el-date-picker style="max-width:10em;" size="small" v-model="endYear" type="year" @change="updateGraph" placeholder="Ending year">
               </el-date-picker>
             </div>
             <div style="margin-top:0.5em;">
-              <el-checkbox @change="updateGraph" v-model="drawLoess">LOESS</el-checkbox>
-              <el-checkbox @change="updateGraph" v-model="jitterThem">Jitter</el-checkbox>
-              <el-checkbox @change="updateGraph" v-model="excludeZero">Exclude 0</el-checkbox>
+              <el-checkbox style="margin-left:1em;" @change="updateGraph" v-model="drawLoess">LOESS</el-checkbox>
+              <el-checkbox style="margin-left:1em;" @change="updateGraph" v-model="jitterThem">Jitter</el-checkbox>
+              <el-checkbox style="margin-left:1em;" @change="updateGraph" v-model="excludeZero">Exclude 0</el-checkbox>
             </div>
           </div>
-          <div>
-            <el-button @click="forkGraph">Fork</el-button>
-            <el-button @click="cutGraph">Cut</el-button>
+          <div style="padding-left:1.5em;">
+            <el-button size="small" @click="forkGraph">Fork</el-button>
+            <el-button  size="small" @click="cutGraph">Cut</el-button>
           </div>
         </div>
       </div>
@@ -45,7 +46,6 @@
 </template>
 
 <script>
-// import loess from '../assets/loess.js'
 import science from 'science'
 import echarts from 'echarts'
 import playerRawData from '../assets/joined_leaf_node.csv'
