@@ -49,10 +49,10 @@
 import science from 'science'
 import echarts from 'echarts'
 import playerRawData from '../assets/joined_leaf_node.csv'
-const INDEX_Y = 11
-const INDEX_YEAR = 5
+const INDEX_Y = 20
+const INDEX_YEAR = 19
 // const INDEX_NAME = 1
-const INDEX_LEAF = 10
+const INDEX_LEAF = 18
 let JITTERCONST = 50
 export default {
   name: 'template',
