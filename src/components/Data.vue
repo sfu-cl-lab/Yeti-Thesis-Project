@@ -8,31 +8,31 @@
             <div>
               <span>X-Axis:</span>
               <el-select size="small" style="max-width:10em;" @change="updateGraph" v-model="selectedColumn" placeholder="select predictor">
-                <el-option  v-for="(item,index) in labels" :key="index" :label="item" :value="item">
+                <el-option v-for="(item,index) in labels" :key="index" :label="item" :value="item">
                 </el-option>
               </el-select>
               <span style="padding-left:1.5em;">Leaf node:</span>
-              <el-select  size="small" style="max-width:5em;" @change="updateGraph" v-model="leafNode" placeholder="select leaf node">
+              <el-select size="small" style="max-width:5em;" @change="updateGraph" v-model="leafNode" placeholder="select leaf node">
                 <el-option label="all" :value="-1">
                 </el-option>
                 <el-option v-for="(item,index) in allLeaf" :key="index" :label="item" :value="item">
                 </el-option>
               </el-select>
-              <span style="padding-left:1.5em;">Year:</span>              
-              <el-date-picker style="max-width:10em;" size="small" v-model="startYear" type="year" @change="updateGraph" placeholder="Starting year">
-              </el-date-picker>
-              <el-date-picker style="max-width:10em;" size="small" v-model="endYear" type="year" @change="updateGraph" placeholder="Ending year">
+              <span style="padding-left:1.5em;">Year:</span>
+              <el-date-picker style="max-width:7em;" size="small" v-model="startYear" type="year" @change="updateGraph" placeholder="Starting year">
+              </el-date-picker> -
+              <el-date-picker style="max-width:7em;" size="small" v-model="endYear" type="year" @change="updateGraph" placeholder="Ending year">
               </el-date-picker>
             </div>
             <div style="margin-top:0.5em;">
-              <el-checkbox style="margin-left:1em;" @change="updateGraph" v-model="drawLoess">LOESS</el-checkbox>
+              <el-checkbox @change="updateGraph" v-model="drawLoess">LOESS</el-checkbox>
               <el-checkbox style="margin-left:1em;" @change="updateGraph" v-model="jitterThem">Jitter</el-checkbox>
               <el-checkbox style="margin-left:1em;" @change="updateGraph" v-model="excludeZero">Exclude 0</el-checkbox>
             </div>
           </div>
           <div style="padding-left:1.5em;">
-            <el-button size="small" @click="forkGraph">Fork</el-button>
-            <el-button  size="small" @click="cutGraph">Cut</el-button>
+             <el-button size="small" @click="forkGraph">Fork</el-button>
+            <el-button style="margin-left:0" size="small" @click="cutGraph">Cut</el-button>
           </div>
         </div>
       </div>
@@ -81,13 +81,13 @@ export default {
     this.allData = playerRawData.slice(1)
     let self = this
     self.showLoading = true
-    setTimeout(function() {
+    setTimeout(function () {
       self.updateGraph()
       self.showLoading = false
     }, 2000)
   },
   methods: {
-    drawPlot: function(scatterData, loessData) {
+    drawPlot: function (scatterData, loessData) {
       let self = this
       self.currentOption = {
         title: {
@@ -144,7 +144,7 @@ export default {
       }
       this.myChart.setOption(self.currentOption)
     },
-    updateGraph: function() {
+    updateGraph: function () {
       let self = this
       let start = this.startYear.getFullYear()
       let end = this.endYear.getFullYear()
@@ -188,16 +188,16 @@ export default {
       }
       this.drawPlot(cleanData, loessData)
     },
-    forkGraph: function() {
+    forkGraph: function () {
       let self = this
       this.allForks.push(this.currentOption)
-      this.$nextTick(function() {
+      this.$nextTick(function () {
         let dom = document.getElementById('fork' + (self.allForks.length - 1))
         let smallChart = echarts.init(dom)
         smallChart.setOption(this.currentOption)
       })
     },
-    cutGraph: function() {
+    cutGraph: function () {
       this.allForks.pop()
     }
   }
