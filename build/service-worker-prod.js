@@ -36,7 +36,10 @@
                     // It's the perfect time to display a "New content is
                     // available; please refresh." message in the page's interface.
                     console.log('Update found, reload window.')
-                    location.reload();
+                    setTimeout(function () {
+                      location.reload();
+                    }, 1000) 
+                    // setTime out waiting for Firefox to load. 
                     break;
 
                   case 'redundant':
@@ -44,7 +47,7 @@
                       'service worker became redundant.');
 
                   default:
-                  // Ignore
+                    // Ignore
                 }
               };
             }

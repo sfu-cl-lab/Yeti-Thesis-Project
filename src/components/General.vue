@@ -1,19 +1,23 @@
 <template>
-  <div class="hello">
+  <div style="margin:1em;">
     <div>
+      <span>Get your csv data from url:</span>      
       <el-input  style="max-width:20em;" v-model="userURL"></el-input>
-      <el-button @click="getDataFromURL">Get data</el-button> 
+      <el-button @click="getDataFromURL">go</el-button> 
       <el-upload :on-change="getDataFromUpload" action="#" :auto-upload="false">
-        <el-button>click to upload data</el-button>
-      </el-upload>  
-    </div>     
-    <el-select @change="updateConfig" v-model="xAxis">
-      <el-option v-for="(item,index) in csvColumns" :key="index" :label="item" :value="item" placeholder="x Axis"></el-option>
+        <span>Or click here to upload data:</span>
+        <el-button>upload</el-button>
+      </el-upload>
+    </div>  
+    <div style="margin-top:1em;">   
+    <el-select @change="updateConfig" v-model="xAxis"  placeholder="X Axis">
+      <el-option v-for="(item,index) in csvColumns" :key="index" :label="item" :value="item"></el-option>
     </el-select>
-    <el-select @change="updateConfig" v-model="yAxis">
-      <el-option v-for="(item,index) in csvColumns" :key="index" :label="item" :value="item" placeholder="y Axis"></el-option>
+    <el-select @change="updateConfig" v-model="yAxis" placeholder="Y Axis">
+      <el-option v-for="(item,index) in csvColumns" :key="index" :label="item" :value="item" ></el-option>
     </el-select>
      <el-checkbox @change="updateConfig" v-model="loess">Show loess</el-checkbox>
+    </div>
     <div id='data' style="min-width:400px;min-height:400px;">
     </div>
   </div>
@@ -74,6 +78,7 @@ export default {
         .then(response => {
           let parsedCSV = self.csvToArray(response.data)
           self.dispatchData(parsedCSV)
+          self.$message('Done!')
         })
     },
     dispatchData: function (rawCSVData) {
@@ -124,11 +129,7 @@ export default {
           data: self.mainPlotData,
           type: 'scatter',
           label: {
-            emphasis: {
-              show: true,
-              formatter: param => param.data[2],
-              position: 'top'
-            }
+
           }
         }, {
           data: self.loessData,
@@ -146,7 +147,6 @@ export default {
       let plotData = this.csvData.map(item => {
         return [item[xIndex], item[yIndex]]
       })
-      console.log(plotData)
       this.dataPipeLine(plotData)
       this.drawPlot()
     },
