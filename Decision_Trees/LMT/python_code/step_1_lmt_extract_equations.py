@@ -38,33 +38,48 @@ for fileName in pathList:
 
                 for j in range(0, len(leaf_pos_list)):
                     node_num = j + 1
-                    if leaf_pos_list[j] == 0:
-                        node_def = branch_list[j].split('LM_')[0]
+                    leaf_pos = leaf_pos_list[j]
+                    if leaf_pos == 0:
+                        node_def = branch_list[0].split('LM')[0]
                     else:
                         node_def = ''
                         cond_list = []
-                        last_cond = ''
-                        for l in range(0, leaf_pos_list[j]):
-                            if leaf_mark_list[l] == False:
-                                curr_cond = (re.split('\>|\<', branch_list[l]))[0]
-                                #print curr_cond
-                                temp_lst = branch_list[l].split('|   ')
-                                print temp_lst
-                                cleaned_cond = temp_lst[len(temp_lst) - 1][:-1]
-                                print cleaned_cond
-                                if last_cond != curr_cond:
-                                    cond_list.append(cleaned_cond + ' and ')
+                        # loop thru all branches from top to this leaf node
+                        for pos in range(0, leaf_pos + 1):
+                            if (not leaf_mark_list[pos] and pos != leaf_pos_list[j]) or pos == leaf_pos_list[j]:
+                                print '\na. Looking at branch: ' + branch_list[pos]
+                                curr_cond = (re.split('\>|\<', branch_list[pos]))[0]
+                                print 'b: ' + curr_cond
+                                #### Problem is here:
+                                cond_replaced = False
+                                for indx in range(0, len(cond_list)):
+                                    if cond_list[indx].startswith(curr_cond):# and pos != leaf_pos_list[j]:
+                                        print 'found:' + cond_list[indx]
+                                        cond_list = cond_list[:indx]
+                                        break
+                                cond_list.append(branch_list[pos])
+
+                        for indx in range(0, len(cond_list)):
+                            temp_lst = cond_list[indx].split('|   ')
+                            temp_lst = temp_lst[len(temp_lst) - 1].split(':')
+                            cleaned_cond = temp_lst[0]
+
+                            if 'Position' in cleaned_cond:
+                                if '<' in cleaned_cond:
+                                    temp_lst = re.split('\=|\<', cleaned_cond)
+                                    cleaned_cond = temp_lst[0] + ' == ' + '\'' + temp_lst[1][0] + '\''
                                 else:
-                                    cond_list[len(cond_list) - 1] = cleaned_cond + ' and '
-                                last_cond = curr_cond
+                                    temp_lst = re.split('\=|\>', cleaned_cond)
+                                    cleaned_cond = temp_lst[0] + ' != ' + '\'' + temp_lst[1][0] + '\''
+
+                            if indx != len(cond_list) -1 :
+                                cond_list[indx] = cleaned_cond[:-1] + ' and '
                             else:
-                                continue
-                        temp_lst = branch_list[leaf_pos_list[j]].split('|   ')
-                        temp_lst = temp_lst[len(temp_lst) - 1].split(': LM_')
-                        cleaned_cond = temp_lst[0]
-                        cond_list.append(cleaned_cond + ':')
+                                cond_list[indx] = cleaned_cond + ':'
+
                         for m in cond_list:
                             node_def = node_def + m
+
                     leaf_def_list.append(node_def)
                 break
             elif tree_found:
@@ -95,7 +110,7 @@ for fileName in pathList:
                 equation = 'wx_sum = '
                 #print 'Leaf node is ' + str(leaf_node)
 
-            elif row.startswith('Class 0 :'):
+            elif row.startswith('Class 1 :'):
                 start_recording = True
 
             elif start_recording and row.startswith('\n'):
@@ -125,7 +140,7 @@ for fileName in pathList:
 
     with open(fileName + "_extracted.txt", 'wb') as output_file:
         for leaf_i in range(0, num_leaves):
-            leaf_str = """if %s\n    leafNode = %d\n    %s\n    lmt_prob = 1/(1 + np.exp(wx_sum))""" % (leaf_def_list[leaf_i], leaf_i + 1, equation_list[leaf_i])
+            leaf_str = """if %s\n    leafNode = %d\n    %s\n    lmt_prob = 1/(1 + np.exp(-wx_sum))""" % (leaf_def_list[leaf_i], leaf_i + 1, equation_list[leaf_i])
             if leaf_i != 0:
                 leaf_str = "el" + leaf_str
             output_file.write(leaf_str + '\n\n')

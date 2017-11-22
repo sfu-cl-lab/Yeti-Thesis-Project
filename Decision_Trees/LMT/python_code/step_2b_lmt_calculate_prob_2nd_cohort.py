@@ -55,44 +55,37 @@ for fileName in fileNameList:
             lmt_prob = 0.000
             wx_sum = 0.000
 
-            if CSS_rank_norm <= 0.046371:
+            if CSS_rank_norm <= 0.046371: 
                 leafNode = 1
-                wx_sum = 1.682576219  + DraftAge_norm * -0.6521969619 + (country_group == 'EURO') * 0.2515058744 + (country_group == 'CAN') * -0.7372739476 + Height_norm * 0.9108602568 + Weight_norm * -3.0647516341 + (Position == 'D') * 0.3626622956 + CSS_rank_norm * 19.0327179101 + rs_A_norm * -1.416228717 + rs_P_norm * -2.5182072847 + po_A_norm * -2.5818151743 + po_PlusMinus_norm * -4.5578802919
-
-                lmt_prob = 1/(1 + np.exp(wx_sum))
+                wx_sum = -1.682576219 + DraftAge_norm * 0.6521969619 + (country_group == 'EURO') * -0.2515058744 + (country_group == 'CAN') * 0.7372739476 + Height_norm * -0.9108602568 + Weight_norm * 3.0647516341 + (Position == 'D') * -0.3626622956 + CSS_rank_norm * -19.0327179101 + rs_A_norm * 1.416228717  + rs_P_norm * 2.5182072847 + po_A_norm * 2.5818151743 + po_PlusMinus_norm * 4.5578802919 
+                lmt_prob = 1/(1 + np.exp(-wx_sum))
 
             elif CSS_rank_norm > 0.046371 and rs_P_norm <= 0.061171:
                 leafNode = 2
-                wx_sum = 0.0225110366 + DraftAge_norm * -0.6521969619 + (country_group == 'EURO') * 0.3823693577 + (country_group == 'USA') * 0.2452964509 + Height_norm * 1.6148625242 + Weight_norm * -1.1902369165 + (Position == 'D') * 0.2475813803 + (Position == 'R') * -0.6514414089 + CSS_rank_norm * 1.7003217418 + rs_GP_norm * -0.623606065 + rs_G_norm * 0.4156266673 + rs_A_norm * -1.416228717 + rs_P_norm * -9.2361288366 + rs_PIM_norm * 0.4704279537 + rs_PlusMinus_norm * 0.516339445  + po_GP_norm * 0.6961231358 + po_PIM_norm * -0.7606931178
+                wx_sum = -0.0225110366 + DraftAge_norm * 0.6521969619 + (country_group == 'EURO') * -0.3823693577 + (country_group == 'USA') * -0.2452964509 + Height_norm * -1.6148625242 + Weight_norm * 1.1902369165 + (Position == 'D') * -0.2475813803 + (Position == 'R') * 0.6514414089 + CSS_rank_norm * -1.7003217418 + rs_GP_norm * 0.623606065  + rs_G_norm * -0.4156266673 + rs_A_norm * 1.416228717  + rs_P_norm * 9.2361288366 + rs_PIM_norm * -0.4704279537 + rs_PlusMinus_norm * -0.516339445 + po_GP_norm * -0.6961231358 + po_PIM_norm * 0.7606931178 
+                lmt_prob = 1/(1 + np.exp(-wx_sum))
 
-                lmt_prob = 1/(1 + np.exp(wx_sum))
-
-            elif CSS_rank_norm > 0.046371 and rs_P_norm > 0.061171 and rs_PlusMinus_norm <= 0.362385 and \
-                            rs_PlusMinus_norm <= 0.353211:
+            elif CSS_rank_norm > 0.046371 and rs_P_norm > 0.061171 and rs_PlusMinus_norm <= 0.362385 and rs_PlusMinus_norm <= 0.353211:
                 leafNode = 3
-                wx_sum = 0.2596899624 + DraftAge_norm * -1.2673609724 + (country_group == 'EURO') * 1.2307595534 + (country_group == 'USA') * -0.8069462064 + Height_norm * 2.2083451086 + Weight_norm * -2.1613141404 + (Position == 'D') * -0.105873252 + (Position == 'L') * -0.4271360663 + CSS_rank_norm * 1.9138640157 + rs_GP_norm * -1.5673201838 + rs_G_norm * 0.4156266673 + rs_A_norm * -0.4239688038 + rs_PIM_norm * 0.8031514348 + rs_PlusMinus_norm * -2.9754056872 + po_P_norm * 2.6843997425 + po_PIM_norm * -0.7606931178 + po_PlusMinus_norm * 2.447755103
+                wx_sum = -0.2596899624 + DraftAge_norm * 1.2673609724 + (country_group == 'EURO') * -1.2307595534 + (country_group == 'USA') * 0.8069462064 + Height_norm * -2.2083451086 + Weight_norm * 2.1613141404 + (Position == 'D') * 0.105873252  + (Position == 'L') * 0.4271360663 + CSS_rank_norm * -1.9138640157 + rs_GP_norm * 1.5673201838 + rs_G_norm * -0.4156266673 + rs_A_norm * 0.4239688038 + rs_PIM_norm * -0.8031514348 + rs_PlusMinus_norm * 2.9754056872 + po_P_norm * -2.6843997425 + po_PIM_norm * 0.7606931178 + po_PlusMinus_norm * -2.447755103 
+                lmt_prob = 1/(1 + np.exp(-wx_sum))
 
-                lmt_prob = 1/(1 + np.exp(wx_sum))
-
-            elif CSS_rank_norm > 0.046371 and rs_P_norm > 0.061171 and rs_PlusMinus_norm <= 0.362385 and \
-                            rs_PlusMinus_norm > 0.353211:
+            elif CSS_rank_norm > 0.046371 and rs_P_norm > 0.061171 and rs_PlusMinus_norm <= 0.362385 and rs_PlusMinus_norm > 0.353211:
                 leafNode = 4
-                wx_sum = -1.0888160283 + DraftAge_norm * -1.2673609724 + (country_group == 'EURO') * -0.463850402 + Height_norm * 2.2083451086 + Weight_norm * -0.2293666258 + (Position == 'D') * -0.105873252 + (Position == 'L') * 0.0688557505 + CSS_rank_norm * 1.4879418811 + rs_GP_norm * -1.0477475885 + rs_G_norm * 0.4156266673 + rs_A_norm * -0.4239688038 + rs_P_norm * 0.5796943481 + rs_PIM_norm * 0.8031514348 + rs_PlusMinus_norm * -2.9754056872 + po_P_norm * 0.2898101074 + po_PIM_norm * -0.7606931178 + po_PlusMinus_norm * 2.447755103
+                wx_sum = 1.0888160283 + DraftAge_norm * 1.2673609724 + (country_group == 'EURO') * 0.463850402  + Height_norm * -2.2083451086 + Weight_norm * 0.2293666258 + (Position == 'D') * 0.105873252  + (Position == 'L') * -0.0688557505 + CSS_rank_norm * -1.4879418811 + rs_GP_norm * 1.0477475885 + rs_G_norm * -0.4156266673 + rs_A_norm * 0.4239688038 + rs_P_norm * -0.5796943481 + rs_PIM_norm * -0.8031514348 + rs_PlusMinus_norm * 2.9754056872 + po_P_norm * -0.2898101074 + po_PIM_norm * 0.7606931178 + po_PlusMinus_norm * -2.447755103 
+                lmt_prob = 1/(1 + np.exp(-wx_sum))
 
-                lmt_prob = 1/(1 + np.exp(wx_sum))
-
-            elif CSS_rank_norm > 0.046371 and rs_P_norm > 0.061171 and rs_PlusMinus_norm > 0.362385 and \
-                            po_A_norm <= 0.35:
+            elif CSS_rank_norm > 0.046371 and rs_P_norm > 0.061171 and rs_PlusMinus_norm > 0.362385 and po_A_norm <= 0.35:
                 leafNode = 5
-                wx_sum = 1.5482744147 + DraftAge_norm * 1.1198806299 + (country_group == 'EURO') * 0.9510946135 + Height_norm * -0.1943101707 + Weight_norm * -1.1902369165 + (Position == 'D') * -0.310508047 + (Position == 'R') * -0.1937918628 + (Position == 'L') * -0.1239741776 + CSS_rank_norm * 0.3503937449 + rs_GP_norm * -1.0504894229 + rs_G_norm * -0.1686151641 + rs_A_norm * -0.4239688038 + rs_P_norm * -0.5370008872 + rs_PIM_norm * 0.8031514348 + rs_PlusMinus_norm * 0.8075548697 + po_GP_norm * -0.3212562576 + po_PIM_norm * -1.4663079409
-                lmt_prob = 1 / (1 + np.exp(wx_sum))
+                wx_sum = -1.5482744147 + DraftAge_norm * -1.1198806299 + (country_group == 'EURO') * -0.9510946135 + Height_norm * 0.1943101707 + Weight_norm * 1.1902369165 + (Position == 'D') * 0.310508047  + (Position == 'R') * 0.1937918628 + (Position == 'L') * 0.1239741776 + CSS_rank_norm * -0.3503937449 + rs_GP_norm * 1.0504894229 + rs_G_norm * 0.1686151641 + rs_A_norm * 0.4239688038 + rs_P_norm * 0.5370008872 + rs_PIM_norm * -0.8031514348 + rs_PlusMinus_norm * -0.8075548697 + po_GP_norm * 0.3212562576 + po_PIM_norm * 1.4663079409 
+                lmt_prob = 1/(1 + np.exp(-wx_sum))
 
-            elif CSS_rank_norm > 0.046371 and rs_P_norm > 0.061171 and rs_PlusMinus_norm > 0.362385 and \
-                            po_A_norm > 0.35:
+            elif CSS_rank_norm > 0.046371 and rs_P_norm > 0.061171 and rs_PlusMinus_norm > 0.362385 and po_A_norm > 0.35:
                 leafNode = 6
-                wx_sum = -3.106876138 + DraftAge_norm * -0.0975778883 + (country_group == 'EURO') * 8.8551596038 + Height_norm * 0.6618192176 + Weight_norm * -1.1902369165 + (Position == 'D') * -0.105873252 + (Position == 'L') * -0.1239741776 + CSS_rank_norm * 0.3503937449 + rs_GP_norm * -1.0504894229 + rs_G_norm * 0.4156266673 + rs_A_norm * -0.4239688038 + rs_PIM_norm * 0.8031514348 + rs_PlusMinus_norm * 0.8075548697 + po_GP_norm * -1.089093825 + po_PIM_norm * -1.4663079409
+                wx_sum = 3.106876138  + DraftAge_norm * 0.0975778883 + (country_group == 'EURO') * -8.8551596038 + Height_norm * -0.6618192176 + Weight_norm * 1.1902369165 + (Position == 'D') * 0.105873252  + (Position == 'L') * 0.1239741776 + CSS_rank_norm * -0.3503937449 + rs_GP_norm * 1.0504894229 + rs_G_norm * -0.4156266673 + rs_A_norm * 0.4239688038 + rs_PIM_norm * -0.8031514348 + rs_PlusMinus_norm * -0.8075548697 + po_GP_norm * 1.089093825  + po_PIM_norm * 1.4663079409 
+                lmt_prob = 1/(1 + np.exp(-wx_sum))
 
-                lmt_prob = 1 / (1 + np.exp(wx_sum))
+
 
 
 
