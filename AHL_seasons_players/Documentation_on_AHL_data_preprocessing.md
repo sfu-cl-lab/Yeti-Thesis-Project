@@ -18,6 +18,8 @@
  </li>
  </ul>
 
++ Result table stored in **chao_draft.AHL_NHL_norm_0** 
+
 ### NHL(season 2016_2017) -> AHL(season 2016_2017):
 + Datasets:
   ```
@@ -32,6 +34,8 @@
   <li>normalize fields AHL_GP, AHL_total_TOI, ev_icetime, AHL_goals, primary_assists, secondary_assists, ev_goals, ev_primary_assists, ev_secondary_assists, AHL_shots, ev_shots, passes, ev_passes, ze_controlled_entry, ze_uncontrolled_entry, ze_controlled_exit, ze_uncontrolled_exit, penalties_taken, penalties_drawn, team_ev_shots_for, team_ev_shots_against
   </li>
   </ul>
+  
++ Result table stored in **chao_draft.AHL_NHL_norm_1** 
 
 ### NHL(season 2007_2008 - season 2016_2017, sum all seasons) -> AHL(season 2016_2017)
 + Datasets:
@@ -48,6 +52,8 @@
   <li>convert AHL_total_TOI to seconds</li>
   <li>normalize fields sum(GP), sum(G), sum(A), sum(P), sum(PlusMinus), sum(PIM), sum(PointPerGame), sum(PPG), sum(PPP), sum(SHG), sum(SHP), sum(GWG), sum(OTG), sum(S), sum(ShootingPercentage), sum(NHL_TOIPerGame_sec), sum(ShiftsPerGame), sum(FaceoffWinPercentage)</li>
   </ul>
+  
++ Result table stored in **chao_draft.AHL_NHL_norm_2** 
 
 
 
