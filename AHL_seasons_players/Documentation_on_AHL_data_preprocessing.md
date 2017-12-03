@@ -18,7 +18,7 @@
  </li>
  </ul>
 
-+ Result table stored in **chao_draft.AHL_NHL_norm_0** 
++ Result table stored in **chao_draft.AHL_NHL_norm_0**, also saved in folder **AHL_NHL_16_17/AHL_NHL_norm_0.csv**. 
 
 ### NHL(season 2016_2017) -> AHL(season 2016_2017):
 + Datasets:
@@ -35,7 +35,7 @@
   </li>
   </ul>
   
-+ Result table stored in **chao_draft.AHL_NHL_norm_1** 
++ Result table stored in **chao_draft.AHL_NHL_norm_1**, also saved in folder **AHL_NHL_16_17/AHL_NHL_norm_1.csv**
 
 ### NHL(season 2007_2008 - season 2016_2017, sum all seasons) -> AHL(season 2016_2017)
 + Datasets:
@@ -53,7 +53,7 @@
   <li>normalize fields sum(GP), sum(G), sum(A), sum(P), sum(PlusMinus), sum(PIM), sum(PointPerGame), sum(PPG), sum(PPP), sum(SHG), sum(SHP), sum(GWG), sum(OTG), sum(S), sum(ShootingPercentage), sum(NHL_TOIPerGame_sec), sum(ShiftsPerGame), sum(FaceoffWinPercentage)</li>
   </ul>
   
-+ Result table stored in **chao_draft.AHL_NHL_norm_2** 
++ Result table stored in **chao_draft.AHL_NHL_norm_2**, also saved in folder **AHL_NHL_16_17/AHL_NHL_norm_2.csv**
 
 
 
