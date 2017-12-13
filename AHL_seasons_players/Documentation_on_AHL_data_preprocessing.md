@@ -55,6 +55,9 @@
   
 + Result table stored in **chao_draft.AHL_NHL_norm_2**, also saved in folder **AHL_NHL_16_17/AHL_NHL_norm_2.csv**
 
+Dataset used for Bayesian Network is stored in:
+https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/AHL_seasons_players/AHL_NHL_16_17/AHL_NHL_BN.csv
+
 
 
 
