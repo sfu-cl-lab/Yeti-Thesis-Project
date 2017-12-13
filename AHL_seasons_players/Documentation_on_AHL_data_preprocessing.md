@@ -55,8 +55,17 @@
   
 + Result table stored in **chao_draft.AHL_NHL_norm_2**, also saved in folder **AHL_NHL_16_17/AHL_NHL_norm_2.csv**
 
-Dataset used for Bayesian Network is stored in:
+### Dataset used for Bayesian Network is stored in: ###
 https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/AHL_seasons_players/AHL_NHL_16_17/AHL_NHL_BN.csv
+
+### Sloan-Paper: NHL datasets with League information ###
++ NHL dataset with League information is stored in database: ### chao_draft.chao_draft.join_skaters_with_League_98_08_norm ### under 'cs-oschulte-01.sfu.ca' 
++ The dataset to produce the 2nd_cohort tree is got through
+    ```
+    select * from chao_draft.chao_draft.join_skaters_with_League_98_08_norm where DraftYear in (2004, 2005, 2006);
+    ```
+    Then we run it in weka, choosing excluding the po/rs_PlusMinus or not.
+
 
 
 
