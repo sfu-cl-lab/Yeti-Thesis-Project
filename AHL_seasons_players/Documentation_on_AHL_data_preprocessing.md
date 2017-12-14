@@ -21,6 +21,8 @@
 + Result table stored in **chao_draft.AHL_NHL_norm_0**, also saved in folder **AHL_NHL_16_17/AHL_NHL_norm_0.csv**. 
 
 ### NHL(season 2016_2017) -> AHL(season 2016_2017):
+
+OS?? do you mean AHL(season 2016_2017) -> NHL(season 2016_2017)
 + Datasets:
   ```
   SELECT AHL_playerID, NHL_playerId, PlayerName, NHL_season, AHL_GP, AHL_total_TOI, ev_icetime, AHL_goals, primary_assists, secondary_assists, ev_goals, ev_primary_assists, ev_secondary_assists, AHL_shots, ev_shots, passes, ev_passes, ze_controlled_entry, ze_uncontrolled_entry, ze_controlled_exit, ze_uncontrolled_exit, penalties_taken, penalties_drawn, team_ev_shots_for, team_ev_shots_against, sum(GP), sum(G), sum(A), sum(P), sum(S), sum(NHL_TOIPerGame_sec)
