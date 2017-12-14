@@ -35,7 +35,7 @@
   </li>
   </ul>
   
-+ Result table stored in **chao_draft.AHL_NHL_norm_1**, also saved in folder **AHL_NHL_16_17/AHL_NHL_norm_1.csv**
++ Result table stored in **chao_draft.AHL_NHL_norm_1**, also saved in folder **AHL_NHL_16_17/AHL_NHL_norm_1.csv**. OS: I don't see it. Do you mean [this file](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/AHL_seasons_players/AHL_NHL_16_17/norm_16_17_AHL_to_16_17_NHL.csv)?
 
 ### NHL(season 2007_2008 - season 2016_2017, sum all seasons) -> AHL(season 2016_2017)
 + Datasets:
