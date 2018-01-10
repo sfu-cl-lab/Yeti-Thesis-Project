@@ -49,7 +49,8 @@ Career_WS/48 | an estimate of the number of wins contributed by a player per 48 
 
 ***The datasets are stored in nba_patricks_draft.career_1985_2011 under cs-oschulte-01.cs.sfu.ca***
 
-+ Reference Paper:
++ Reference Paper: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/The%20Success%20of%20NBA%20Draft%20Picks-%20Can%20College%20Careers%20Predict%20NBA%20W.pdf
+
 
 
 
