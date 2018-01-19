@@ -44,7 +44,7 @@ view `chao_draft.elite_zerogames_skaters_find_CSSrank_view`(view_5) and table `c
 + Note: It rarely happens but a few skaters got drafted twice by NHL. In that case, only the stats of their second draft is recorded. Therefore, in table_5, there is one player (eliteId = 19183, PlayerName = Teigan Zahn) who has a draft year later than year 2008. 
  
 ### Step 4: obtain final Central Scouting Services(CSS) rank for all skaters from North America and Europe.
-+ The final CSS rank is available only on draftanalyst.com --> under "Rankings" --> "Year-to-Year Central Scouting Final Rankings".
++ The final CSS rank is available only on thedraftanalyst.com --> under "Rankings" --> "Year-to-Year Central Scouting Final Rankings".
 + Scrape the rankings for skaters only (not interested in goalies) from both North America or Europe between draft year 1998-2008.
 + The data is written to database as table `chao_draft.draft_analyst_CSS_rank` (table_6)
 + Note: In comparison , draft year 2003 has the least number of CSS ranks available, i.e. there are only 55 ranks available skaters from north America and Europe in total. 
