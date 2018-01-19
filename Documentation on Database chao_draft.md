@@ -146,7 +146,7 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
          where t1.id = t2.eliteId;
 
 + In table_17, missing/null values exist in several columns such as CSS_rank, po_GP, po_G, ..., sum_7yr_GP and sum_7yr_TOI. However, except for column CSS_rank for a player, other null values are set to zero. Therefore, we create a new table `chao_draft.join_skater_and_season_stats_10_years_CSS_null`(table_19) to fill those missing values with zero, leaving only the CSS_rank column with missing values. So we equate not playing in the playoffs with 0 counts in the playoffs. Problem! 
-+ There are 2224 players in table_19; 1558 of them have CSS ranks; 964 of them have GP > 0 in their first seven years in NHL.
++ There are 2224 players in table_19; 1558 of them have CSS ranks; 964 of them have GP > 0 in their first seven years in NHL. Imputation: replace by maximum CSS rank value in year.
 
 ### Step 9: normalize data for Logistic/Linear Model Tree in Weka.
 + Using the same schema as in Schuckers' paper, divide the 10 years of skater and season stats into two cohorts.
