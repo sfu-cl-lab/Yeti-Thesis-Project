@@ -55,7 +55,7 @@ Career_WS/48 | an estimate of the number of wins contributed by a player per 48 
 + The tree produced by Weka M5P:
 ![NBA M5P tree](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/M5P_tree.png)
 
-+ The leadnode and predicted_per_results can be found [here](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/NBA_all_players_leafnode_results.csv)
++ The datasets with leadnode and predicted_per_results can be found [here](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/NBA_all_players_leafnode_results.csv)
 
 
 
