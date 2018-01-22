@@ -90,7 +90,7 @@ Position_Union_2 = ('Center/Forward', 'Center and Small Forward',
 
 
 
-+ The datasets with leadnode and predicted_per_results can be found [here](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/NBA_all_players_leafnode_results.csv), corresponding code is stored here: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/code.py
++ The datasets with leadnode and predicted_per_results can be found [here](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/NBA_all_players_leafnode_results.csv), corresponding code is stored [here](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/code.py)
 
 
 
