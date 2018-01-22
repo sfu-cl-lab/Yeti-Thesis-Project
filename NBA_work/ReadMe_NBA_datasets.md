@@ -6,6 +6,7 @@
 
 Field | Explanation|
 --------- | ----------- |
+age | * |
 height | * |
 weight | * |
 position| * |
@@ -47,9 +48,11 @@ Career_WS/48 | an estimate of the number of wins contributed by a player per 48 
 
 + Reference Paper: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/The%20Success%20of%20NBA%20Draft%20Picks-%20Can%20College%20Careers%20Predict%20NBA%20W.pdf
 
-+ Full original datasets: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/NBA_original_datasets.csv
-+ Full normalized datasets: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/joined_norm_drafted_NBA_player.csv
-+ Nomalized datasets after exclusing players whose college stats is not available: https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/joined_norm_drafted_NBA_player_having_NCAA.csv
++ If a player's college stats are missing but having career stats, his college stats is replaced by the mean value of his draft year; If his career stats are missing, then his career stats are replaced by min(x)-std(x) of his draft year, since we think he is not good enough to play or have record in NBA. For the players missing both stats, we exclude them. Datasets can be found [here](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/joined_drafted_all_players_original.csv) 
+
++ [Normalized datasets](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/NBA_all_datasets_norm.csv)
+
+
 
 
 
