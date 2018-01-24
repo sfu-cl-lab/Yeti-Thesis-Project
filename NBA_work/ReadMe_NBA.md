@@ -55,7 +55,7 @@ Career_WS/48 | an estimate of the number of wins contributed by a player per 48 
 + The tree produced by Weka M5P:
 The stats of playes drafted ***from 1985 to 2005*** are used as training datasets while the stats of players drafted ***from 2006 to 2011*** are testing datasets.
 
-![NBA M5P tree](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/M5P_tree.png)
+![NBA M5P tree](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/M5P_Tree.png)
 
 <sub>Position_Union_1 = (Small Forward,Point Guard and Shooting Guard and Small Forward,Power Forward and Shooting Guard and Small Forward,Power Forward,Small Forward and Point Guard and Shooting Guard,Small Forward and Power Forward,Point Guard,Shooting Guard and Small Forward and Point Guard,Point Guard and Shooting Guard,Small Forward and Shooting Guard,Small Forward and Shooting Guard and Power Forward,Small Forward and Power Forward and Center,Shooting Guard and Power Forward,Power Forward and Small Forward,Shooting Guard and Point Guard,Shooting Guard and Small Forward,Shooting Guard and Small Forward and Power Forward,Center and Power Forward,Power Forward and Center,Point Guard and Small Forward and Shooting Guard,Small Forward and Power Forward and Shooting Guard,Small Forward and Shooting Guard and Point Guard,Center and Small Forward and Power Forward,Power Forward and Center and Small Forward,Small Forward and Center and Power Forward,Center and Power Forward and Small Forward,Shooting Guard and Power Forward and Small Forward)</sub>
 
