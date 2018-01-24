@@ -53,6 +53,8 @@ Career_WS/48 | an estimate of the number of wins contributed by a player per 48 
 + [Normalized datasets](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/NBA_all_datasets_norm.csv)
 
 + The tree produced by Weka M5P:
+The stats of playes drafted ***from 1985 to 2005*** are used as training datasets while the stats of players drafted ***from 2006 to 2011*** are testing datasets.
+
 ![NBA M5P tree](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/M5P_tree.png)
 
 <sub>Position_Union_1 = (Small Forward,Point Guard and Shooting Guard and Small Forward,Power Forward and Shooting Guard and Small Forward,Power Forward,Small Forward and Point Guard and Shooting Guard,Small Forward and Power Forward,Point Guard,Shooting Guard and Small Forward and Point Guard,Point Guard and Shooting Guard,Small Forward and Shooting Guard,Small Forward and Shooting Guard and Power Forward,Small Forward and Power Forward and Center,Shooting Guard and Power Forward,Power Forward and Small Forward,Shooting Guard and Point Guard,Shooting Guard and Small Forward,Shooting Guard and Small Forward and Power Forward,Center and Power Forward,Power Forward and Center,Point Guard and Small Forward and Shooting Guard,Small Forward and Power Forward and Shooting Guard,Small Forward and Shooting Guard and Point Guard,Center and Small Forward and Power Forward,Power Forward and Center and Small Forward,Small Forward and Center and Power Forward,Center and Power Forward and Small Forward,Shooting Guard and Power Forward and Small Forward)</sub>
@@ -60,6 +62,18 @@ Career_WS/48 | an estimate of the number of wins contributed by a player per 48 
 <sub>Position_Union_2 = (Center/Forward,Center and Small Forward,Small Forward and Center,Center,Shooting Guard and Point Guard and Small Forward,Power Forward and Small Forward and Shooting Guard,Shooting Guard,Small Forward,Point Guard and Shooting Guard and Small Forward,Power Forward and Shooting Guard and Small Forward,Power Forward,Small Forward and Point Guard and Shooting Guard,Small Forward and Power Forward,Point Guard,Shooting Guard and Small Forward and Point Guard,Point Guard and Shooting Guard,Small Forward and Shooting Guard,Small Forward and Shooting Guard and Power Forward,Small Forward and Power Forward and Center,Shooting Guard and Power Forward,Power Forward and Small Forward,Shooting Guard and Point Guard,Shooting Guard and Small Forward,Shooting Guard and Small Forward and Power Forward,Center and Power Forward,Power Forward and Center,Point Guard and Small Forward and Shooting Guard,Small Forward and Power Forward and Shooting Guard,Small Forward and Shooting Guard and Point Guard,Center and Small Forward and Power Forward,Power Forward and Center and Small Forward,Small Forward and Center and Power Forward,Center and Power Forward and Small Forward,Shooting Guard and Power Forward and Small Forward)</sub>
 
 + The results of leadnode and predicted_per_results, added to normalized datasets, can be found [here](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/NBA_all_players_leafnode_results.csv), corresponding code is stored [here](https://github.com/sfu-cl-lab/Yeti-Thesis-Project/blob/master/NBA_work/code.py)
+
++ Results:
+The Root Mean Squred Error of training datasets is ***5.31***, while ***6.16*** in testing datasets. The Pearson and Spearman correlation is summarized as following:
+
+Datasets| Comparing Field | Pearson Correlation | Spearman Ranking Correlation |
+--------| ------------- | ------------------- | -------------------- |
+Training Datasets [1985-2005] | Overall Pick vs. Career Per | 0.23 | 0.42 |
+Training Datasets [1985-2005]| M5P vs. Career Per | ***0.62*** | ***0.48*** |
+Testing Datasets [2006-2011] | Overall Pick vs. Career Per | 0.42  | 0.39 |
+Testing Datasets [2006-2011] | M5P vs. Career Per | ***0.55*** | ***0.43*** |
+
+
 
 
 
