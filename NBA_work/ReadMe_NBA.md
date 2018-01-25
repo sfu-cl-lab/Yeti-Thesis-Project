@@ -14,7 +14,7 @@ shoots | shoots made in the draft year |
 draft_g | games played in the draft year|
 mp | Minutes Played in the draft year|
 draft_fg | Field Goals in the draft year|
-dga | Field Goal Attempts in the draft year|
+fga | Field Goal Attempts in the draft year|
 3p | 3-Point Field Goals in the draft year|
 3pa | 3-Point Field Goals Attempt in the draft year|
 draft_ft | Free Throws in the draft year|
