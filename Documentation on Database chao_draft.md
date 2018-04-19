@@ -44,7 +44,7 @@ view `chao_draft.elite_zerogames_skaters_find_CSSrank_view`(view_5) and table `c
 + Note: It rarely happens but a few skaters got drafted twice by NHL. In that case, only the stats of their second draft is recorded. Therefore, in table_5, there is one player (eliteId = 19183, PlayerName = Teigan Zahn) who has a draft year later than year 2008. 
  
 ### Step 4: obtain final Central Scouting Services(CSS) rank for all skaters from North America and Europe.
-+ The final CSS rank is available only on draftanalyst.com --> under "Rankings" --> "Year-to-Year Central Scouting Final Rankings".
++ The final CSS rank is available only on thedraftanalyst.com --> under "Rankings" --> "Year-to-Year Central Scouting Final Rankings".
 + Scrape the rankings for skaters only (not interested in goalies) from both North America or Europe between draft year 1998-2008.
 + The data is written to database as table `chao_draft.draft_analyst_CSS_rank` (table_6)
 + Note: In comparison , draft year 2003 has the least number of CSS ranks available, i.e. there are only 55 ranks available skaters from north America and Europe in total. 
@@ -145,8 +145,8 @@ Correct sum | = 27 + 0 + 69 + 63 + 43 + 50 + 0 | = 252
          set t1.Position = t2.new_position
          where t1.id = t2.eliteId;
 
-+ In table_17, missing/null values exist in several columns such as CSS_rank, po_GP, po_G, ..., sum_7yr_GP and sum_7yr_TOI. However, except for column CSS_rank for a player, other null values are known to be zero. Therefore, we create a new table `chao_draft.join_skater_and_season_stats_10_years_CSS_null`(table_19) to fill those missing values with zero, leaving only the CSS_rank column with missing values.
-+ There are 2224 players in table_19; 1558 of them have CSS ranks; 964 of them have GP > 0 in their first seven years in NHL.
++ In table_17, missing/null values exist in several columns such as CSS_rank, po_GP, po_G, ..., sum_7yr_GP and sum_7yr_TOI. However, except for column CSS_rank for a player, other null values are set to zero. Therefore, we create a new table `chao_draft.join_skater_and_season_stats_10_years_CSS_null`(table_19) to fill those missing values with zero, leaving only the CSS_rank column with missing values. So we equate not playing in the playoffs with 0 counts in the playoffs. Problem! 
++ There are 2224 players in table_19; 1558 of them have CSS ranks; 964 of them have GP > 0 in their first seven years in NHL. Imputation: replace by maximum CSS rank value in year.
 
 ### Step 9: normalize data for Logistic/Linear Model Tree in Weka.
 + Using the same schema as in Schuckers' paper, divide the 10 years of skater and season stats into two cohorts.
